@@ -18,6 +18,17 @@ waterbirds project.
   prototype scope for the next goal.
 - [decision_memo_002.md](decision_memo_002.md): supervisor-facing Goal 002
   recommendation.
+- [prototype_wetland_unit_crosswalk.csv](prototype_wetland_unit_crosswalk.csv):
+  machine-readable Goal 003 candidate wetland-unit crosswalk.
+- [prototype_wetland_unit_crosswalk.md](prototype_wetland_unit_crosswalk.md):
+  interpretation, candidate-selection rationale, and unit caveats for the
+  crosswalk.
+- [hydrology_metric_spec.md](hydrology_metric_spec.md): monthly DEA Water
+  Observations metric and quality-rule contract.
+- [product_access_probe_003.md](product_access_probe_003.md): record of Goal
+  003 public metadata and product-access checks.
+- [decision_memo_003.md](decision_memo_003.md): supervisor-facing Goal 003
+  recommendation.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
