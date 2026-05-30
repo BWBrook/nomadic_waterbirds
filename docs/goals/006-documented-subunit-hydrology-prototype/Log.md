@@ -83,3 +83,5 @@
   tracked/candidate file-size and raw-extension checks, unresolved-stub scan,
   local Markdown link check, and a clean temporary-tree reproduction run that
   rebuilt 36 registry rows and 18 hydrology rows.
+- 2026-05-30: Committed and pushed the validated Goal 006 package to `main` as
+  `35003de` (`Prototype documented subunit hydrology`).
