@@ -35,6 +35,18 @@ waterbirds project.
   machine-readable Goal 004 provenance and resource manifest.
 - [hydrology_smoke_test_summary.csv](hydrology_smoke_test_summary.csv):
   machine-readable Goal 004 candidate/support/month summary table.
+- [official_support_geometry_report.md](official_support_geometry_report.md):
+  Goal 005 official Ramsar support source, staging, status, and caveat report.
+- [official_support_geometry_manifest.json](official_support_geometry_manifest.json):
+  machine-readable Goal 005 geometry/source provenance manifest.
+- [official_support_geometry_summary.csv](official_support_geometry_summary.csv):
+  machine-readable Goal 005 official support/status table.
+- [real_support_hydrology_prototype_report.md](real_support_hydrology_prototype_report.md):
+  Goal 005 bounded Water Observations metrics report over real supports.
+- [real_support_hydrology_prototype_manifest.json](real_support_hydrology_prototype_manifest.json):
+  machine-readable Goal 005 hydrology-processing provenance manifest.
+- [real_support_hydrology_prototype_summary.csv](real_support_hydrology_prototype_summary.csv):
+  machine-readable Goal 005 support/month hydrology metric table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

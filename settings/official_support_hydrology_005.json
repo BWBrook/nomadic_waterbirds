@@ -1,0 +1,99 @@
+{
+  "goal": "005-official-support-hydrology-prototype",
+  "metric_spec_version": "goal005-real-support-v1",
+  "accessed_date": "2026-05-30",
+  "ramsar_service_layer_url": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+  "ramsar_dataset_catalogue_url": "https://www.data.gov.au/data/dataset/ramsar-wetlands-of-australia2",
+  "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "dea_collection": "ga_ls_wo_3",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 STAC assets",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "stac_limit": 100,
+  "max_reference_grid_pixels": 5000000,
+  "months": [
+    {
+      "month": "2019-01",
+      "rationale": "same dry-baseline screen used in Goal 004"
+    },
+    {
+      "month": "2022-11",
+      "rationale": "same major eastern Australian wet/flood period screen used in Goal 004"
+    },
+    {
+      "month": "2024-03",
+      "rationale": "same recent post-wet-period screen used in Goal 004"
+    }
+  ],
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal005",
+    "support_raw": "artifacts/hydrology_supports/raw",
+    "support_intermediate": "artifacts/hydrology_supports/intermediate",
+    "support_output": "artifacts/hydrology_supports/output",
+    "hydrology_raw": "artifacts/hydrology_real_support/raw",
+    "hydrology_intermediate": "artifacts/hydrology_real_support/intermediate",
+    "hydrology_output": "artifacts/hydrology_real_support/output"
+  },
+  "staged_files": {
+    "ramsar_subset_geojson": "artifacts/hydrology_supports/raw/ramsar_goal005_subset.geojson"
+  },
+  "outputs": {
+    "geometry_summary_csv": "docs/official_support_geometry_summary.csv",
+    "geometry_manifest_json": "docs/official_support_geometry_manifest.json",
+    "hydrology_summary_csv": "docs/real_support_hydrology_prototype_summary.csv",
+    "hydrology_manifest_json": "docs/real_support_hydrology_prototype_manifest.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "NWB001",
+      "candidate_name": "Macquarie Marshes",
+      "support_id": "nwb001_ramsar_ref337",
+      "support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 337,
+      "expected_ramsar_name_contains": "Macquarie Marshes",
+      "site_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/macquarie-marshes",
+      "source_geometry_caveat": "Ramsar components are official named-complex anchors but may not cover the broader Macquarie Marshes ecological floodplain."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 1291,
+      "expected_ramsar_name_contains": "Narran Lake",
+      "site_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "source_geometry_caveat": "Ramsar reserve boundary is an official anchor but open-water and lignum/floodplain habitat remain distinct subunit questions."
+    },
+    {
+      "candidate_id": "NWB003",
+      "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+      "support_id": "nwb003_ramsar_ref993",
+      "support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 993,
+      "expected_ramsar_name_contains": "Gwydir Wetlands",
+      "site_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/gwydir-wetlands",
+      "source_geometry_caveat": "Ramsar parcels are official supports but are much smaller than the broader Gwydir wetland ecosystem."
+    },
+    {
+      "candidate_id": "NWB004",
+      "candidate_name": "Kerang Wetlands",
+      "support_id": "nwb004_ramsar_ref265",
+      "support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 265,
+      "expected_ramsar_name_contains": "Kerang Wetlands",
+      "site_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/kerang",
+      "source_geometry_caveat": "Ramsar union retains the official complex but hides lake-specific saline, freshwater, regulated, and marsh heterogeneity."
+    },
+    {
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "support_id": "nwb005_ramsar_ref791",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 791,
+      "expected_ramsar_name_contains": "Currawinya Lakes",
+      "site_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/currawinya-lakes",
+      "source_geometry_caveat": "Whole Ramsar complex is very large; later work should split Lake Numalla, Lake Wyara, springs, and smaller waterholes."
+    }
+  ]
+}

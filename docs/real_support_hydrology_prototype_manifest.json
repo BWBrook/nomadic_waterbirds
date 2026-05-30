@@ -1,0 +1,514 @@
+{
+  "goal": "005-official-support-hydrology-prototype",
+  "manifest_type": "real_support_hydrology",
+  "metric_spec_version": "goal005-real-support-v1",
+  "started_at_utc": "2026-05-30T11:33:12.551704+00:00",
+  "finished_at_utc": "2026-05-30T11:34:25.425150+00:00",
+  "elapsed_seconds": 72.884,
+  "command": "python3 scripts/official_support_hydrology_005.py",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+  "gdal_version": "GDAL 3.13.0 \"Iowa City\", released 2026/05/04",
+  "numpy_version": "2.4.6",
+  "config_path": "settings/official_support_hydrology_005.json",
+  "months": [
+    {
+      "month": "2019-01",
+      "rationale": "same dry-baseline screen used in Goal 004"
+    },
+    {
+      "month": "2022-11",
+      "rationale": "same major eastern Australian wet/flood period screen used in Goal 004"
+    },
+    {
+      "month": "2024-03",
+      "rationale": "same recent post-wet-period screen used in Goal 004"
+    }
+  ],
+  "source_products": {
+    "dea_stac_search": "https://explorer.dea.ga.gov.au/stac/search",
+    "dea_collection": "ga_ls_wo_3",
+    "dea_water_observations_product": "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "ramsar_service_layer": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0"
+  },
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal005",
+    "support_raw": "artifacts/hydrology_supports/raw",
+    "support_intermediate": "artifacts/hydrology_supports/intermediate",
+    "support_output": "artifacts/hydrology_supports/output",
+    "hydrology_raw": "artifacts/hydrology_real_support/raw",
+    "hydrology_intermediate": "artifacts/hydrology_real_support/intermediate",
+    "hydrology_output": "artifacts/hydrology_real_support/output"
+  },
+  "staged_raw_files": [
+    {
+      "path": "artifacts/hydrology_supports/raw/ramsar_goal005_subset.geojson",
+      "bytes": 497145,
+      "sha256": "3486b9639434995ee3d24eaa8b064860508288366b4a4a9d4741ed9988b63bd7",
+      "committed": false
+    }
+  ],
+  "staged_file_sizes_bytes": {
+    "artifacts/hydrology_supports/raw/ramsar_goal005_subset.geojson": 497145
+  },
+  "cleanup_status": "raw Ramsar subset left only in ignored staging path for reproducibility; not committed",
+  "outputs": {
+    "summary_csv": "docs/real_support_hydrology_prototype_summary.csv",
+    "manifest_json": "docs/real_support_hydrology_prototype_manifest.json"
+  },
+  "row_count": 15,
+  "status_counts": {
+    "computed_real_support_metrics": 15
+  },
+  "supports": [
+    {
+      "candidate_id": "NWB001",
+      "support_id": "nwb001_ramsar_ref337",
+      "support_area_m2": 193037277.794,
+      "component_count": 2,
+      "months": [
+        {
+          "month": "2019-01",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "aba61555-381b-567a-86f9-b7db0b861586",
+            "c36cdac9-8b23-575d-b1de-a2b51cca3ca4",
+            "5fbecab3-8754-52ee-9aa0-1fb486496755",
+            "c39d4aba-59ae-535b-a267-f79c1a7d1cc0",
+            "0254cfe3-14d5-5ebd-8c58-ef467b2bffcf",
+            "5869a06d-d84f-5dbd-af17-7096820dc090",
+            "772fa954-4fd9-572d-aa62-befd87fd0883",
+            "a0139b1d-8838-55a8-9349-fc5694156dad",
+            "d62ecddc-5096-54fb-9222-1ae1d14df149",
+            "e352943f-ddb2-5fa9-a2e2-0f674af2ef43",
+            "a4d80e0a-66ed-5f38-9815-12e031a8a341",
+            "eaf18266-c29b-57c1-96ca-bec7c819141f"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "6628841e-5f3f-5ec4-9055-e1b9dda10ec8",
+            "20dd554d-da70-5c8a-81e5-c711afc335f4",
+            "7a3ba23b-111e-5f29-8f8e-8c3b27c6de70",
+            "adb55ab4-34e1-5c8c-b597-f65c5561eff1",
+            "ecf494dd-40ef-5fce-b9aa-28d47447ace0",
+            "3618cfbe-317f-559c-8dd5-9e99f140dedc",
+            "031edb9e-392a-50c8-9937-bde70a4fd204",
+            "bec38633-2aa2-53a7-ad5a-cc28cda3d549",
+            "53d753ff-dfd2-5a74-82f8-54d0d2543321",
+            "4c72addd-4a36-5ed9-8f3d-45360667ade9",
+            "1ac6dab3-fe7e-5194-8c44-eca3f3ca1f2e"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "e5f56c25-72f8-5d21-8bf1-4bfc9959d703",
+            "22e58fed-ed62-538d-8bc2-2d87ceb8265d",
+            "d40b79f8-8b6a-5d66-8df7-4d6489d09bb0",
+            "343ca68c-dd5d-5c1f-93ce-c7e114a83333",
+            "66b346c3-8015-5fda-bf17-f7be10c71e00",
+            "618c3f3a-c0e2-5348-8608-1176ee882c37",
+            "e0c3a21d-0210-5050-942d-4b0cbd7b4a4a",
+            "03c91a3a-b0ed-5dd1-a554-917d7dd76e6a",
+            "e3bf27fb-c7da-54d2-b5d2-abb2f134e932",
+            "b41c3e72-cd83-572d-9573-37c41957d90f",
+            "21b6db7d-6280-5a99-9af0-cc7f72edf894",
+            "51a78690-87fe-5833-94b7-2ec2327286fa"
+          ],
+          "skipped": []
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 880,
+        "ysize": 1449,
+        "grid_pixels": 1275120,
+        "support_mask_pixels": 214506,
+        "bounds": [
+          1459830,
+          -3465630,
+          1486230,
+          -3422160
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB002",
+      "support_id": "nwb002_ramsar_ref1291",
+      "support_area_m2": 84539547.631,
+      "component_count": 1,
+      "months": [
+        {
+          "month": "2019-01",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "5d5e264f-194f-5a8b-8ff6-eaca8518a259",
+            "aba61555-381b-567a-86f9-b7db0b861586",
+            "b62c098f-b3f4-5ce4-b867-c9dea9d33d61",
+            "c36cdac9-8b23-575d-b1de-a2b51cca3ca4",
+            "9c1fb311-c2bf-5a70-a07a-9ada15805d4d",
+            "c39d4aba-59ae-535b-a267-f79c1a7d1cc0",
+            "a4228106-20d7-51b6-a77c-b9a3b9cbf868",
+            "0254cfe3-14d5-5ebd-8c58-ef467b2bffcf",
+            "07527ad9-e259-5a31-b82c-c9bc38beb17c",
+            "772fa954-4fd9-572d-aa62-befd87fd0883",
+            "df45990f-020a-5dfa-9baa-b87ec231224c",
+            "a0139b1d-8838-55a8-9349-fc5694156dad",
+            "c6d6d86e-d69e-5893-a573-4b18904f6e2b",
+            "e352943f-ddb2-5fa9-a2e2-0f674af2ef43",
+            "6890f80e-dff8-5b8a-9d81-527fb749f456",
+            "a4d80e0a-66ed-5f38-9815-12e031a8a341"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "60d30ce5-8417-5509-a882-2812e7fcb75a",
+            "6628841e-5f3f-5ec4-9055-e1b9dda10ec8",
+            "9aa883ca-d9bc-5d91-91b6-c29f0c5fbba9",
+            "20dd554d-da70-5c8a-81e5-c711afc335f4",
+            "ee945511-589f-5ee9-92f5-c16abfbf7c0b",
+            "adb55ab4-34e1-5c8c-b597-f65c5561eff1",
+            "a6eeda8f-c505-5394-a5f1-98f8946b1c8a",
+            "07c6b896-47c5-57e4-9dfb-e254f64b0af5",
+            "3618cfbe-317f-559c-8dd5-9e99f140dedc",
+            "75a82ac4-8342-5a5a-acea-0d77f6d81abd",
+            "031edb9e-392a-50c8-9937-bde70a4fd204",
+            "693ecd3e-8b9e-508f-b652-8858537159ff",
+            "53d753ff-dfd2-5a74-82f8-54d0d2543321",
+            "199e6dfb-9c55-51fd-bfa4-9081e9fde26d",
+            "4c72addd-4a36-5ed9-8f3d-45360667ade9"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "9b54880c-fcc2-55d7-8847-6440b333b847",
+            "e5f56c25-72f8-5d21-8bf1-4bfc9959d703",
+            "88ab4a3b-3399-5efd-a2b2-e0ea9313cf1b",
+            "22e58fed-ed62-538d-8bc2-2d87ceb8265d",
+            "64d45039-f730-5f70-b011-35551664fe6d",
+            "343ca68c-dd5d-5c1f-93ce-c7e114a83333",
+            "15b33685-7d35-52cf-886d-4b8985d49f4c",
+            "66b346c3-8015-5fda-bf17-f7be10c71e00",
+            "9890e89b-e292-517a-b796-3c12e3ec38fb",
+            "e0c3a21d-0210-5050-942d-4b0cbd7b4a4a",
+            "21585275-e171-5d0b-be6a-200866c854e3",
+            "03c91a3a-b0ed-5dd1-a554-917d7dd76e6a",
+            "26dcf001-a7b9-593f-b4d8-00103dda8519",
+            "b41c3e72-cd83-572d-9573-37c41957d90f",
+            "145cbe07-a82b-526d-b07f-93d8a62a1578",
+            "21b6db7d-6280-5a99-9af0-cc7f72edf894"
+          ],
+          "skipped": []
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 403,
+        "ysize": 414,
+        "grid_pixels": 166842,
+        "support_mask_pixels": 93937,
+        "bounds": [
+          1466190,
+          -3327930,
+          1478280,
+          -3315510
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB003",
+      "support_id": "nwb003_ramsar_ref993",
+      "support_area_m2": 8424584.138,
+      "component_count": 4,
+      "months": [
+        {
+          "month": "2019-01",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "b62c098f-b3f4-5ce4-b867-c9dea9d33d61",
+            "c36cdac9-8b23-575d-b1de-a2b51cca3ca4",
+            "926dcd62-2ad4-5efb-b2d0-6f4eb96aac00",
+            "81330d8e-af22-5a68-aeaf-f59c6b018e81",
+            "a4228106-20d7-51b6-a77c-b9a3b9cbf868",
+            "0254cfe3-14d5-5ebd-8c58-ef467b2bffcf",
+            "e2cf5d40-6f3c-5aab-aa08-e2154539d5f1",
+            "13d7f821-b04a-5c7e-9bf6-ba45e86d28f7",
+            "df45990f-020a-5dfa-9baa-b87ec231224c",
+            "a0139b1d-8838-55a8-9349-fc5694156dad",
+            "8e424745-effc-5cc7-8c81-1d58b1672a1f",
+            "63c93698-a78e-5e07-a15e-329c3fef3efe",
+            "6890f80e-dff8-5b8a-9d81-527fb749f456",
+            "a4d80e0a-66ed-5f38-9815-12e031a8a341",
+            "05e0d5a1-8869-53cf-a312-a3035a11d0e4",
+            "9550a53d-5199-5ccb-84c6-bb6c5719d949"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "9aa883ca-d9bc-5d91-91b6-c29f0c5fbba9",
+            "a05051ea-4198-59fa-9ec4-67725baec211",
+            "ed77ae33-e65d-5c39-a7b6-0a7c23b2eb02",
+            "a6eeda8f-c505-5394-a5f1-98f8946b1c8a",
+            "20cad25c-d227-5ef7-93d3-2d2351400e94",
+            "75a82ac4-8342-5a5a-acea-0d77f6d81abd",
+            "031edb9e-392a-50c8-9937-bde70a4fd204",
+            "9ffa069e-ad59-5a75-aaa1-abd46c38d767",
+            "c662fea5-7a89-5848-b31b-1728260945e8",
+            "199e6dfb-9c55-51fd-bfa4-9081e9fde26d",
+            "4c72addd-4a36-5ed9-8f3d-45360667ade9",
+            "1c11b4c9-0aa3-5529-b4fe-25eb46452e73",
+            "2ce9d4c7-8c91-53e8-aecf-402810a566ee"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "88ab4a3b-3399-5efd-a2b2-e0ea9313cf1b",
+            "9b26b632-cfe2-578c-94ee-a1bc63b5b59b",
+            "cf5d7499-2891-52ed-af71-0595bd453c6d",
+            "15b33685-7d35-52cf-886d-4b8985d49f4c",
+            "66b346c3-8015-5fda-bf17-f7be10c71e00",
+            "e2817f39-8c76-505c-a061-819fbf5c4cfb",
+            "4ac2fdea-7090-5918-823c-44c0a13be66d",
+            "21585275-e171-5d0b-be6a-200866c854e3",
+            "9b247891-3c8b-560f-a641-010879dfd5b7",
+            "ea36ff15-6371-51ac-9268-c255b468807e",
+            "145cbe07-a82b-526d-b07f-93d8a62a1578",
+            "21b6db7d-6280-5a99-9af0-cc7f72edf894",
+            "4acc8e3c-0cde-5f6f-8cde-8873a6019778",
+            "aeb65205-7fb4-5a92-a803-9de825444714"
+          ],
+          "skipped": []
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 920,
+        "ysize": 722,
+        "grid_pixels": 664240,
+        "support_mask_pixels": 9371,
+        "bounds": [
+          1637700,
+          -3304830,
+          1665300,
+          -3283170
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB004",
+      "support_id": "nwb004_ramsar_ref265",
+      "support_area_m2": 97928052.379,
+      "component_count": 14,
+      "months": [
+        {
+          "month": "2019-01",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "9177594c-7ca6-5c05-aa4f-dfd2141613d6",
+            "788e1720-aa6a-5f24-8eb1-5c61fbe35c22",
+            "8a72eabd-eb6f-5aff-b9e0-d8a9183245b6",
+            "01143784-509d-57c7-9a0d-c406c2795512",
+            "40caa3ed-b9f2-549e-a8bc-a2b71108d4de",
+            "0c070ef5-2094-59db-896e-ad4744e161b6",
+            "eb462970-7e5a-5a17-b0ef-d4e22df1787e",
+            "21e57ff5-015a-5bc9-a534-0f6def844fa4",
+            "04918b46-b197-5fa2-b0e3-cef192ea7b3d",
+            "f0609e05-3606-5058-9c3b-63ece39b00da",
+            "74514a5d-6f75-5d0a-917e-ba01b8908012",
+            "f0f312f1-d355-5f41-a98f-f078245cbcc4",
+            "6c5cd235-d690-570e-9ae2-25211779764c",
+            "a36cdee9-23b2-53a4-9a2c-10473692553e"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "68dfc04c-b62d-5279-a15e-af7bd4f112be",
+            "8e58b3b9-ece1-597e-a883-7c1d040600d9",
+            "190f11ff-5080-5f57-98d4-3d5701152277",
+            "05829ecc-5080-5356-984d-8bd759209570",
+            "acbebcdb-9c88-5796-a6b6-01a28314e171",
+            "03a505e3-090e-5077-8bb9-ea1e71963763",
+            "4e3ca665-f2fa-507c-9929-e260566f7867",
+            "ec174338-a3b5-5794-8b79-309b078666fc",
+            "cc1b2e87-994e-52dd-8833-d24507a17a34",
+            "16f1e3f3-5c9c-5ee2-b00f-79caeca4e522"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "ee69ef06-2e24-514c-af53-c3d9fc3be917",
+            "5afc3223-2562-505c-9749-7b688c0654e1",
+            "54322249-9b8d-5942-a510-4b2a37b7c0d5",
+            "8ebfdcea-deda-5c95-9653-8b0b7f8c98d2",
+            "dfb853fe-0b69-5a58-8266-62d5e1a2df50",
+            "c67b14f8-05e8-5f94-8a77-3ecba3f05c33",
+            "1f96950b-8d95-56dd-ba4e-516182579937",
+            "70353103-7f6d-55b8-821b-7fc319ced692",
+            "1429928d-834c-5e9c-be40-56fc40d17ec9",
+            "cfae9d26-981f-5974-b769-b6e6df5cdb43",
+            "ac4cf19c-b305-5937-8ead-063786a903fc",
+            "c3d3195b-f234-5d3a-a79f-ece4ba48d9f8",
+            "080f5ac0-06cd-5edf-88eb-36ca6ea0d5f1",
+            "2d623a12-fdff-5026-9465-52c980ff7d08",
+            "44e3aa1c-cafa-5a97-81e6-ab5647173ea1",
+            "02a5883a-346b-5453-a4c5-94e5668afa35"
+          ],
+          "skipped": []
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 1138,
+        "ysize": 1523,
+        "grid_pixels": 1733174,
+        "support_mask_pixels": 108814,
+        "bounds": [
+          1057230,
+          -3971910,
+          1091370,
+          -3926220
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB005",
+      "support_id": "nwb005_ramsar_ref791",
+      "support_area_m2": 1508635163.247,
+      "component_count": 1,
+      "months": [
+        {
+          "month": "2019-01",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "3e2c18e2-8d30-5eb8-8f40-1bbd1577808a",
+            "89f28ff7-3dc6-5343-8766-4a1a08dc3469",
+            "0f1af4ed-3880-5b31-b0fc-955de6c75c86",
+            "17e1a666-2ff4-5dce-b8fa-60babb6f1a5c",
+            "9c1722d0-6c39-5885-a1d0-7b8fee310228",
+            "e72ec39a-b8a9-5903-ae5c-453d8d14eee7",
+            "2dc34753-ba89-53ce-8069-b2c11c672047",
+            "da8c60ee-f902-524b-873f-bdc531ce2016"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "f9ab7980-c427-5e96-90f0-a76060da67ba",
+            "cf3c6c3d-8355-589e-93de-a4bea6e5b26b",
+            "0ba17952-d916-5f64-b574-57968f25224e",
+            "c7049288-fe67-5370-afc6-21e54f57e5f7",
+            "58f337c1-8501-5803-a823-096fc391cbb1",
+            "6bcb3a76-7ccb-56f6-99b0-d9f00d580e3c",
+            "8f4a4eae-52ed-5611-898c-550af041fb75",
+            "b2928951-faa4-5546-b9d4-22e35f015761"
+          ],
+          "skipped": []
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_real_support_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0,
+          "scene_ids": [
+            "6a707775-330e-55f9-ad4c-b5ffd8c6b468",
+            "27920f06-9d2a-5438-bee3-ef28b42b983c",
+            "9aebe5d0-9202-56cf-a1f9-bff66a8ad53e",
+            "d7132385-3c95-5b11-bdfd-8ab8c37b7846",
+            "f1593a12-4a0c-57c8-b5e9-5835392d2665",
+            "6269cb30-211e-54de-85ab-0c98013530db",
+            "fb8dbf33-2483-5697-ae44-a1931ae70e02"
+          ],
+          "skipped": []
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 2445,
+        "ysize": 1386,
+        "grid_pixels": 3388770,
+        "support_mask_pixels": 1676254,
+        "bounds": [
+          1172250,
+          -3208110,
+          1245600,
+          -3166530
+        ]
+      }
+    }
+  ],
+  "git_commit_at_run": "d157862"
+}

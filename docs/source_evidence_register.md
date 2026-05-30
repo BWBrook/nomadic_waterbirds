@@ -1,8 +1,10 @@
 # Source Evidence Register
 
 Accessed date is `2026-05-30` for all rows unless otherwise noted. This
-register records source evidence only; no datasets were downloaded, requested,
-or processed for Goal 002.
+register records source evidence and staged-data provenance. Goals 001-003 did
+not download, request, or process datasets. Goal 005 staged only a small public
+Ramsar geometry subset in ignored local paths for hydrology-support
+prototyping.
 
 | ID | Source | Provider | URL | Source type | What was verified | Unresolved questions |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -38,3 +40,5 @@ or processed for Goal 002.
 | S30 | Coorong, Lakes Alexandrina and Albert Ramsar page | DCCEEW | https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/the-coorong-lakes-alexandrina-albert-wetland | Official Ramsar site page | Verifies Ramsar listing, South Australian jurisdiction, 144,986 ha site area, Murray mouth/downstream setting, 23 wetland types, and official map/boundary-description links. | Coastal/estuarine, barrage-regulated, and very large; valuable as an edge comparator but too complex for the first hydrology smoke test. |
 | S31 | Coongie Lakes Ramsar page | DCCEEW | https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/coongie-lakes | Official Ramsar site page | Verifies Ramsar listing, far north-east South Australia location, Cooper Creek/Lake Eyre Basin context, ephemeral/semi-permanent arid wetland system, boom-bust hydrology, and waterbird breeding after large floods. | Strong conceptual comparator but outside the initial MDB smoke-test centre and very large/remote. |
 | S32 | Lachlan River CEWH page | DCCEEW / CEWH | https://www.dcceew.gov.au/cewh/water-region/lachlan-river/about | Official CEWH regional page | Verifies that the Lachlan River ends at Great Cumbung Swamp, and that lower Lachlan nationally important wetlands include Lake Brewster, Booligal Wetlands, and Great Cumbung Swamp. | Useful deferred candidate; geometry/source pathway is less direct than Ramsar pages in this pass. |
+| S33 | Ramsar Wetlands of Australia ArcGIS service | DCCEEW Geospatial / Find Environmental Data | https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0 | Official spatial service | Goal 005 verified a public polygon service with Ramsar attributes including `REFCODE`, `RAMSAR_NAME`, `WETLAND_NAME`, `SOURCE`, `AREA_HA`, and `WETLANDSDB_URL`; matching records were staged in ignored paths for Macquarie Marshes, Narran Lake Nature Reserve, Gwydir Wetlands, Kerang Wetlands, and Currawinya Lakes. | Ramsar records are official supports but not final ecological wetland units; one Narran service URL field appeared inconsistent, so the configured DCCEEW site URL remains the canonical page link. |
+| S34 | DEA Water Observations (Landsat) current product page | Geoscience Australia / Digital Earth Australia | https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview | Official product documentation | Goal 005 rechecked `ga_ls_wo_3` access and bit-field documentation before real-support extraction; product coverage, licensing, STAC/AWS access, invalid bits, water bit, and vegetated-wetland under-detection caveats remain central to the metric contract. | Full historical extraction, lag metrics, and event windows are deferred until support/subunit decisions are stronger. |

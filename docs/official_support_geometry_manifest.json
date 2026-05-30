@@ -1,0 +1,85 @@
+{
+  "goal": "005-official-support-hydrology-prototype",
+  "manifest_type": "official_support_geometry",
+  "accessed_at_utc": "2026-05-30T11:34:25.425150+00:00",
+  "command": "python3 scripts/official_support_hydrology_005.py",
+  "config_path": "settings/official_support_hydrology_005.json",
+  "source_urls": {
+    "ramsar_dataset_catalogue": "https://www.data.gov.au/data/dataset/ramsar-wetlands-of-australia2",
+    "ramsar_service_layer": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+    "ramsar_service_query": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0/query?where=REFCODE+IN+%28337%2C1291%2C993%2C265%2C791%29&outFields=OBJECTID%2CREFCODE%2CSTATE%2CAREA_HA%2CTOTAL_SITE_AREA_HA%2CSOURCE%2CRAMSAR_NAME%2CWETLAND_NAME%2CJURISDICTION%2CGAZETTED_AREA_HA%2CWETLANDSDB_URL%2CMETADATA_URL&returnGeometry=true&outSR=4326&f=geojson"
+  },
+  "staged_raw_files": [
+    {
+      "path": "artifacts/hydrology_supports/raw/ramsar_goal005_subset.geojson",
+      "bytes": 497145,
+      "sha256": "3486b9639434995ee3d24eaa8b064860508288366b4a4a9d4741ed9988b63bd7",
+      "committed": false
+    }
+  ],
+  "cleanup_status": "raw Ramsar subset left only in ignored staging path for reproducibility; not committed",
+  "candidate_count": 5,
+  "support_rows": 5,
+  "supports": [
+    {
+      "candidate_id": "NWB001",
+      "support_id": "nwb001_ramsar_ref337",
+      "support_type": "official_ramsar_named_complex_union",
+      "source_feature_refcode": 337,
+      "source_objectids": "125;359",
+      "component_count": 2,
+      "geometry_area_m2": 193037277.794,
+      "inclusion_status": "included_for_real_support_hydrology",
+      "caveat": "Ramsar components are official named-complex anchors but may not cover the broader Macquarie Marshes ecological floodplain."
+    },
+    {
+      "candidate_id": "NWB002",
+      "support_id": "nwb002_ramsar_ref1291",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "source_feature_refcode": 1291,
+      "source_objectids": "366",
+      "component_count": 1,
+      "geometry_area_m2": 84539547.631,
+      "inclusion_status": "included_for_real_support_hydrology",
+      "caveat": "Ramsar reserve boundary is an official anchor but open-water and lignum/floodplain habitat remain distinct subunit questions."
+    },
+    {
+      "candidate_id": "NWB003",
+      "support_id": "nwb003_ramsar_ref993",
+      "support_type": "official_ramsar_named_complex_union",
+      "source_feature_refcode": 993,
+      "source_objectids": "126;121;344;346",
+      "component_count": 4,
+      "geometry_area_m2": 8424584.138,
+      "inclusion_status": "included_for_real_support_hydrology",
+      "caveat": "Ramsar parcels are official supports but are much smaller than the broader Gwydir wetland ecosystem."
+    },
+    {
+      "candidate_id": "NWB004",
+      "support_id": "nwb004_ramsar_ref265",
+      "support_type": "official_ramsar_named_complex_union",
+      "source_feature_refcode": 265,
+      "source_objectids": "384;385;123;413;415;420;340;352;354;367;369;370;378;379",
+      "component_count": 14,
+      "geometry_area_m2": 97928052.379,
+      "inclusion_status": "included_for_real_support_hydrology",
+      "caveat": "Ramsar union retains the official complex but hides lake-specific saline, freshwater, regulated, and marsh heterogeneity."
+    },
+    {
+      "candidate_id": "NWB005",
+      "support_id": "nwb005_ramsar_ref791",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "source_feature_refcode": 791,
+      "source_objectids": "408",
+      "component_count": 1,
+      "geometry_area_m2": 1508635163.247,
+      "inclusion_status": "included_for_real_support_hydrology",
+      "caveat": "Whole Ramsar complex is very large; later work should split Lake Numalla, Lake Wyara, springs, and smaller waterholes."
+    }
+  ],
+  "outputs": {
+    "summary_csv": "docs/official_support_geometry_summary.csv",
+    "manifest_json": "docs/official_support_geometry_manifest.json"
+  },
+  "git_commit_at_run": "d157862"
+}
