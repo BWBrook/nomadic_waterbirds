@@ -89,3 +89,5 @@
   rows and 660 event-window rows from fresh ignored staging; all 660 rows
   computed in that run, confirming the working-tree timeout row is a transient
   read issue rather than a deterministic geometry/config blocker.
+- 2026-05-30: Committed and pushed the validated Goal 007 package to `main` as
+  `111640f` (`Build event-window hydrology series`).
