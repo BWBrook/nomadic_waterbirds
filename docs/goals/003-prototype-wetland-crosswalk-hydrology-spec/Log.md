@@ -43,3 +43,6 @@
   parse confirmed all required columns and 7 candidate rows; raw-data extension
   scan found no committed shapefile, GeoPackage, GeoJSON, raster, NetCDF,
   Parquet, RDS, archive, or similar source-data files.
+- 2026-05-30: Prototype design package committed as `c012cfb` (`Specify
+  prototype wetland crosswalk and hydrology metrics`) and pushed to
+  `origin/main`.
