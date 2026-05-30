@@ -78,6 +78,18 @@
   `docs/source_evidence_register.md`, `docs/data_stream_register.md`,
   `docs/decision_log.md`, and `docs/README.md` with Goal 007 evidence and
   navigation.
+- 2026-05-30: Validation checks passed for `git diff --check`, script/config
+  syntax, both manifest JSON files, all CSV shape/month/support gates,
+  unignored file-size and raw-extension hygiene, unfinished-marker scan,
+  local Markdown link checks, and `python3 -m unittest discover -s tests -p
+  'test*.py'`.
+- 2026-05-30: Temporary-tree reproducibility check copied only unignored files
+  to `/tmp`, reran `python3 scripts/event_window_hydrology_007.py`, and
+  rebuilt the Goal 007 support set with 11 supports, 60 months, 660 rows, two
+  unresolved named supports, and 47008464 bytes of ignored staged source
+  files. The temp run returned 660 computed rows, indicating the committed
+  Kerang `2023-01` timeout row is a live read variability artefact rather than
+  a structural workflow failure.
 - 2026-05-30: Validation completed successfully with `rg --files`,
   `python3 -m unittest discover -s tests -p 'test*.py'`, syntax/config checks,
   JSON parsing for the Goal 007 config and both manifests, CSV shape checks for
