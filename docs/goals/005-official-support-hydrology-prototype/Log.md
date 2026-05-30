@@ -76,3 +76,6 @@
   to `/tmp`, reran `python3 scripts/official_support_hydrology_005.py`, and
   rebuilt the same 15-row computed hydrology package plus a 497145 byte ignored
   Ramsar raw subset.
+- 2026-05-30: Committed and pushed the validated Goal 005 package to
+  `origin/main` as `196ce72` (`Prototype official-support hydrology
+  extraction`).
