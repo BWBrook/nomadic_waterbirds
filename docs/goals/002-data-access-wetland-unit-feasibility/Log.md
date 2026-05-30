@@ -34,3 +34,5 @@
   edited Goal 002 docs; local Markdown link check resolved 26 local links; and
   source-ID coverage check confirmed 24 cited IDs in feasibility docs/register
   all exist in `docs/source_evidence_register.md`.
+- 2026-05-30: Feasibility package committed as `0c4bc7e` (`Assess data access
+  and wetland unit feasibility`) and pushed to `origin/main`.
