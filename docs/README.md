@@ -35,6 +35,9 @@ waterbirds project.
   machine-readable Goal 004 provenance and resource manifest.
 - [hydrology_smoke_test_summary.csv](hydrology_smoke_test_summary.csv):
   machine-readable Goal 004 candidate/support/month summary table.
+- [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
+  Goal 005 package for moving from tiny probe pixels to documented official
+  support geometry and bounded real-support hydrology metrics.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
