@@ -1,0 +1,39 @@
+# Local environments and caches
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+.venv/
+renv/library/
+renv/staging/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.quarto/
+.cache/
+
+# External or generated data
+data/*
+!data/README.md
+!data/.gitkeep
+
+# Generated analysis and manuscript artefacts
+artifacts/*
+!artifacts/README.md
+!artifacts/.gitkeep
+manuscript/dist/
+manuscript/_freeze/
+manuscript/.cache/
+manuscript/*.pdf
+manuscript/*.docx
+manuscript/*.tex
+manuscript/*.log
+manuscript/*.aux
+manuscript/*.out
+
+# Logs and local secrets
+*.log
+.env
+.env.*
+secrets/
+credentials/
