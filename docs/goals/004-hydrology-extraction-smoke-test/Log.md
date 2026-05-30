@@ -51,3 +51,5 @@
   targeted unfinished-language scan found no matches in new or edited Goal 004
   files; local Markdown link check resolved 41 local links; ignored scratch
   directories were empty.
+- 2026-05-30: Hydrology smoke-test package committed as `a248515` (`Run
+  hydrology extraction smoke test`) and pushed to `origin/main`.
