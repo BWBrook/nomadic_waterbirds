@@ -1,0 +1,104 @@
+{
+  "goal": "006-documented-subunit-hydrology-prototype",
+  "metric_spec_version": "goal006-subunit-v1",
+  "accessed_date": "2026-05-30",
+  "ramsar_service_layer_url": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+  "ramsar_dataset_catalogue_url": "https://www.data.gov.au/data/dataset/ramsar-wetlands-of-australia2",
+  "dea_waterbodies_product_url": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details",
+  "dea_waterbodies_zip_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/dea_waterbodies/3-0-0/shapefile/ga_ls_wb_3_v3.zip",
+  "dea_waterbodies_s3_prefix_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative/dea_waterbodies/3-0-0/&max-keys=1000",
+  "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "dea_collection": "ga_ls_wo_3",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 STAC assets",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "stac_limit": 100,
+  "max_reference_grid_pixels": 2000000,
+  "waterbody_registry_top_n_per_parent": 3,
+  "months": [
+    {
+      "month": "2019-01",
+      "rationale": "same dry-baseline screen used in Goals 004-005"
+    },
+    {
+      "month": "2022-11",
+      "rationale": "same major eastern Australian wet/flood period screen used in Goals 004-005"
+    },
+    {
+      "month": "2024-03",
+      "rationale": "same recent post-wet-period screen used in Goals 004-005"
+    }
+  ],
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal006",
+    "support_raw": "artifacts/subunit_supports/raw",
+    "support_intermediate": "artifacts/subunit_supports/intermediate",
+    "support_output": "artifacts/subunit_supports/output",
+    "hydrology_raw": "artifacts/subunit_hydrology/raw",
+    "hydrology_intermediate": "artifacts/subunit_hydrology/intermediate",
+    "hydrology_output": "artifacts/subunit_hydrology/output"
+  },
+  "staged_files": {
+    "ramsar_subset_geojson": "artifacts/subunit_supports/raw/ramsar_goal006_subset.geojson",
+    "dea_waterbodies_zip": "artifacts/subunit_supports/raw/ga_ls_wb_3_v3.zip"
+  },
+  "outputs": {
+    "registry_csv": "docs/subunit_support_registry.csv",
+    "registry_manifest_json": "docs/subunit_support_registry_manifest.json",
+    "hydrology_summary_csv": "docs/subunit_hydrology_prototype_summary.csv",
+    "hydrology_manifest_json": "docs/subunit_hydrology_prototype_manifest.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "NWB001",
+      "candidate_name": "Macquarie Marshes",
+      "parent_support_id": "nwb001_ramsar_ref337",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 337,
+      "selected_ramsar_objectids": [359],
+      "selected_waterbody_overlap_count": 0,
+      "subunit_caveat": "Macquarie Ramsar components are official parcels but still may not capture the broader vegetated floodplain."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "parent_support_id": "nwb002_ramsar_ref1291",
+      "parent_support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 1291,
+      "selected_ramsar_objectids": [],
+      "selected_waterbody_overlap_count": 0,
+      "subunit_caveat": "Narran has one Ramsar component in the service; lake and lignum subunits need stronger named-source support."
+    },
+    {
+      "candidate_id": "NWB003",
+      "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+      "parent_support_id": "nwb003_ramsar_ref993",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 993,
+      "selected_ramsar_objectids": [121],
+      "selected_waterbody_overlap_count": 0,
+      "subunit_caveat": "Gwydir Ramsar parcels are official but narrower than the broader Gwydir wetlands."
+    },
+    {
+      "candidate_id": "NWB004",
+      "candidate_name": "Kerang Wetlands",
+      "parent_support_id": "nwb004_ramsar_ref265",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 265,
+      "selected_ramsar_objectids": [354, 369],
+      "selected_waterbody_overlap_count": 0,
+      "subunit_caveat": "Kerang Ramsar components provide named lake/marsh supports but do not settle saline, freshwater, and regulation strata."
+    },
+    {
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "parent_support_id": "nwb005_ramsar_ref791",
+      "parent_support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 791,
+      "selected_ramsar_objectids": [],
+      "selected_waterbody_overlap_count": 2,
+      "subunit_caveat": "Currawinya Ramsar geometry is whole-complex; top DEA Waterbodies overlaps are open-water screening subunits, not official lake names."
+    }
+  ]
+}

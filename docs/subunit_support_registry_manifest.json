@@ -1,0 +1,47 @@
+{
+  "goal": "006-documented-subunit-hydrology-prototype",
+  "manifest_type": "subunit_support_registry",
+  "accessed_at_utc": "2026-05-30T12:05:44.091562+00:00",
+  "command": "python3 scripts/subunit_hydrology_006.py",
+  "config_path": "settings/subunit_hydrology_006.json",
+  "source_urls": {
+    "ramsar_dataset_catalogue": "https://www.data.gov.au/data/dataset/ramsar-wetlands-of-australia2",
+    "ramsar_service_layer": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+    "ramsar_service_query": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0/query?where=REFCODE+IN+%28337%2C1291%2C993%2C265%2C791%29&outFields=OBJECTID%2CREFCODE%2CSTATE%2CAREA_HA%2CTOTAL_SITE_AREA_HA%2CSOURCE%2CRAMSAR_NAME%2CWETLAND_NAME%2CJURISDICTION%2CGAZETTED_AREA_HA%2CWETLANDSDB_URL%2CMETADATA_URL&returnGeometry=true&outSR=4326&f=geojson",
+    "dea_waterbodies_product": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details",
+    "dea_waterbodies_zip": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/dea_waterbodies/3-0-0/shapefile/ga_ls_wb_3_v3.zip",
+    "dea_waterbodies_s3_prefix": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative/dea_waterbodies/3-0-0/&max-keys=1000"
+  },
+  "staged_raw_files": [
+    {
+      "path": "artifacts/subunit_supports/raw/ramsar_goal006_subset.geojson",
+      "bytes": 497145,
+      "sha256": "3486b9639434995ee3d24eaa8b064860508288366b4a4a9d4741ed9988b63bd7",
+      "committed": false
+    },
+    {
+      "path": "artifacts/subunit_supports/raw/ga_ls_wb_3_v3.zip",
+      "bytes": 46502008,
+      "sha256": "7f491f8487770ad237e7000ff5f3cb3b607e18abe1a0690d5ea4a6c2f3241450",
+      "committed": false
+    }
+  ],
+  "cleanup_status": "raw Ramsar subset and DEA Waterbodies ZIP left only in ignored staging paths; not committed",
+  "registry_row_count": 36,
+  "ramsar_component_rows": 22,
+  "dea_waterbody_overlap_rows": 14,
+  "waterbody_top_n_per_parent": 3,
+  "waterbody_registry_rows_by_candidate": {
+    "NWB001": 3,
+    "NWB002": 3,
+    "NWB003": 2,
+    "NWB004": 3,
+    "NWB005": 3
+  },
+  "selected_subunit_count": 6,
+  "outputs": {
+    "registry_csv": "docs/subunit_support_registry.csv",
+    "manifest_json": "docs/subunit_support_registry_manifest.json"
+  },
+  "git_commit_at_run": "e352dc9"
+}

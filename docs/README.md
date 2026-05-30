@@ -47,6 +47,19 @@ waterbirds project.
   machine-readable Goal 005 hydrology-processing provenance manifest.
 - [real_support_hydrology_prototype_summary.csv](real_support_hydrology_prototype_summary.csv):
   machine-readable Goal 005 support/month hydrology metric table.
+- [subunit_support_registry_report.md](subunit_support_registry_report.md):
+  Goal 006 parent-child Ramsar component and DEA Waterbodies overlap registry
+  report.
+- [subunit_support_registry_manifest.json](subunit_support_registry_manifest.json):
+  machine-readable Goal 006 subunit source and staging provenance manifest.
+- [subunit_support_registry.csv](subunit_support_registry.csv):
+  machine-readable Goal 006 candidate subunit registry.
+- [subunit_hydrology_prototype_report.md](subunit_hydrology_prototype_report.md):
+  Goal 006 bounded Water Observations metrics report over selected subunits.
+- [subunit_hydrology_prototype_manifest.json](subunit_hydrology_prototype_manifest.json):
+  machine-readable Goal 006 subunit hydrology-processing provenance manifest.
+- [subunit_hydrology_prototype_summary.csv](subunit_hydrology_prototype_summary.csv):
+  machine-readable Goal 006 selected subunit/month hydrology metric table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
