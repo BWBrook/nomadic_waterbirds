@@ -1,0 +1,174 @@
+{
+  "goal": "007-named-subunit-evidence-event-series",
+  "metric_spec_version": "goal007-event-window-v1",
+  "accessed_date": "2026-05-30",
+  "event_window": {
+    "default_start_month": "2018-01",
+    "default_end_month": "2024-12",
+    "fallback_used": true,
+    "fallback_reason": "Default 2018-01 through 2024-12 probe took about ten minutes before reaching support 2, making the 13-support local run likely to challenge the two-hour Goal 007 threshold.",
+    "start_month": "2020-01",
+    "end_month": "2024-12",
+    "rationale": "bounded fallback event window retaining the 2022 wet/flood period, recent post-wet conditions, and enough monthly history for lag, novelty, drying, cumulative, and consecutive wet/dry metrics"
+  },
+  "ramsar_service_layer_url": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+  "ramsar_dataset_catalogue_url": "https://www.data.gov.au/data/dataset/ramsar-wetlands-of-australia2",
+  "dea_waterbodies_product_url": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details",
+  "dea_waterbodies_zip_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/dea_waterbodies/3-0-0/shapefile/ga_ls_wb_3_v3.zip",
+  "dea_waterbodies_s3_prefix_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative/dea_waterbodies/3-0-0/&max-keys=1000",
+  "existing_waterbodies_zip_path": "artifacts/subunit_supports/raw/ga_ls_wb_3_v3.zip",
+  "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "dea_collection": "ga_ls_wo_3",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 STAC assets",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "stac_limit": 100,
+  "max_reference_grid_pixels": 5000000,
+  "wet_month_threshold": 0.05,
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal007",
+    "event_raw": "artifacts/event_window_hydrology/raw",
+    "event_intermediate": "artifacts/event_window_hydrology/intermediate",
+    "event_output": "artifacts/event_window_hydrology/output",
+    "named_raw": "artifacts/named_subunit_evidence/raw"
+  },
+  "staged_files": {
+    "ramsar_subset_geojson": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+    "dea_waterbodies_zip": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip"
+  },
+  "named_geometry_sources": [
+    {
+      "support_id": "nwb005_diwa_lake_numalla_aggregation",
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "parent_support_id": "nwb005_ramsar_ref791",
+      "display_name": "Lake Numalla Aggregation",
+      "support_type": "diwa_named_lake_aggregation",
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-numalla-aggregation/",
+      "download_url": "https://wetlandinfo.detsi.qld.gov.au/resources/wetland-summary/area/diwa-wetland/kml/diwa-wetland-lake-numalla-aggregation.kmz",
+      "staged_path": "artifacts/named_subunit_evidence/raw/lake_numalla_aggregation.kmz",
+      "include_in_event_window": false,
+      "expected_related_dea_uid": "r4yss38r6_v3",
+      "caveat": "DIWA named geometry supports Lake Numalla Aggregation; retained as named support evidence, not a final ecological response unit."
+    },
+    {
+      "support_id": "nwb005_diwa_lake_wyara",
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "parent_support_id": "nwb005_ramsar_ref791",
+      "display_name": "Lake Wyara",
+      "support_type": "diwa_named_lake",
+      "source_url": "https://wetlandinfo.des.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-wyara/",
+      "download_url": "https://wetlandinfo.des.qld.gov.au/resources/wetland-summary/area/diwa-wetland/kml/diwa-wetland-lake-wyara.kmz",
+      "staged_path": "artifacts/named_subunit_evidence/raw/lake_wyara.kmz",
+      "include_in_event_window": false,
+      "expected_related_dea_uid": "r4ysdndx8_v3",
+      "caveat": "DIWA named geometry supports Lake Wyara; retained as named support evidence, not a final ecological response unit."
+    },
+    {
+      "support_id": "nwb005_wetlandinfo_currawinya_ramsar",
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "parent_support_id": "nwb005_ramsar_ref791",
+      "display_name": "Currawinya Lakes WetlandInfo Ramsar boundary",
+      "support_type": "wetlandinfo_ramsar_boundary_check",
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/ramsar-wetland-currawinya-lakes/",
+      "download_url": "https://wetlandinfo.detsi.qld.gov.au/resources/wetland-summary/area/ramsar-wetland/kml/ramsar-wetland-currawinya-lakes.kmz",
+      "staged_path": "artifacts/named_subunit_evidence/raw/currawinya_ramsar.kmz",
+      "include_in_event_window": false,
+      "expected_related_dea_uid": "",
+      "caveat": "Boundary used as a source-evidence cross-check only; event-window parent hydrology uses the Goal 005 DCCEEW Ramsar support."
+    }
+  ],
+  "outputs": {
+    "named_crosswalk_csv": "docs/named_subunit_crosswalk.csv",
+    "named_manifest_json": "docs/named_subunit_evidence_manifest.json",
+    "event_series_csv": "docs/event_window_hydrology_series.csv",
+    "event_summary_csv": "docs/event_window_hydrology_summary.csv",
+    "event_manifest_json": "docs/event_window_hydrology_series_manifest.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "NWB001",
+      "candidate_name": "Macquarie Marshes",
+      "parent_support_id": "nwb001_ramsar_ref337",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 337,
+      "included_ramsar_objectids": [359],
+      "included_waterbody_uids": [],
+      "parent_caveat": "Ramsar components are official named-complex anchors but may not cover the broader Macquarie Marshes ecological floodplain.",
+      "subunit_caveat": "Macquarie Ramsar component is official but still may not capture the broader vegetated floodplain."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "parent_support_id": "nwb002_ramsar_ref1291",
+      "parent_support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 1291,
+      "included_ramsar_objectids": [],
+      "included_waterbody_uids": [],
+      "parent_caveat": "Narran parent support remains the defensible event-window geometry until named Clear Lake, Back Lake, Long Arm, or lignum geometry is verified.",
+      "subunit_caveat": "Official sources verify named open-water and lignum contexts, but this goal did not find a cheap vector subunit or DEA UID relationship strong enough for inclusion."
+    },
+    {
+      "candidate_id": "NWB003",
+      "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+      "parent_support_id": "nwb003_ramsar_ref993",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 993,
+      "included_ramsar_objectids": [121],
+      "included_waterbody_uids": [],
+      "parent_caveat": "Ramsar parcels are official but narrower than the broader Gwydir wetlands.",
+      "subunit_caveat": "Gwydir Ramsar parcel is official but remains narrower than broader wetland hydrology."
+    },
+    {
+      "candidate_id": "NWB004",
+      "candidate_name": "Kerang Wetlands",
+      "parent_support_id": "nwb004_ramsar_ref265",
+      "parent_support_type": "official_ramsar_named_complex_union",
+      "ramsar_refcode": 265,
+      "included_ramsar_objectids": [354, 369],
+      "included_waterbody_uids": [],
+      "parent_caveat": "Kerang Ramsar parent is a multi-lake regulated/saline/freshwater complex.",
+      "subunit_caveat": "Kerang Ramsar components provide named lake/marsh supports but do not settle saline, freshwater, and regulation strata."
+    },
+    {
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "parent_support_id": "nwb005_ramsar_ref791",
+      "parent_support_type": "official_ramsar_named_complex_geometry",
+      "ramsar_refcode": 791,
+      "included_ramsar_objectids": [],
+      "included_waterbody_uids": ["r4yss38r6_v3", "r4ysdndx8_v3"],
+      "parent_caveat": "Currawinya parent support is whole-complex; lake-specific hydrology needs named Lake Numalla and Lake Wyara evidence.",
+      "subunit_caveat": "Goal 006 DEA Waterbodies are open-water screening supports; Goal 007 adds DIWA named lake geometry evidence."
+    }
+  ],
+  "unresolved_named_supports": [
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "parent_support_id": "nwb002_ramsar_ref1291",
+      "support_id": "nwb002_named_clear_lake_unresolved",
+      "display_name": "Clear Lake",
+      "support_type": "named_open_water_unresolved",
+      "source_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "evidence_status": "name_and_within_parent_verified_no_geometry",
+      "source_identifier": "DCCEEW Narran page; Ramsar site contains Clear Lake and Back Lake",
+      "caveat": "Name and parent relationship are documented, but no vector subunit or DEA Waterbody UID link was verified in this bounded goal."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "parent_support_id": "nwb002_ramsar_ref1291",
+      "support_id": "nwb002_named_back_lake_unresolved",
+      "display_name": "Back Lake",
+      "support_type": "named_open_water_unresolved",
+      "source_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "evidence_status": "name_and_within_parent_verified_no_geometry",
+      "source_identifier": "DCCEEW Narran page; Ramsar site contains Clear Lake and Back Lake",
+      "caveat": "Name and parent relationship are documented, but no vector subunit or DEA Waterbody UID link was verified in this bounded goal."
+    }
+  ]
+}

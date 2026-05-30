@@ -60,6 +60,22 @@ waterbirds project.
   machine-readable Goal 006 subunit hydrology-processing provenance manifest.
 - [subunit_hydrology_prototype_summary.csv](subunit_hydrology_prototype_summary.csv):
   machine-readable Goal 006 selected subunit/month hydrology metric table.
+- [named_subunit_evidence_report.md](named_subunit_evidence_report.md):
+  Goal 007 named-subunit evidence status report for Narran, Currawinya, and
+  the event-window support set.
+- [named_subunit_evidence_manifest.json](named_subunit_evidence_manifest.json):
+  machine-readable Goal 007 named-subunit source and staging provenance
+  manifest.
+- [named_subunit_crosswalk.csv](named_subunit_crosswalk.csv):
+  machine-readable Goal 007 support-set decision table.
+- [event_window_hydrology_series_report.md](event_window_hydrology_series_report.md):
+  Goal 007 event-window hydrology and time-history metric report.
+- [event_window_hydrology_series_manifest.json](event_window_hydrology_series_manifest.json):
+  machine-readable Goal 007 event-window processing provenance manifest.
+- [event_window_hydrology_series.csv](event_window_hydrology_series.csv):
+  machine-readable Goal 007 monthly support-level hydrology series.
+- [event_window_hydrology_summary.csv](event_window_hydrology_summary.csv):
+  compact Goal 007 support-level event-window review table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

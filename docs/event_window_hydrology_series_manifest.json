@@ -1,0 +1,5011 @@
+{
+  "goal": "007-named-subunit-evidence-event-series",
+  "manifest_type": "event_window_hydrology_series",
+  "metric_spec_version": "goal007-event-window-v1",
+  "started_at_utc": "2026-05-30T13:27:34.748326+00:00",
+  "finished_at_utc": "2026-05-30T14:08:51.028561+00:00",
+  "elapsed_seconds": 2476.313,
+  "command": "python3 scripts/event_window_hydrology_007.py",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+  "gdal_version": "GDAL 3.13.0 \"Iowa City\", released 2026/05/04",
+  "numpy_version": "2.4.6",
+  "config_path": "settings/event_window_hydrology_007.json",
+  "event_window": {
+    "default_start_month": "2018-01",
+    "default_end_month": "2024-12",
+    "fallback_used": true,
+    "fallback_reason": "Default 2018-01 through 2024-12 probe took about ten minutes before reaching support 2, making the 13-support local run likely to challenge the two-hour Goal 007 threshold.",
+    "start_month": "2020-01",
+    "end_month": "2024-12",
+    "rationale": "bounded fallback event window retaining the 2022 wet/flood period, recent post-wet conditions, and enough monthly history for lag, novelty, drying, cumulative, and consecutive wet/dry metrics"
+  },
+  "months": [
+    "2020-01",
+    "2020-02",
+    "2020-03",
+    "2020-04",
+    "2020-05",
+    "2020-06",
+    "2020-07",
+    "2020-08",
+    "2020-09",
+    "2020-10",
+    "2020-11",
+    "2020-12",
+    "2021-01",
+    "2021-02",
+    "2021-03",
+    "2021-04",
+    "2021-05",
+    "2021-06",
+    "2021-07",
+    "2021-08",
+    "2021-09",
+    "2021-10",
+    "2021-11",
+    "2021-12",
+    "2022-01",
+    "2022-02",
+    "2022-03",
+    "2022-04",
+    "2022-05",
+    "2022-06",
+    "2022-07",
+    "2022-08",
+    "2022-09",
+    "2022-10",
+    "2022-11",
+    "2022-12",
+    "2023-01",
+    "2023-02",
+    "2023-03",
+    "2023-04",
+    "2023-05",
+    "2023-06",
+    "2023-07",
+    "2023-08",
+    "2023-09",
+    "2023-10",
+    "2023-11",
+    "2023-12",
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "source_products": {
+    "dea_stac_search": "https://explorer.dea.ga.gov.au/stac/search",
+    "dea_collection": "ga_ls_wo_3",
+    "dea_water_observations_product": "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "dea_waterbodies_product": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details",
+    "ramsar_service_layer": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0"
+  },
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal007",
+    "event_raw": "artifacts/event_window_hydrology/raw",
+    "event_intermediate": "artifacts/event_window_hydrology/intermediate",
+    "event_output": "artifacts/event_window_hydrology/output",
+    "named_raw": "artifacts/named_subunit_evidence/raw"
+  },
+  "staged_raw_files": [
+    {
+      "path": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+      "bytes": 497145,
+      "sha256": "3486b9639434995ee3d24eaa8b064860508288366b4a4a9d4741ed9988b63bd7",
+      "committed": false
+    },
+    {
+      "path": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip",
+      "bytes": 46502008,
+      "sha256": "7f491f8487770ad237e7000ff5f3cb3b607e18abe1a0690d5ea4a6c2f3241450",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/lake_numalla_aggregation.kmz",
+      "bytes": 2988,
+      "sha256": "b1355b73274cf2c67762c9efebbfa9191e8e567706cda092d8d22f5665e46bd1",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/lake_wyara.kmz",
+      "bytes": 1781,
+      "sha256": "c8ba0beabdb821b7a194f236a8eb4544b8978061f55dcfd35f1e93e4c46e823a",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/currawinya_ramsar.kmz",
+      "bytes": 4542,
+      "sha256": "5c619b36d386a14509ded12e51dede32b09d821bd291f43f48a0a32cd66ce8b2",
+      "committed": false
+    }
+  ],
+  "cleanup_status": "raw Ramsar subset, DEA Waterbodies ZIP, and WetlandInfo KMZ files left only in ignored staging paths; not committed",
+  "outputs": {
+    "series_csv": "docs/event_window_hydrology_series.csv",
+    "summary_csv": "docs/event_window_hydrology_summary.csv",
+    "manifest_json": "docs/event_window_hydrology_series_manifest.json"
+  },
+  "support_count": 11,
+  "row_count": 660,
+  "status_counts": {
+    "blocked_event_window_processing_error": 1,
+    "computed_event_window_metrics": 659
+  },
+  "derived_metrics": [
+    "wet_area_lag_1m",
+    "wet_prop_lag_1m",
+    "wet_area_lag_3m",
+    "wet_prop_lag_3m",
+    "wet_prop_trailing_3m",
+    "wetting_delta_1m",
+    "wetting_delta_3m",
+    "novel_after_dry_flag",
+    "dry_spell_length_prior",
+    "cumulative_wet_months_12m",
+    "consecutive_wet_months",
+    "consecutive_dry_months_prior",
+    "drying_velocity_1m",
+    "drying_velocity_3m"
+  ],
+  "supports": [
+    {
+      "candidate_id": "NWB001",
+      "support_id": "nwb001_ramsar_ref337",
+      "support_type": "official_ramsar_named_complex_union",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 880,
+        "ysize": 1449,
+        "grid_pixels": 1275120,
+        "support_mask_pixels": 214506,
+        "bounds": [
+          1459830,
+          -3465630,
+          1486230,
+          -3422160
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB002",
+      "support_id": "nwb002_ramsar_ref1291",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 22,
+          "readable_scene_count": 22,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 17,
+          "readable_scene_count": 17,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 20,
+          "readable_scene_count": 20,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 17,
+          "readable_scene_count": 17,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 403,
+        "ysize": 414,
+        "grid_pixels": 166842,
+        "support_mask_pixels": 93937,
+        "bounds": [
+          1466190,
+          -3327930,
+          1478280,
+          -3315510
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB003",
+      "support_id": "nwb003_ramsar_ref993",
+      "support_type": "official_ramsar_named_complex_union",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 20,
+          "readable_scene_count": 20,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 18,
+          "readable_scene_count": 18,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 920,
+        "ysize": 722,
+        "grid_pixels": 664240,
+        "support_mask_pixels": 9371,
+        "bounds": [
+          1637700,
+          -3304830,
+          1665300,
+          -3283170
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB004",
+      "support_id": "nwb004_ramsar_ref265",
+      "support_type": "official_ramsar_named_complex_union",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 20,
+          "readable_scene_count": 20,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 23,
+          "readable_scene_count": 23,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 24,
+          "readable_scene_count": 24,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 17,
+          "readable_scene_count": 17,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "blocked_event_window_processing_error",
+          "caveat": "The read operation timed out"
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 1138,
+        "ysize": 1523,
+        "grid_pixels": 1733174,
+        "support_mask_pixels": 108814,
+        "bounds": [
+          1057230,
+          -3971910,
+          1091370,
+          -3926220
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB005",
+      "support_id": "nwb005_ramsar_ref791",
+      "support_type": "official_ramsar_named_complex_geometry",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 4,
+          "readable_scene_count": 4,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 2445,
+        "ysize": 1386,
+        "grid_pixels": 3388770,
+        "support_mask_pixels": 1676254,
+        "bounds": [
+          1172250,
+          -3208110,
+          1245600,
+          -3166530
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB001",
+      "support_id": "nwb001_ramsar_component_359",
+      "support_type": "ramsar_component",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 544,
+        "ysize": 1449,
+        "grid_pixels": 788256,
+        "support_mask_pixels": 208413,
+        "bounds": [
+          1459830,
+          -3465630,
+          1476150,
+          -3422160
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB003",
+      "support_id": "nwb003_ramsar_component_121",
+      "support_type": "ramsar_component",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 15,
+          "readable_scene_count": 15,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 126,
+        "ysize": 101,
+        "grid_pixels": 12726,
+        "support_mask_pixels": 6752,
+        "bounds": [
+          1656090,
+          -3304830,
+          1659870,
+          -3301800
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB004",
+      "support_id": "nwb004_ramsar_component_354",
+      "support_type": "ramsar_component",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 13,
+          "readable_scene_count": 13,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 80,
+        "ysize": 205,
+        "grid_pixels": 16400,
+        "support_mask_pixels": 8601,
+        "bounds": [
+          1071420,
+          -3948480,
+          1073820,
+          -3942330
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB004",
+      "support_id": "nwb004_ramsar_component_369",
+      "support_type": "ramsar_component",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 14,
+          "readable_scene_count": 14,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 16,
+          "readable_scene_count": 16,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 12,
+          "readable_scene_count": 12,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 107,
+        "ysize": 184,
+        "grid_pixels": 19688,
+        "support_mask_pixels": 7825,
+        "bounds": [
+          1066650,
+          -3942180,
+          1069860,
+          -3936660
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB005",
+      "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+      "support_type": "dea_waterbody_overlap",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 4,
+          "readable_scene_count": 4,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 374,
+        "ysize": 511,
+        "grid_pixels": 191114,
+        "support_mask_pixels": 45137,
+        "bounds": [
+          1184130,
+          -3188520,
+          1195350,
+          -3173190
+        ]
+      }
+    },
+    {
+      "candidate_id": "NWB005",
+      "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+      "support_type": "dea_waterbody_overlap",
+      "months": [
+        {
+          "month": "2020-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2020-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 5,
+          "readable_scene_count": 5,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2021-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 9,
+          "readable_scene_count": 9,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 10,
+          "readable_scene_count": 10,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 11,
+          "readable_scene_count": 11,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 4,
+          "readable_scene_count": 4,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2022-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2023-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-01",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-02",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-03",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-04",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-05",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-06",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-07",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-08",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-09",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 8,
+          "readable_scene_count": 8,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-10",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-11",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 7,
+          "readable_scene_count": 7,
+          "skipped_scene_count": 0
+        },
+        {
+          "month": "2024-12",
+          "status": "computed_event_window_metrics",
+          "stac_items_found": 6,
+          "readable_scene_count": 6,
+          "skipped_scene_count": 0
+        }
+      ],
+      "reference_grid": {
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 203,
+        "ysize": 467,
+        "grid_pixels": 94801,
+        "support_mask_pixels": 42385,
+        "bounds": [
+          1176060,
+          -3183180,
+          1182150,
+          -3169170
+        ]
+      }
+    }
+  ],
+  "git_commit_at_run": "0e669d6"
+}

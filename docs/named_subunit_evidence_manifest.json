@@ -1,0 +1,172 @@
+{
+  "goal": "007-named-subunit-evidence-event-series",
+  "manifest_type": "named_subunit_evidence",
+  "accessed_at_utc": "2026-05-30T14:08:51.028561+00:00",
+  "command": "python3 scripts/event_window_hydrology_007.py",
+  "config_path": "settings/event_window_hydrology_007.json",
+  "source_urls": {
+    "ramsar_service_layer": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0",
+    "ramsar_service_query": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0/query?where=REFCODE+IN+%28337%2C1291%2C993%2C265%2C791%29&outFields=OBJECTID%2CREFCODE%2CSTATE%2CAREA_HA%2CTOTAL_SITE_AREA_HA%2CSOURCE%2CRAMSAR_NAME%2CWETLAND_NAME%2CJURISDICTION%2CGAZETTED_AREA_HA%2CWETLANDSDB_URL%2CMETADATA_URL&returnGeometry=true&outSR=4326&f=geojson",
+    "dea_waterbodies_product": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details",
+    "dea_waterbodies_zip": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/dea_waterbodies/3-0-0/shapefile/ga_ls_wb_3_v3.zip",
+    "narran_dcceew_page": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+    "currawinya_named_geometry_pages": [
+      "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-numalla-aggregation/",
+      "https://wetlandinfo.des.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-wyara/",
+      "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/ramsar-wetland-currawinya-lakes/"
+    ]
+  },
+  "staged_raw_files": [
+    {
+      "path": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+      "bytes": 497145,
+      "sha256": "3486b9639434995ee3d24eaa8b064860508288366b4a4a9d4741ed9988b63bd7",
+      "committed": false
+    },
+    {
+      "path": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip",
+      "bytes": 46502008,
+      "sha256": "7f491f8487770ad237e7000ff5f3cb3b607e18abe1a0690d5ea4a6c2f3241450",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/lake_numalla_aggregation.kmz",
+      "bytes": 2988,
+      "sha256": "b1355b73274cf2c67762c9efebbfa9191e8e567706cda092d8d22f5665e46bd1",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/lake_wyara.kmz",
+      "bytes": 1781,
+      "sha256": "c8ba0beabdb821b7a194f236a8eb4544b8978061f55dcfd35f1e93e4c46e823a",
+      "committed": false
+    },
+    {
+      "path": "artifacts/named_subunit_evidence/raw/currawinya_ramsar.kmz",
+      "bytes": 4542,
+      "sha256": "5c619b36d386a14509ded12e51dede32b09d821bd291f43f48a0a32cd66ce8b2",
+      "committed": false
+    }
+  ],
+  "named_geometry_sources": [
+    {
+      "support_id": "nwb005_diwa_lake_numalla_aggregation",
+      "path": "artifacts/named_subunit_evidence/raw/lake_numalla_aggregation.kmz",
+      "bytes": 2988,
+      "sha256": "b1355b73274cf2c67762c9efebbfa9191e8e567706cda092d8d22f5665e46bd1",
+      "area_m2": 107140543.253,
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-numalla-aggregation/",
+      "download_url": "https://wetlandinfo.detsi.qld.gov.au/resources/wetland-summary/area/diwa-wetland/kml/diwa-wetland-lake-numalla-aggregation.kmz",
+      "top_dea_waterbody_uid": "r4yss38r6_v3",
+      "top_overlap_area_m2": 34969516.541,
+      "expected_related_dea_uid": "r4yss38r6_v3",
+      "expected_uid_overlap_area_m2": 34969516.541,
+      "expected_uid_overlap_fraction_of_named_support": 0.326389,
+      "expected_uid_overlap_fraction_of_dea_waterbody": 0.774467,
+      "committed": false
+    },
+    {
+      "support_id": "nwb005_diwa_lake_wyara",
+      "path": "artifacts/named_subunit_evidence/raw/lake_wyara.kmz",
+      "bytes": 1781,
+      "sha256": "c8ba0beabdb821b7a194f236a8eb4544b8978061f55dcfd35f1e93e4c46e823a",
+      "area_m2": 60146329.968,
+      "source_url": "https://wetlandinfo.des.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-wyara/",
+      "download_url": "https://wetlandinfo.des.qld.gov.au/resources/wetland-summary/area/diwa-wetland/kml/diwa-wetland-lake-wyara.kmz",
+      "top_dea_waterbody_uid": "r4ysdndx8_v3",
+      "top_overlap_area_m2": 47140304.89,
+      "expected_related_dea_uid": "r4ysdndx8_v3",
+      "expected_uid_overlap_area_m2": 47140304.89,
+      "expected_uid_overlap_fraction_of_named_support": 0.78376,
+      "expected_uid_overlap_fraction_of_dea_waterbody": 0.958551,
+      "committed": false
+    },
+    {
+      "support_id": "nwb005_wetlandinfo_currawinya_ramsar",
+      "path": "artifacts/named_subunit_evidence/raw/currawinya_ramsar.kmz",
+      "bytes": 4542,
+      "sha256": "5c619b36d386a14509ded12e51dede32b09d821bd291f43f48a0a32cd66ce8b2",
+      "area_m2": 1508647510.848,
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/ramsar-wetland-currawinya-lakes/",
+      "download_url": "https://wetlandinfo.detsi.qld.gov.au/resources/wetland-summary/area/ramsar-wetland/kml/ramsar-wetland-currawinya-lakes.kmz",
+      "top_dea_waterbody_uid": "r4yss38r6_v3",
+      "top_overlap_area_m2": 40625356.966,
+      "expected_related_dea_uid": "",
+      "expected_uid_overlap_area_m2": "",
+      "expected_uid_overlap_fraction_of_named_support": "",
+      "expected_uid_overlap_fraction_of_dea_waterbody": "",
+      "committed": false
+    }
+  ],
+  "source_checks": [
+    {
+      "support_id": "nwb005_diwa_lake_numalla_aggregation",
+      "display_name": "Lake Numalla Aggregation",
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-numalla-aggregation/",
+      "proves_name": true,
+      "proves_approx_location": true,
+      "proves_geometry": true,
+      "proves_dea_uid_relationship": true,
+      "related_dea_waterbody_uid": "r4yss38r6_v3",
+      "evidence_status": "official_named_geometry_linked_to_dea_waterbody",
+      "unresolved": ""
+    },
+    {
+      "support_id": "nwb005_diwa_lake_wyara",
+      "display_name": "Lake Wyara",
+      "source_url": "https://wetlandinfo.des.qld.gov.au/wetlands/facts-maps/diwa-wetland-lake-wyara/",
+      "proves_name": true,
+      "proves_approx_location": true,
+      "proves_geometry": true,
+      "proves_dea_uid_relationship": true,
+      "related_dea_waterbody_uid": "r4ysdndx8_v3",
+      "evidence_status": "official_named_geometry_linked_to_dea_waterbody",
+      "unresolved": ""
+    },
+    {
+      "support_id": "nwb005_wetlandinfo_currawinya_ramsar",
+      "display_name": "Currawinya Lakes WetlandInfo Ramsar boundary",
+      "source_url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/facts-maps/ramsar-wetland-currawinya-lakes/",
+      "proves_name": true,
+      "proves_approx_location": true,
+      "proves_geometry": true,
+      "proves_dea_uid_relationship": false,
+      "related_dea_waterbody_uid": "",
+      "evidence_status": "official_named_geometry",
+      "unresolved": "No configured DEA Waterbody UID relationship was required or proved."
+    },
+    {
+      "support_id": "nwb002_named_clear_lake_unresolved",
+      "display_name": "Clear Lake",
+      "source_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "proves_name": true,
+      "proves_approx_location": true,
+      "proves_geometry": false,
+      "proves_dea_uid_relationship": false,
+      "related_dea_waterbody_uid": "",
+      "evidence_status": "name_and_within_parent_verified_no_geometry",
+      "unresolved": "Name and parent relationship are documented, but no vector subunit or DEA Waterbody UID link was verified in this bounded goal."
+    },
+    {
+      "support_id": "nwb002_named_back_lake_unresolved",
+      "display_name": "Back Lake",
+      "source_url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "proves_name": true,
+      "proves_approx_location": true,
+      "proves_geometry": false,
+      "proves_dea_uid_relationship": false,
+      "related_dea_waterbody_uid": "",
+      "evidence_status": "name_and_within_parent_verified_no_geometry",
+      "unresolved": "Name and parent relationship are documented, but no vector subunit or DEA Waterbody UID link was verified in this bounded goal."
+    }
+  ],
+  "crosswalk_rows": 15,
+  "included_support_count": 11,
+  "unresolved_named_support_count": 2,
+  "cleanup_status": "raw Ramsar subset, DEA Waterbodies ZIP, and WetlandInfo KMZ files left only in ignored staging paths; not committed",
+  "outputs": {
+    "crosswalk_csv": "docs/named_subunit_crosswalk.csv",
+    "manifest_json": "docs/named_subunit_evidence_manifest.json"
+  },
+  "git_commit_at_run": "0e669d6"
+}
