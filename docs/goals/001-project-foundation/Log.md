@@ -34,3 +34,5 @@
   -not -path './.git/*'` found no large files; targeted unfinished-language
   scan found no matches in the new foundation files; local Markdown link check
   resolved all foundation links.
+- 2026-05-30: Foundation package committed as `470c2ff` (`Add reproducible
+  research foundation`) and pushed to `origin/main`.
