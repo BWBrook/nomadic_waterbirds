@@ -66,6 +66,9 @@ waterbirds project.
 - [goals/006-documented-subunit-hydrology-prototype/](goals/006-documented-subunit-hydrology-prototype/):
   Goal 006 package for documenting parent-child wetland subunits and bounded
   subunit hydrology metrics.
+- [goals/007-named-subunit-evidence-event-series/](goals/007-named-subunit-evidence-event-series/):
+  Goal 007 package for strengthening named-subunit evidence and building a
+  bounded event-window hydrology series.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
