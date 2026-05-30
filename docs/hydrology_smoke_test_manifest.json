@@ -1,0 +1,228 @@
+{
+  "goal": "004-hydrology-extraction-smoke-test",
+  "metric_spec_version": "goal004-smoke-v1",
+  "started_at_utc": "2026-05-30T10:31:59.766242+00:00",
+  "command": "python3 scripts/hydrology_smoke_test_004.py",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+  "gdal_version": "GDAL 3.13.0 \"Iowa City\", released 2026/05/04",
+  "config_path": "settings/hydrology_smoke_test_004.json",
+  "crosswalk_path": "docs/prototype_wetland_unit_crosswalk.csv",
+  "source_urls": {
+    "stac_search": "https://explorer.dea.ga.gov.au/stac/search",
+    "dea_water_observations_product": "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "dea_waterbodies_product": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=details"
+  },
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal004",
+    "raw": "artifacts/hydrology_smoke/raw",
+    "intermediate": "artifacts/hydrology_smoke/intermediate",
+    "ignored_output": "artifacts/hydrology_smoke/output"
+  },
+  "staged_raw_files": [],
+  "staged_file_sizes_bytes": {},
+  "cleanup_status": "no raw source files were downloaded; ignored scratch directories were created only",
+  "candidates": [
+    {
+      "candidate_id": "NWB001",
+      "candidate_name": "Macquarie Marshes",
+      "probe_lon": 147.55,
+      "probe_lat": -30.75,
+      "months": [
+        {
+          "month": "2019-01",
+          "stac_query_sha256": "3baf556dad1ed32d9921a9805ee894d5a211d90063a27193f7ecb4098e812efb",
+          "stac_items_found": 10,
+          "selected_item_id": "0254cfe3-14d5-5ebd-8c58-ef467b2bffcf",
+          "selected_datetime_utc": "2019-01-12T00:01:18.576377Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/092/081/2019/01/12/ga_ls_wo_3_092081_2019-01-12_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2022-11",
+          "stac_query_sha256": "91736bc65eed2678ed98713a7b8fdc41b25f4d769a24d446031098fe135b1fcf",
+          "stac_items_found": 10,
+          "selected_item_id": "20dd554d-da70-5c8a-81e5-c711afc335f4",
+          "selected_datetime_utc": "2022-11-04T00:02:06.329649Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/04/ga_ls_wo_3_092081_2022-11-04_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2024-03",
+          "stac_query_sha256": "3ec65ef3dcb69cb4e6b5df10e25ef20dcacb0fc3d15dfa9c8ccd85c2cc3447b7",
+          "stac_items_found": 10,
+          "selected_item_id": "22e58fed-ed62-538d-8bc2-2d87ceb8265d",
+          "selected_datetime_utc": "2024-03-06T00:01:38.782869Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/092/081/2024/03/06/ga_ls_wo_3_092081_2024-03-06_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        }
+      ]
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "probe_lon": 147.48,
+      "probe_lat": -29.78,
+      "months": [
+        {
+          "month": "2019-01",
+          "stac_query_sha256": "185bad10c99a0b03fce914d9e6c7d170123abda65e32739cec65bf1a70826ecf",
+          "stac_items_found": 10,
+          "selected_item_id": "5d5e264f-194f-5a8b-8ff6-eaca8518a259",
+          "selected_datetime_utc": "2019-01-03T00:07:06.768013Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/093/080/2019/01/03/ga_ls_wo_3_093080_2019-01-03_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2022-11",
+          "stac_query_sha256": "649a0a531a507ded0b336b4edb01c1244220a47a960d98044f0adfcfa85418d4",
+          "stac_items_found": 10,
+          "selected_item_id": "60d30ce5-8417-5509-a882-2812e7fcb75a",
+          "selected_datetime_utc": "2022-11-03T00:07:38.838589Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/03/ga_ls_wo_3_093080_2022-11-03_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2024-03",
+          "stac_query_sha256": "d874801377399819f0e909d0d91768c42f4486bbd5fd311a136d55f17399f48e",
+          "stac_items_found": 10,
+          "selected_item_id": "9b54880c-fcc2-55d7-8847-6440b333b847",
+          "selected_datetime_utc": "2024-03-05T00:07:08.693719Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/093/080/2024/03/05/ga_ls_wo_3_093080_2024-03-05_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        }
+      ]
+    },
+    {
+      "candidate_id": "NWB003",
+      "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+      "probe_lon": 149.28,
+      "probe_lat": -29.31,
+      "months": [
+        {
+          "month": "2019-01",
+          "stac_query_sha256": "09e22652c88abafa61cb9cbe00e8913038bc490baa944902d009fcd4a981b11c",
+          "stac_items_found": 10,
+          "selected_item_id": "926dcd62-2ad4-5efb-b2d0-6f4eb96aac00",
+          "selected_datetime_utc": "2019-01-04T23:54:44.938753Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/091/080/2019/01/04/ga_ls_wo_3_091080_2019-01-04_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2022-11",
+          "stac_query_sha256": "ab98830bbf8938445a52393f98d3ca4e718c334ecd4b347ee7cc6edbfc5d7b43",
+          "stac_items_found": 10,
+          "selected_item_id": "9ffa069e-ad59-5a75-aaa1-abd46c38d767",
+          "selected_datetime_utc": "2022-11-20T23:55:20.995901Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/20/ga_ls_wo_3_091080_2022-11-20_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2024-03",
+          "stac_query_sha256": "4ec97ef9a2a02814c7191ad06a76cef02874ccd2ac557dfd185a6fcb2e819abd",
+          "stac_items_found": 10,
+          "selected_item_id": "9b26b632-cfe2-578c-94ee-a1bc63b5b59b",
+          "selected_datetime_utc": "2024-03-06T23:54:44.644565Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/091/080/2024/03/06/ga_ls_wo_3_091080_2024-03-06_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        }
+      ]
+    },
+    {
+      "candidate_id": "NWB004",
+      "candidate_name": "Kerang Wetlands",
+      "probe_lon": 143.78,
+      "probe_lat": -35.72,
+      "months": [
+        {
+          "month": "2019-01",
+          "stac_query_sha256": "abe3235c4b710240ea6ea49c436d3028415487e5b28da2aaf9ed53799f655467",
+          "stac_items_found": 7,
+          "selected_item_id": "a36cdee9-23b2-53a4-9a2c-10473692553e",
+          "selected_datetime_utc": "2019-01-26T00:15:12.469631Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/094/085/2019/01/26/ga_ls_wo_3_094085_2019-01-26_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2022-11",
+          "stac_query_sha256": "d2ff893af71371f26b7986206035d8a65df160130ba86ad8f4b27b27b2eea141",
+          "stac_items_found": 5,
+          "selected_item_id": "03a505e3-090e-5077-8bb9-ea1e71963763",
+          "selected_datetime_utc": "2022-11-18T00:15:55.745978Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/18/ga_ls_wo_3_094085_2022-11-18_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2024-03",
+          "stac_query_sha256": "79544608df07b647d936e8a11b6697dfcbdd57ce3e375c4aae9beaf8b374fc13",
+          "stac_items_found": 8,
+          "selected_item_id": "5afc3223-2562-505c-9749-7b688c0654e1",
+          "selected_datetime_utc": "2024-03-04T00:15:35.854116Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/094/085/2024/03/04/ga_ls_wo_3_094085_2024-03-04_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        }
+      ]
+    },
+    {
+      "candidate_id": "NWB005",
+      "candidate_name": "Currawinya Lakes",
+      "probe_lon": 144.34,
+      "probe_lat": -28.78,
+      "months": [
+        {
+          "month": "2019-01",
+          "stac_query_sha256": "0643a5c6369fe23459eb6d46bc8da314cb2e165b98800d20c8ea11627d4e052c",
+          "stac_items_found": 8,
+          "selected_item_id": "3e2c18e2-8d30-5eb8-8f40-1bbd1577808a",
+          "selected_datetime_utc": "2019-01-01T00:19:28.563414Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/095/080/2019/01/01/ga_ls_wo_3_095080_2019-01-01_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2022-11",
+          "stac_query_sha256": "a30bb1a8f5192485e577ec718b1dd06ce2642860e02cc445304546a9f1da7c5e",
+          "stac_items_found": 8,
+          "selected_item_id": "f9ab7980-c427-5e96-90f0-a76060da67ba",
+          "selected_datetime_utc": "2022-11-01T00:20:01.562039Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/01/ga_ls_wo_3_095080_2022-11-01_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        },
+        {
+          "month": "2024-03",
+          "stac_query_sha256": "08ad24965e047c0a9f883cd48f9d0462acbb478925830d5d52ef2d3b2d2ffc47",
+          "stac_items_found": 7,
+          "selected_item_id": "27920f06-9d2a-5438-bee3-ef28b42b983c",
+          "selected_datetime_utc": "2024-03-04T00:13:36.102518Z",
+          "selected_asset_href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/094/080/2024/03/04/ga_ls_wo_3_094080_2024-03-04_final_water.tif",
+          "status": "computed_tiny_probe_metrics",
+          "quality_flag": "quality_high"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "summary_csv": "docs/hydrology_smoke_test_summary.csv",
+    "manifest_json": "docs/hydrology_smoke_test_manifest.json"
+  },
+  "finished_at_utc": "2026-05-30T10:32:40.149247+00:00",
+  "elapsed_seconds": 40.383,
+  "summary_row_count": 15,
+  "status_counts": {
+    "computed_tiny_probe_metrics": 15
+  },
+  "git_commit_at_run": "376ff11"
+}

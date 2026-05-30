@@ -29,6 +29,12 @@ waterbirds project.
   003 public metadata and product-access checks.
 - [decision_memo_003.md](decision_memo_003.md): supervisor-facing Goal 003
   recommendation.
+- [hydrology_smoke_test_report.md](hydrology_smoke_test_report.md): Goal 004
+  hydrology-only extraction smoke-test report.
+- [hydrology_smoke_test_manifest.json](hydrology_smoke_test_manifest.json):
+  machine-readable Goal 004 provenance and resource manifest.
+- [hydrology_smoke_test_summary.csv](hydrology_smoke_test_summary.csv):
+  machine-readable Goal 004 candidate/support/month summary table.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

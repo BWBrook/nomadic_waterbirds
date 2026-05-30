@@ -1,0 +1,76 @@
+{
+  "metric_spec_version": "goal004-smoke-v1",
+  "stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "dea_collection": "ga_ls_wo_3",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 assets",
+  "months": [
+    {
+      "month": "2019-01",
+      "rationale": "late-Millennium-drought-style dry baseline screen"
+    },
+    {
+      "month": "2022-11",
+      "rationale": "major eastern Australian wet/flood period screen"
+    },
+    {
+      "month": "2024-03",
+      "rationale": "recent post-wet-period screen inside current DEA coverage"
+    }
+  ],
+  "stac_limit": 10,
+  "probe_half_window_pixels": 1,
+  "probe_bbox_half_width_degrees": 0.01,
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal004",
+    "raw": "artifacts/hydrology_smoke/raw",
+    "intermediate": "artifacts/hydrology_smoke/intermediate",
+    "ignored_output": "artifacts/hydrology_smoke/output"
+  },
+  "outputs": {
+    "summary_csv": "docs/hydrology_smoke_test_summary.csv",
+    "manifest_json": "docs/hydrology_smoke_test_manifest.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "NWB001",
+      "probe_lon": 147.55,
+      "probe_lat": -30.75,
+      "support_id": "nwb001_probe_3x3",
+      "support_type": "tiny_probe_aoi",
+      "probe_caveat": "Analyst-chosen tiny Macquarie Marshes AOI for product-access smoke only; not an official wetland mask."
+    },
+    {
+      "candidate_id": "NWB002",
+      "probe_lon": 147.48,
+      "probe_lat": -29.78,
+      "support_id": "nwb002_probe_3x3",
+      "support_type": "tiny_probe_aoi",
+      "probe_caveat": "Analyst-chosen tiny Narran Lakes AOI for product-access smoke only; not an official wetland mask."
+    },
+    {
+      "candidate_id": "NWB003",
+      "probe_lon": 149.28,
+      "probe_lat": -29.31,
+      "support_id": "nwb003_probe_3x3",
+      "support_type": "tiny_probe_aoi",
+      "probe_caveat": "Analyst-chosen tiny Gwydir Wetlands AOI for product-access smoke only; not an official wetland mask."
+    },
+    {
+      "candidate_id": "NWB004",
+      "probe_lon": 143.78,
+      "probe_lat": -35.72,
+      "support_id": "nwb004_probe_3x3",
+      "support_type": "tiny_probe_aoi",
+      "probe_caveat": "Analyst-chosen tiny Kerang Wetlands AOI for product-access smoke only; not an official wetland mask."
+    },
+    {
+      "candidate_id": "NWB005",
+      "probe_lon": 144.34,
+      "probe_lat": -28.78,
+      "support_id": "nwb005_probe_3x3",
+      "support_type": "tiny_probe_aoi",
+      "probe_caveat": "Analyst-chosen tiny Currawinya Lakes AOI for product-access smoke only; not an official wetland mask."
+    }
+  ]
+}
