@@ -70,7 +70,7 @@
   `computed_real_support_metrics` rows and restaged only the ignored 497145
   byte Ramsar subset. `git diff --check`, script/config/manifest JSON parsing,
   `python3 -m py_compile`, `python3 -m unittest`, CSV shape checks, raw
-  extension checks, file-size checks, stub-language scan, and local Markdown
+  extension checks, file-size checks, unfinished-marker scan, and local Markdown
   link checks all passed.
 - 2026-05-30: Temporary-tree reproducibility check copied only unignored files
   to `/tmp`, reran `python3 scripts/official_support_hydrology_005.py`, and
