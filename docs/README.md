@@ -50,6 +50,9 @@ waterbirds project.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
+- [goals/006-documented-subunit-hydrology-prototype/](goals/006-documented-subunit-hydrology-prototype/):
+  Goal 006 package for documenting parent-child wetland subunits and bounded
+  subunit hydrology metrics.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
