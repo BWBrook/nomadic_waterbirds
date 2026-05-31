@@ -126,6 +126,9 @@ waterbirds project.
 - [goals/009-remote-full-window-hydrology-scale-up/](goals/009-remote-full-window-hydrology-scale-up/):
   Goal 009 package for retry/backoff hardening and remote full-window
   hydrology scale-up on `deep-server-ts`.
+- [goals/010-hydrology-recovery-resume/](goals/010-hydrology-recovery-resume/):
+  Goal 010 package for service-stability preflight and conditional recovery of
+  the Goal 009 endpoint-blocked full-window hydrology table.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
