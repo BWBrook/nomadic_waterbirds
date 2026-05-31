@@ -1,0 +1,3293 @@
+{
+  "goal": "016-direct-s3-all-support-probe",
+  "manifest_type": "direct_s3_all_support_probe_016",
+  "created_at_utc": "2026-05-31T13:14:30.701234+00:00",
+  "accessed_date": "2026-05-31",
+  "command": "python3 scripts/direct_s3_all_support_probe_016.py --reuse-ignored-cache",
+  "config_path": "settings/direct_s3_all_support_probe_016.json",
+  "reuse_ignored_cache": true,
+  "git_head_at_run": "d9162e3e2b70c6de320472733ae6f62f6fddbc71",
+  "git_status_at_run": "## main...origin/main\n M docs/goals/016-direct-s3-all-support-probe/Log.md\n?? docs/compute_routing_memo_016.md\n?? docs/direct_s3_all_support_probe_016_comparison.csv\n?? docs/direct_s3_all_support_probe_016_manifest.json\n?? docs/direct_s3_all_support_probe_016_report.md\n?? docs/direct_s3_all_support_probe_016_summary.csv\n?? docs/direct_s3_all_support_probe_016_support_summary.csv\n?? scripts/direct_s3_all_support_probe_016.py\n?? settings/direct_s3_all_support_probe_016.json\n?? tests/test_goal016_direct_s3_all_support_probe.py",
+  "host_facts": {
+    "hostname": "deep-server",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python_version": "3.12.3",
+    "gdal_version": "GDAL 3.8.4, released 2024/02/08"
+  },
+  "run_host_label": "deep-server-ts",
+  "remote_compute_used": true,
+  "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal016",
+  "route_evidence_source": "artifacts/direct_s3_all_support_probe_016/output/route_evidence_016.json",
+  "compute_route_evidence": {
+    "status": "deep_server_ts_probe_passed",
+    "created_at_utc": "2026-05-31T13:11:25.270200+00:00",
+    "preferred_host": "deep-server-ts",
+    "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal016",
+    "probe": {
+      "ssh": "passed",
+      "hostname": "deep-server",
+      "cpu_count": 64,
+      "memory_total": "125Gi",
+      "disk_data_available": "4.5T",
+      "python_version": "3.12.3",
+      "gdal_version": "3.8.4",
+      "git_version": "2.43.0",
+      "s3_head_status": "HTTP 200",
+      "numpy_version": "1.26.4",
+      "osgeo_python_bindings": "available"
+    },
+    "remote_focused_tests": {
+      "command": "python3 -m unittest tests.test_goal016_direct_s3_all_support_probe",
+      "status": "passed",
+      "tests_run": 6
+    },
+    "remote_smoke_status": "passed_with_area_tolerance_update",
+    "remote_smoke": {
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2022-11",
+      "command": "python3 scripts/direct_s3_all_support_probe_016.py --support-id nwb002_ramsar_ref1291 --month 2022-11 --run-host-label deep-server-ts --remote-workdir /data/codex/repos/nomadic_waterbirds_goal016",
+      "summary_rows": 1,
+      "status_counts": {
+        "computed_direct_s3_metrics": 1
+      },
+      "elapsed_seconds": 12.288,
+      "goal015_goal014_hash_count_status": "matched",
+      "area_difference_m2_vs_goal015_goal014": 2.367188,
+      "area_tolerance_m2_for_full_run": 5.0
+    }
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as readable scenes or invalid observations.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv",
+    "source_goal": "015-comparator-baseline-repair"
+  },
+  "support_count": 11,
+  "support_source_row_count": 11,
+  "support_ids": [
+    "nwb001_ramsar_component_359",
+    "nwb001_ramsar_ref337",
+    "nwb002_ramsar_ref1291",
+    "nwb003_ramsar_component_121",
+    "nwb003_ramsar_ref993",
+    "nwb004_ramsar_component_354",
+    "nwb004_ramsar_component_369",
+    "nwb004_ramsar_ref265",
+    "nwb005_dea_waterbody_r4ysdndx8_v3",
+    "nwb005_dea_waterbody_r4yss38r6_v3",
+    "nwb005_ramsar_ref791"
+  ],
+  "support_path_rows": {
+    "nwb001_ramsar_component_359": [
+      "092/081",
+      "092/082"
+    ],
+    "nwb001_ramsar_ref337": [
+      "092/081",
+      "092/082"
+    ],
+    "nwb002_ramsar_ref1291": [
+      "092/081",
+      "093/080",
+      "093/081"
+    ],
+    "nwb003_ramsar_component_121": [
+      "091/080"
+    ],
+    "nwb003_ramsar_ref993": [
+      "091/080",
+      "092/080"
+    ],
+    "nwb004_ramsar_component_354": [
+      "093/085",
+      "094/085"
+    ],
+    "nwb004_ramsar_component_369": [
+      "094/085"
+    ],
+    "nwb004_ramsar_ref265": [
+      "093/085",
+      "094/085"
+    ],
+    "nwb005_dea_waterbody_r4ysdndx8_v3": [
+      "094/080",
+      "095/080"
+    ],
+    "nwb005_dea_waterbody_r4yss38r6_v3": [
+      "094/080",
+      "095/080"
+    ],
+    "nwb005_ramsar_ref791": [
+      "094/080",
+      "095/080"
+    ]
+  },
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "expected_summary_row_count": 33,
+  "summary_row_count": 33,
+  "status_counts": {
+    "computed_direct_s3_metrics": 33
+  },
+  "summary_row_hash": "8cfc1e80c5a7912b572f1f929576e67358cb1b11be04f75992538761f0a47bf0",
+  "support_summary_row_count": 11,
+  "comparison_summary": {
+    "row_count": 39,
+    "status_counts": {
+      "missing_or_blocked_reference": 8,
+      "wetness_diff": 6,
+      "wetness_within_tolerance_denominator_diff": 14,
+      "within_tolerance": 11
+    },
+    "nwb002_goal015_goal014_statuses": [
+      "within_tolerance",
+      "within_tolerance",
+      "within_tolerance",
+      "within_tolerance",
+      "within_tolerance",
+      "within_tolerance"
+    ],
+    "nwb002_goal015_goal014_all_within_tolerance": true,
+    "legacy_denominator_only_count": 14,
+    "legacy_wetness_diff_count": 6
+  },
+  "extraction_records": {
+    "read_records": [
+      {
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2018-01",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "a308874efb06f5ce883ad07168de2a60a3dd8493b720e7e43b5fb273d7efcf57",
+        "item_id_hash": "72ff01e8bdeb8824de822d59c0962b7f72ab120db01b8d6ec1c271343a0dcff2",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2022-11",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "d59bd137ffa97eeae3c4eafa5feefe00ec19cdd8d1674d19e76fa1de8d3e0a55",
+        "item_id_hash": "76d360edeac22aac1a249c3bef1cdcfe4a6c775fc1dd2317bdec96bc9762c028",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2024-12",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "5f28731c027ec485948cdabe0536962302d0cf4b21fed28530abf4d71cd12f95",
+        "item_id_hash": "43f40bbf9647a0c65123490332e36867f3a645f430099e1530b69b355f3dc663",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2018-01",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "a308874efb06f5ce883ad07168de2a60a3dd8493b720e7e43b5fb273d7efcf57",
+        "item_id_hash": "72ff01e8bdeb8824de822d59c0962b7f72ab120db01b8d6ec1c271343a0dcff2",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2022-11",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "d59bd137ffa97eeae3c4eafa5feefe00ec19cdd8d1674d19e76fa1de8d3e0a55",
+        "item_id_hash": "76d360edeac22aac1a249c3bef1cdcfe4a6c775fc1dd2317bdec96bc9762c028",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2024-12",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "5f28731c027ec485948cdabe0536962302d0cf4b21fed28530abf4d71cd12f95",
+        "item_id_hash": "43f40bbf9647a0c65123490332e36867f3a645f430099e1530b69b355f3dc663",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2018-01",
+        "direct_s3_item_count": 9,
+        "readable_scene_count": 9,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "98b89e47d6708aeda539200bbd5fb0d0bfb8adb7fd84f78a616e3da07a0be4bd",
+        "item_id_hash": "e3821ff32ab24f39fe9521bf44773f2089f0a38baf030f1f7474b7bdf68aa764",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2022-11",
+        "direct_s3_item_count": 11,
+        "readable_scene_count": 11,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "0bcf1ec8fe4dc69f76d824983e94a910d02aeaf02a77ba4fb48dc3d40b2b17ef",
+        "item_id_hash": "d959fefa7881ba67adbe6acd713a67fe769b63f4a40afd5e2f9b777aab179395",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2024-12",
+        "direct_s3_item_count": 11,
+        "readable_scene_count": 11,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "3a592bbc87be91945772b6f1e5961e66d2c626b59bfd54cfe29255e50af00ca0",
+        "item_id_hash": "27e7e53bbb40cddf542e0ee4b3929d4f7728ffdcb4a60952d40e076407a5706c",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2018-01",
+        "direct_s3_item_count": 4,
+        "readable_scene_count": 4,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "a80392b7f0e2548b614785360cecb870215cb38c268c7a27d3cf5c7b13a34255",
+        "item_id_hash": "f87d9e239502d503aa9d3538360d1a9c33c73156d08748bbd44bd0a5efc68d20",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2022-11",
+        "direct_s3_item_count": 4,
+        "readable_scene_count": 4,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "e17657083282892f9098c2956d46b4daa69ea71e2d6e3f7c47c8fc80d6eaaf06",
+        "item_id_hash": "de52afb61591ac198118e62d993c790785e8143db45983bd122e661e12563568",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2024-12",
+        "direct_s3_item_count": 4,
+        "readable_scene_count": 4,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "cfc1e212733723c1bb95acebfdb033e8295316f5e97bdacbab5ced3fe54c42f3",
+        "item_id_hash": "1821e03601ee7490e8af92539c913b34d3897b90d3c2a2e296e8fc0140b4e902",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2018-01",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "54eef4531a2202c2ae92a59ce9fcda9c05d1965690eaeebdb620b8749a8e89f0",
+        "item_id_hash": "726de544822c4e0a078c81f404e2baf78f052e2f7af3c37a906a3e99cbbbb050",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2022-11",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "eb6c73e9f6ca937779a763a87b060170b8107bcc13c36a9f8278c4dc26695681",
+        "item_id_hash": "f814ef58fee3feae5fe1c911b92258c4f72636d1e90eb642820249a4904f9262",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2024-12",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "3d49ac1545c83b7706becc14141d9a74495d11f68daff02f38bbd7acf9831c0c",
+        "item_id_hash": "3a668d4c83d6640be319f7216e09be2f4229400edca45742e2afdcb2f0c4e504",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2018-01",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "a14c0ab01260460b0cdc57f458ee337e0a9baaa7e1dfaf126f00e2a060a3612c",
+        "item_id_hash": "4ed8d98f9d34ce1f7c3be9475c411cfb7e1e201b3dd70000b6b057377947e220",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2022-11",
+        "direct_s3_item_count": 5,
+        "readable_scene_count": 5,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "0761b1bb8fa90561af555d4ee78d96b0d02b5c3ea4b6462c131c1eda05db427f",
+        "item_id_hash": "2cf8c754b5dcfeaa09751d1b07f5f6cf8df2105d576516d430fcdd6598fc7f0b",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2024-12",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "fd592bbe097c6d2a5075adf460578ed977600813e0603334dd540a155c7123b5",
+        "item_id_hash": "b4121ecd4926e9d73d3e5180eba7e82b07d38378034a68c2d525aa05a4ddc025",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2018-01",
+        "direct_s3_item_count": 4,
+        "readable_scene_count": 4,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "0b5d0285c3e9395b6c906c94fe87d44cbbf0830e8352cbd19033940b0da62abd",
+        "item_id_hash": "9586a2b138ff32af81258471af7e0bb58904a002b0de9b23969c760b9c4c6e73",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2022-11",
+        "direct_s3_item_count": 3,
+        "readable_scene_count": 3,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "b15529e6580361d3eb306e8b6cb9da1df7b10231516623c1cd29fc2c65f9f5ba",
+        "item_id_hash": "bd6efa135eb7ae229cb77629fc387d5e75e495f97dd57a1d55dd26fd1f3a8864",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2024-12",
+        "direct_s3_item_count": 3,
+        "readable_scene_count": 3,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "afab0a8c4ecf6528205973ef9ce703913ae38478450061ec7f2367e0a277fc62",
+        "item_id_hash": "6fd3b96594a6145c9c18564d9c80d1fc62ed755fed7587bca5ffd81baada8879",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2018-01",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "a14c0ab01260460b0cdc57f458ee337e0a9baaa7e1dfaf126f00e2a060a3612c",
+        "item_id_hash": "4ed8d98f9d34ce1f7c3be9475c411cfb7e1e201b3dd70000b6b057377947e220",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2022-11",
+        "direct_s3_item_count": 5,
+        "readable_scene_count": 5,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "0761b1bb8fa90561af555d4ee78d96b0d02b5c3ea4b6462c131c1eda05db427f",
+        "item_id_hash": "2cf8c754b5dcfeaa09751d1b07f5f6cf8df2105d576516d430fcdd6598fc7f0b",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2024-12",
+        "direct_s3_item_count": 7,
+        "readable_scene_count": 7,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "fd592bbe097c6d2a5075adf460578ed977600813e0603334dd540a155c7123b5",
+        "item_id_hash": "b4121ecd4926e9d73d3e5180eba7e82b07d38378034a68c2d525aa05a4ddc025",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2018-01",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "b55851be2071062eb5989e74f1edf7c66fd6bb5caf7e637050c888b2b960920b",
+        "item_id_hash": "ab41300160b75635c2d669f6e77222b962ef87397eb7e20ca39b6264f032de2f",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2022-11",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "15abd4c9804f1452a01d0e86118d6f6d1bb9c69064c19a3293892ac903be6c82",
+        "item_id_hash": "72a83202c2e5a3dd8f29437860e8609b3471e594485c0cff3ac18b15de0ee98e",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2024-12",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "98d5cd300a764186e800d2e23f61ea73e46224a1fdd7e5af7fe85d0189aadfa4",
+        "item_id_hash": "ba3896249ed8ae364b00cd217d0bfb8514394c641dd8fae82dc659f30982ee7d",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2018-01",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "b55851be2071062eb5989e74f1edf7c66fd6bb5caf7e637050c888b2b960920b",
+        "item_id_hash": "ab41300160b75635c2d669f6e77222b962ef87397eb7e20ca39b6264f032de2f",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2022-11",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "15abd4c9804f1452a01d0e86118d6f6d1bb9c69064c19a3293892ac903be6c82",
+        "item_id_hash": "72a83202c2e5a3dd8f29437860e8609b3471e594485c0cff3ac18b15de0ee98e",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2024-12",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "98d5cd300a764186e800d2e23f61ea73e46224a1fdd7e5af7fe85d0189aadfa4",
+        "item_id_hash": "ba3896249ed8ae364b00cd217d0bfb8514394c641dd8fae82dc659f30982ee7d",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2018-01",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "b55851be2071062eb5989e74f1edf7c66fd6bb5caf7e637050c888b2b960920b",
+        "item_id_hash": "ab41300160b75635c2d669f6e77222b962ef87397eb7e20ca39b6264f032de2f",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2022-11",
+        "direct_s3_item_count": 8,
+        "readable_scene_count": 8,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "15abd4c9804f1452a01d0e86118d6f6d1bb9c69064c19a3293892ac903be6c82",
+        "item_id_hash": "72a83202c2e5a3dd8f29437860e8609b3471e594485c0cff3ac18b15de0ee98e",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      },
+      {
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2024-12",
+        "direct_s3_item_count": 6,
+        "readable_scene_count": 6,
+        "skipped_scene_count": 0,
+        "asset_key_hash": "98d5cd300a764186e800d2e23f61ea73e46224a1fdd7e5af7fe85d0189aadfa4",
+        "item_id_hash": "ba3896249ed8ae364b00cd217d0bfb8514394c641dd8fae82dc659f30982ee7d",
+        "status": "computed_direct_s3_metrics",
+        "skipped_sample": []
+      }
+    ],
+    "item_set_records": [
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2018-01",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "15a47cecffa46b15bce2b8f695c0b291e705c559485f26379d696a95cb7d3345",
+        "asset_key_hash": "7fb46fe3dc0cf87e8fc52c654cda030941fec8391463b034a0f95b330f46e064",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/09/ga_ls_wo_3_092081_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/17/ga_ls_wo_3_092081_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/25/ga_ls_wo_3_092081_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2018-01",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 3,
+        "item_id_hash": "8b061b99ec4c4c38a7477ec1acd4b6b37e2b4f34a4f4de409f39c94302730dfe",
+        "asset_key_hash": "5b95b00a85b2503c0990fed08ebae395fb84fb49866002bfc791452d5e748f4d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/09/ga_ls_wo_3_092082_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/17/ga_ls_wo_3_092082_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/25/ga_ls_wo_3_092082_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2022-11",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "bf73061cdf64404c709847347373142ec6f815828b98694943b9196226ed2cb7",
+        "asset_key_hash": "c45b00e4aa1169d3b9d32fe97c284b64bb26890349c04c0594164cba437360fa",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/04/ga_ls_wo_3_092081_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/20/ga_ls_wo_3_092081_2022-11-20_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/28/ga_ls_wo_3_092081_2022-11-28_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2022-11",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 4,
+        "item_id_hash": "e84fcc9f2103a4c9b09c59cb7179f40b8d3f531aee1f655322973be815f05a35",
+        "asset_key_hash": "8a8f9776b25d9017d70926066ab09218ab9dc302a21a2d78b65b28b29aae9edd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/04/ga_ls_wo_3_092082_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/12/ga_ls_wo_3_092082_2022-11-12_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/20/ga_ls_wo_3_092082_2022-11-20_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2024-12",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "0d9aa7975fda05085afad7b2dee371cf2350abf157cebbd39379832263a45abd",
+        "asset_key_hash": "793640d1652ca95aa66bca1c8a24b0f9fb0a50885eef4b7e120b7b86b1391b9f",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/11/ga_ls_wo_3_092081_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/19/ga_ls_wo_3_092081_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/27/ga_ls_wo_3_092081_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_component_359",
+        "month": "2024-12",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 3,
+        "item_id_hash": "1d798d234f252a68d14acbc954c774d78cc5bc185738446b1914c6e4e65471e5",
+        "asset_key_hash": "47c48bad14c28623beb1b1bd70ca6fbc970836eb8b8eccb1161b5e802e58f4bc",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/11/ga_ls_wo_3_092082_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/19/ga_ls_wo_3_092082_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/27/ga_ls_wo_3_092082_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2018-01",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "15a47cecffa46b15bce2b8f695c0b291e705c559485f26379d696a95cb7d3345",
+        "asset_key_hash": "7fb46fe3dc0cf87e8fc52c654cda030941fec8391463b034a0f95b330f46e064",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/09/ga_ls_wo_3_092081_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/17/ga_ls_wo_3_092081_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/25/ga_ls_wo_3_092081_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2018-01",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 3,
+        "item_id_hash": "8b061b99ec4c4c38a7477ec1acd4b6b37e2b4f34a4f4de409f39c94302730dfe",
+        "asset_key_hash": "5b95b00a85b2503c0990fed08ebae395fb84fb49866002bfc791452d5e748f4d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/09/ga_ls_wo_3_092082_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/17/ga_ls_wo_3_092082_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/25/ga_ls_wo_3_092082_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2022-11",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "bf73061cdf64404c709847347373142ec6f815828b98694943b9196226ed2cb7",
+        "asset_key_hash": "c45b00e4aa1169d3b9d32fe97c284b64bb26890349c04c0594164cba437360fa",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/04/ga_ls_wo_3_092081_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/20/ga_ls_wo_3_092081_2022-11-20_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/28/ga_ls_wo_3_092081_2022-11-28_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2022-11",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 4,
+        "item_id_hash": "e84fcc9f2103a4c9b09c59cb7179f40b8d3f531aee1f655322973be815f05a35",
+        "asset_key_hash": "8a8f9776b25d9017d70926066ab09218ab9dc302a21a2d78b65b28b29aae9edd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/04/ga_ls_wo_3_092082_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/12/ga_ls_wo_3_092082_2022-11-12_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/20/ga_ls_wo_3_092082_2022-11-20_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2024-12",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "0d9aa7975fda05085afad7b2dee371cf2350abf157cebbd39379832263a45abd",
+        "asset_key_hash": "793640d1652ca95aa66bca1c8a24b0f9fb0a50885eef4b7e120b7b86b1391b9f",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/11/ga_ls_wo_3_092081_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/19/ga_ls_wo_3_092081_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/27/ga_ls_wo_3_092081_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB001",
+        "candidate_name": "Macquarie Marshes",
+        "support_id": "nwb001_ramsar_ref337",
+        "month": "2024-12",
+        "path": "092",
+        "row": "082",
+        "path_row": "092/082",
+        "item_count": 3,
+        "item_id_hash": "1d798d234f252a68d14acbc954c774d78cc5bc185738446b1914c6e4e65471e5",
+        "asset_key_hash": "47c48bad14c28623beb1b1bd70ca6fbc970836eb8b8eccb1161b5e802e58f4bc",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/11/ga_ls_wo_3_092082_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/19/ga_ls_wo_3_092082_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/27/ga_ls_wo_3_092082_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2018-01",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "15a47cecffa46b15bce2b8f695c0b291e705c559485f26379d696a95cb7d3345",
+        "asset_key_hash": "7fb46fe3dc0cf87e8fc52c654cda030941fec8391463b034a0f95b330f46e064",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/09/ga_ls_wo_3_092081_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/17/ga_ls_wo_3_092081_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/25/ga_ls_wo_3_092081_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2018-01",
+        "path": "093",
+        "row": "080",
+        "path_row": "093/080",
+        "item_count": 3,
+        "item_id_hash": "1acd7747d8c8f871ec313f8395ee6ecce9478b12645b8f6d93404f3414bbecc0",
+        "asset_key_hash": "cf986404e13e7ed54aea8e9889b17975f7aecca5ad0c81edcdf6fa721a2c968f",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/08/ga_ls_wo_3_093080_2018-01-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/16/ga_ls_wo_3_093080_2018-01-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/24/ga_ls_wo_3_093080_2018-01-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2018-01",
+        "path": "093",
+        "row": "081",
+        "path_row": "093/081",
+        "item_count": 3,
+        "item_id_hash": "935c93774b899fd8f28838604fd7753669bfc9ec2bb3411c7cbea0baf1be65ac",
+        "asset_key_hash": "38ce031cf789409ec08a00c0af079e776140aa42f30712314b8da0d6c2c15639",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/08/ga_ls_wo_3_093081_2018-01-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/16/ga_ls_wo_3_093081_2018-01-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/24/ga_ls_wo_3_093081_2018-01-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2022-11",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "bf73061cdf64404c709847347373142ec6f815828b98694943b9196226ed2cb7",
+        "asset_key_hash": "c45b00e4aa1169d3b9d32fe97c284b64bb26890349c04c0594164cba437360fa",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/04/ga_ls_wo_3_092081_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/20/ga_ls_wo_3_092081_2022-11-20_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/28/ga_ls_wo_3_092081_2022-11-28_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2022-11",
+        "path": "093",
+        "row": "080",
+        "path_row": "093/080",
+        "item_count": 4,
+        "item_id_hash": "662f5e146bece34f2cc3fb0c4e61b855099e58e512216ae48b9fd630108bb04c",
+        "asset_key_hash": "017c6a6ddcfea1cb1f04f2d92a22d5cedb4b9fdd32e906888d0db32bdd27df3a",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/03/ga_ls_wo_3_093080_2022-11-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/11/ga_ls_wo_3_093080_2022-11-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/19/ga_ls_wo_3_093080_2022-11-19_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2022-11",
+        "path": "093",
+        "row": "081",
+        "path_row": "093/081",
+        "item_count": 4,
+        "item_id_hash": "5c935582e7ac7af2d726479a0aff343871681c0f4847f120fe8907dcdad8052c",
+        "asset_key_hash": "447c66918cd7162a0562a86d91e90ec2a0fa1574c042b24c675fbc727a3a1eef",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/03/ga_ls_wo_3_093081_2022-11-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/11/ga_ls_wo_3_093081_2022-11-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/19/ga_ls_wo_3_093081_2022-11-19_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2024-12",
+        "path": "092",
+        "row": "081",
+        "path_row": "092/081",
+        "item_count": 3,
+        "item_id_hash": "0d9aa7975fda05085afad7b2dee371cf2350abf157cebbd39379832263a45abd",
+        "asset_key_hash": "793640d1652ca95aa66bca1c8a24b0f9fb0a50885eef4b7e120b7b86b1391b9f",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/11/ga_ls_wo_3_092081_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/19/ga_ls_wo_3_092081_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/27/ga_ls_wo_3_092081_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2024-12",
+        "path": "093",
+        "row": "080",
+        "path_row": "093/080",
+        "item_count": 4,
+        "item_id_hash": "45a5ec0797c7123f5af0362708a64464942aa14478823637163b4b4186adc74c",
+        "asset_key_hash": "2a2db15111a2a40f56abce1ee30a5bc7cea10e237fd45b813a92358e02d4efe2",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/02/ga_ls_wo_3_093080_2024-12-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/10/ga_ls_wo_3_093080_2024-12-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/18/ga_ls_wo_3_093080_2024-12-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB002",
+        "candidate_name": "Narran Lake Nature Reserve",
+        "support_id": "nwb002_ramsar_ref1291",
+        "month": "2024-12",
+        "path": "093",
+        "row": "081",
+        "path_row": "093/081",
+        "item_count": 4,
+        "item_id_hash": "5cbdc8d3a59768120330e8c6aa8fd7bffab3f48453468bd17797637b6ff7b6f9",
+        "asset_key_hash": "748f81a0a9031ae23385c8dfcb5b1dd5f848c700f07ef59f3e5b66dcd636c9bd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/02/ga_ls_wo_3_093081_2024-12-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/10/ga_ls_wo_3_093081_2024-12-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/18/ga_ls_wo_3_093081_2024-12-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2018-01",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "f87d9e239502d503aa9d3538360d1a9c33c73156d08748bbd44bd0a5efc68d20",
+        "asset_key_hash": "a80392b7f0e2548b614785360cecb870215cb38c268c7a27d3cf5c7b13a34255",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/01/ga_ls_wo_3_091080_2018-01-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/09/ga_ls_wo_3_091080_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/17/ga_ls_wo_3_091080_2018-01-17_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2022-11",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "de52afb61591ac198118e62d993c790785e8143db45983bd122e661e12563568",
+        "asset_key_hash": "e17657083282892f9098c2956d46b4daa69ea71e2d6e3f7c47c8fc80d6eaaf06",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/04/ga_ls_wo_3_091080_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/12/ga_ls_wo_3_091080_2022-11-12_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/20/ga_ls_wo_3_091080_2022-11-20_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2024-12",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "1821e03601ee7490e8af92539c913b34d3897b90d3c2a2e296e8fc0140b4e902",
+        "asset_key_hash": "cfc1e212733723c1bb95acebfdb033e8295316f5e97bdacbab5ced3fe54c42f3",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/03/ga_ls_wo_3_091080_2024-12-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/11/ga_ls_wo_3_091080_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/19/ga_ls_wo_3_091080_2024-12-19_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2018-01",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "f87d9e239502d503aa9d3538360d1a9c33c73156d08748bbd44bd0a5efc68d20",
+        "asset_key_hash": "a80392b7f0e2548b614785360cecb870215cb38c268c7a27d3cf5c7b13a34255",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/01/ga_ls_wo_3_091080_2018-01-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/09/ga_ls_wo_3_091080_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/17/ga_ls_wo_3_091080_2018-01-17_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2018-01",
+        "path": "092",
+        "row": "080",
+        "path_row": "092/080",
+        "item_count": 3,
+        "item_id_hash": "85f5ef3ca1d7c5ad96a934616a6ef2cb2ca56fb43c9947d3945f16a53d96b5cd",
+        "asset_key_hash": "ef489b4d50bd10687d75f39b26ff8720e80b51a08cf28bb742d83be0cb09879b",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/080/2018/01/09/ga_ls_wo_3_092080_2018-01-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2018/01/17/ga_ls_wo_3_092080_2018-01-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2018/01/25/ga_ls_wo_3_092080_2018-01-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2022-11",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "de52afb61591ac198118e62d993c790785e8143db45983bd122e661e12563568",
+        "asset_key_hash": "e17657083282892f9098c2956d46b4daa69ea71e2d6e3f7c47c8fc80d6eaaf06",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/04/ga_ls_wo_3_091080_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/12/ga_ls_wo_3_091080_2022-11-12_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/20/ga_ls_wo_3_091080_2022-11-20_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2022-11",
+        "path": "092",
+        "row": "080",
+        "path_row": "092/080",
+        "item_count": 4,
+        "item_id_hash": "9e0d136344468a6734a58bee1ca9c8622d2ff4ef4bb46c7f43119f605bc4b159",
+        "asset_key_hash": "549ed12783178cd06cf382ab37cacd0aefe8aa1e073bf8cb8541754d1f3ae0c2",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/080/2022/11/04/ga_ls_wo_3_092080_2022-11-04_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2022/11/12/ga_ls_wo_3_092080_2022-11-12_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2022/11/20/ga_ls_wo_3_092080_2022-11-20_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2024-12",
+        "path": "091",
+        "row": "080",
+        "path_row": "091/080",
+        "item_count": 4,
+        "item_id_hash": "1821e03601ee7490e8af92539c913b34d3897b90d3c2a2e296e8fc0140b4e902",
+        "asset_key_hash": "cfc1e212733723c1bb95acebfdb033e8295316f5e97bdacbab5ced3fe54c42f3",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/03/ga_ls_wo_3_091080_2024-12-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/11/ga_ls_wo_3_091080_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/19/ga_ls_wo_3_091080_2024-12-19_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB003",
+        "candidate_name": "Gwydir Wetlands: Gingham and Lower Gwydir Watercourses",
+        "support_id": "nwb003_ramsar_ref993",
+        "month": "2024-12",
+        "path": "092",
+        "row": "080",
+        "path_row": "092/080",
+        "item_count": 3,
+        "item_id_hash": "208230a138c0a6ed3894af3949337fb1219cf45df8c2adefd92392546e98296e",
+        "asset_key_hash": "7e5311145571ffebea656fd3587645bb76bbe7af7ce761fa2979ad4cb8730b16",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/092/080/2024/12/11/ga_ls_wo_3_092080_2024-12-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2024/12/19/ga_ls_wo_3_092080_2024-12-19_final_water.tif;derivative/ga_ls_wo_3/1-6-0/092/080/2024/12/27/ga_ls_wo_3_092080_2024-12-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2018-01",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 2,
+        "item_id_hash": "945ecc47008912f609beca258bc8589aa5882aa2388e0bac074ec8b714ceb81f",
+        "asset_key_hash": "ef6ed05e454ce80118ef24776abc20a911eedb2daa4bc097226f1e9ae73d7970",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 2,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/16/ga_ls_wo_3_093085_2018-01-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/24/ga_ls_wo_3_093085_2018-01-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2018-01",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 4,
+        "item_id_hash": "9586a2b138ff32af81258471af7e0bb58904a002b0de9b23969c760b9c4c6e73",
+        "asset_key_hash": "0b5d0285c3e9395b6c906c94fe87d44cbbf0830e8352cbd19033940b0da62abd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/07/ga_ls_wo_3_094085_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/15/ga_ls_wo_3_094085_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/23/ga_ls_wo_3_094085_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2022-11",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 2,
+        "item_id_hash": "5f4a99ad10a84a4b9cf3fcaf1105f024eb1ae4a11aed1a23eead8b1f93f80305",
+        "asset_key_hash": "bee48bb3259f6207eebc221343df379ffcb9254d33b5a4d7e2204fd04be63695",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 2,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/03/ga_ls_wo_3_093085_2022-11-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/27/ga_ls_wo_3_093085_2022-11-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2022-11",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "bd6efa135eb7ae229cb77629fc387d5e75e495f97dd57a1d55dd26fd1f3a8864",
+        "asset_key_hash": "b15529e6580361d3eb306e8b6cb9da1df7b10231516623c1cd29fc2c65f9f5ba",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/02/ga_ls_wo_3_094085_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/18/ga_ls_wo_3_094085_2022-11-18_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/26/ga_ls_wo_3_094085_2022-11-26_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2024-12",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 4,
+        "item_id_hash": "fd8b246db3c5d5e5671fdcc9bf10a828ffff54d02d5028a58191322de9a9236d",
+        "asset_key_hash": "c446a322d2f604846ff805f37dd37b5013c85350cd66d168866cfe3a6abb754d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/02/ga_ls_wo_3_093085_2024-12-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/10/ga_ls_wo_3_093085_2024-12-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/18/ga_ls_wo_3_093085_2024-12-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_354",
+        "month": "2024-12",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "6fd3b96594a6145c9c18564d9c80d1fc62ed755fed7587bca5ffd81baada8879",
+        "asset_key_hash": "afab0a8c4ecf6528205973ef9ce703913ae38478450061ec7f2367e0a277fc62",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/01/ga_ls_wo_3_094085_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/17/ga_ls_wo_3_094085_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/25/ga_ls_wo_3_094085_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2018-01",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 4,
+        "item_id_hash": "9586a2b138ff32af81258471af7e0bb58904a002b0de9b23969c760b9c4c6e73",
+        "asset_key_hash": "0b5d0285c3e9395b6c906c94fe87d44cbbf0830e8352cbd19033940b0da62abd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/07/ga_ls_wo_3_094085_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/15/ga_ls_wo_3_094085_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/23/ga_ls_wo_3_094085_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2022-11",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "bd6efa135eb7ae229cb77629fc387d5e75e495f97dd57a1d55dd26fd1f3a8864",
+        "asset_key_hash": "b15529e6580361d3eb306e8b6cb9da1df7b10231516623c1cd29fc2c65f9f5ba",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/02/ga_ls_wo_3_094085_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/18/ga_ls_wo_3_094085_2022-11-18_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/26/ga_ls_wo_3_094085_2022-11-26_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2024-12",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "6fd3b96594a6145c9c18564d9c80d1fc62ed755fed7587bca5ffd81baada8879",
+        "asset_key_hash": "afab0a8c4ecf6528205973ef9ce703913ae38478450061ec7f2367e0a277fc62",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/01/ga_ls_wo_3_094085_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/17/ga_ls_wo_3_094085_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/25/ga_ls_wo_3_094085_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2018-01",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 2,
+        "item_id_hash": "945ecc47008912f609beca258bc8589aa5882aa2388e0bac074ec8b714ceb81f",
+        "asset_key_hash": "ef6ed05e454ce80118ef24776abc20a911eedb2daa4bc097226f1e9ae73d7970",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 2,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/16/ga_ls_wo_3_093085_2018-01-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/24/ga_ls_wo_3_093085_2018-01-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2018-01",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 4,
+        "item_id_hash": "9586a2b138ff32af81258471af7e0bb58904a002b0de9b23969c760b9c4c6e73",
+        "asset_key_hash": "0b5d0285c3e9395b6c906c94fe87d44cbbf0830e8352cbd19033940b0da62abd",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/07/ga_ls_wo_3_094085_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/15/ga_ls_wo_3_094085_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/23/ga_ls_wo_3_094085_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2022-11",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 2,
+        "item_id_hash": "5f4a99ad10a84a4b9cf3fcaf1105f024eb1ae4a11aed1a23eead8b1f93f80305",
+        "asset_key_hash": "bee48bb3259f6207eebc221343df379ffcb9254d33b5a4d7e2204fd04be63695",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 2,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/03/ga_ls_wo_3_093085_2022-11-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/27/ga_ls_wo_3_093085_2022-11-27_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2022-11",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "bd6efa135eb7ae229cb77629fc387d5e75e495f97dd57a1d55dd26fd1f3a8864",
+        "asset_key_hash": "b15529e6580361d3eb306e8b6cb9da1df7b10231516623c1cd29fc2c65f9f5ba",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/02/ga_ls_wo_3_094085_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/18/ga_ls_wo_3_094085_2022-11-18_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/26/ga_ls_wo_3_094085_2022-11-26_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2024-12",
+        "path": "093",
+        "row": "085",
+        "path_row": "093/085",
+        "item_count": 4,
+        "item_id_hash": "fd8b246db3c5d5e5671fdcc9bf10a828ffff54d02d5028a58191322de9a9236d",
+        "asset_key_hash": "c446a322d2f604846ff805f37dd37b5013c85350cd66d168866cfe3a6abb754d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/02/ga_ls_wo_3_093085_2024-12-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/10/ga_ls_wo_3_093085_2024-12-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/18/ga_ls_wo_3_093085_2024-12-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB004",
+        "candidate_name": "Kerang Wetlands",
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2024-12",
+        "path": "094",
+        "row": "085",
+        "path_row": "094/085",
+        "item_count": 3,
+        "item_id_hash": "6fd3b96594a6145c9c18564d9c80d1fc62ed755fed7587bca5ffd81baada8879",
+        "asset_key_hash": "afab0a8c4ecf6528205973ef9ce703913ae38478450061ec7f2367e0a277fc62",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/01/ga_ls_wo_3_094085_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/17/ga_ls_wo_3_094085_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/25/ga_ls_wo_3_094085_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2018-01",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "e44d33ccc4d6f0d569780c44d0bb54cd4e860b775795605f7e5ed23624d2a18a",
+        "asset_key_hash": "9b0f073681e41f15694f6d1a8ce3666f8c31b052dfc853eae5f83565f7fb5699",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/07/ga_ls_wo_3_094080_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/15/ga_ls_wo_3_094080_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/23/ga_ls_wo_3_094080_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2018-01",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "78465241fd9d32d78860df306c45324d9fb580ed795f1cc618af37f8b7c1b3a2",
+        "asset_key_hash": "2b8f2f124abe4c723340ec2db381aac88f6db7b2a5ed6d01700d804c3f406837",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/06/ga_ls_wo_3_095080_2018-01-06_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/14/ga_ls_wo_3_095080_2018-01-14_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/22/ga_ls_wo_3_095080_2018-01-22_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2022-11",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "faeb2c69567733243b83ccead5a3700ffb2683b6ecef7aafcf1d903c713e023d",
+        "asset_key_hash": "5408b1ce327c8e1eb65051f64a2fc24f1c3f1061c58ea01720dcd842f827dbc4",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/02/ga_ls_wo_3_094080_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/10/ga_ls_wo_3_094080_2022-11-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/18/ga_ls_wo_3_094080_2022-11-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2022-11",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "5e2d1a7f97b6dd63ff5b228f4a77c89ebc3d5c31e1977142bab6ccb81aa7d0a5",
+        "asset_key_hash": "370e976b158e59b1af4e69551647835003e255a76ae307c5a9d94c8ce819da9d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/01/ga_ls_wo_3_095080_2022-11-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/09/ga_ls_wo_3_095080_2022-11-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/17/ga_ls_wo_3_095080_2022-11-17_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2024-12",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 3,
+        "item_id_hash": "7a994b7cf5a58ebb3e74e9df4af7101101a4869402c312954aa7c1ba5ecbd08a",
+        "asset_key_hash": "45dc86194a961c307667568d3a68ec80b7e296b3d0c0aaa4c80866143bc27ef9",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/01/ga_ls_wo_3_094080_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/17/ga_ls_wo_3_094080_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/25/ga_ls_wo_3_094080_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "month": "2024-12",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 3,
+        "item_id_hash": "8188743fcd809ff2a251f297d9b5ac144393062fe4b7669afed0975beffdf4e8",
+        "asset_key_hash": "b0547acbe98b9b6e850c79fa7db8fe80a5720ac7b32568f83199237f9f074b78",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/08/ga_ls_wo_3_095080_2024-12-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/16/ga_ls_wo_3_095080_2024-12-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/24/ga_ls_wo_3_095080_2024-12-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2018-01",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "e44d33ccc4d6f0d569780c44d0bb54cd4e860b775795605f7e5ed23624d2a18a",
+        "asset_key_hash": "9b0f073681e41f15694f6d1a8ce3666f8c31b052dfc853eae5f83565f7fb5699",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/07/ga_ls_wo_3_094080_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/15/ga_ls_wo_3_094080_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/23/ga_ls_wo_3_094080_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2018-01",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "78465241fd9d32d78860df306c45324d9fb580ed795f1cc618af37f8b7c1b3a2",
+        "asset_key_hash": "2b8f2f124abe4c723340ec2db381aac88f6db7b2a5ed6d01700d804c3f406837",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/06/ga_ls_wo_3_095080_2018-01-06_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/14/ga_ls_wo_3_095080_2018-01-14_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/22/ga_ls_wo_3_095080_2018-01-22_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2022-11",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "faeb2c69567733243b83ccead5a3700ffb2683b6ecef7aafcf1d903c713e023d",
+        "asset_key_hash": "5408b1ce327c8e1eb65051f64a2fc24f1c3f1061c58ea01720dcd842f827dbc4",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/02/ga_ls_wo_3_094080_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/10/ga_ls_wo_3_094080_2022-11-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/18/ga_ls_wo_3_094080_2022-11-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2022-11",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "5e2d1a7f97b6dd63ff5b228f4a77c89ebc3d5c31e1977142bab6ccb81aa7d0a5",
+        "asset_key_hash": "370e976b158e59b1af4e69551647835003e255a76ae307c5a9d94c8ce819da9d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/01/ga_ls_wo_3_095080_2022-11-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/09/ga_ls_wo_3_095080_2022-11-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/17/ga_ls_wo_3_095080_2022-11-17_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2024-12",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 3,
+        "item_id_hash": "7a994b7cf5a58ebb3e74e9df4af7101101a4869402c312954aa7c1ba5ecbd08a",
+        "asset_key_hash": "45dc86194a961c307667568d3a68ec80b7e296b3d0c0aaa4c80866143bc27ef9",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/01/ga_ls_wo_3_094080_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/17/ga_ls_wo_3_094080_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/25/ga_ls_wo_3_094080_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "month": "2024-12",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 3,
+        "item_id_hash": "8188743fcd809ff2a251f297d9b5ac144393062fe4b7669afed0975beffdf4e8",
+        "asset_key_hash": "b0547acbe98b9b6e850c79fa7db8fe80a5720ac7b32568f83199237f9f074b78",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/08/ga_ls_wo_3_095080_2024-12-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/16/ga_ls_wo_3_095080_2024-12-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/24/ga_ls_wo_3_095080_2024-12-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2018-01",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "e44d33ccc4d6f0d569780c44d0bb54cd4e860b775795605f7e5ed23624d2a18a",
+        "asset_key_hash": "9b0f073681e41f15694f6d1a8ce3666f8c31b052dfc853eae5f83565f7fb5699",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/07/ga_ls_wo_3_094080_2018-01-07_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/15/ga_ls_wo_3_094080_2018-01-15_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/23/ga_ls_wo_3_094080_2018-01-23_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2018-01",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "78465241fd9d32d78860df306c45324d9fb580ed795f1cc618af37f8b7c1b3a2",
+        "asset_key_hash": "2b8f2f124abe4c723340ec2db381aac88f6db7b2a5ed6d01700d804c3f406837",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/06/ga_ls_wo_3_095080_2018-01-06_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/14/ga_ls_wo_3_095080_2018-01-14_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/22/ga_ls_wo_3_095080_2018-01-22_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2022-11",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 4,
+        "item_id_hash": "faeb2c69567733243b83ccead5a3700ffb2683b6ecef7aafcf1d903c713e023d",
+        "asset_key_hash": "5408b1ce327c8e1eb65051f64a2fc24f1c3f1061c58ea01720dcd842f827dbc4",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/02/ga_ls_wo_3_094080_2022-11-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/10/ga_ls_wo_3_094080_2022-11-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/18/ga_ls_wo_3_094080_2022-11-18_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2022-11",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 4,
+        "item_id_hash": "5e2d1a7f97b6dd63ff5b228f4a77c89ebc3d5c31e1977142bab6ccb81aa7d0a5",
+        "asset_key_hash": "370e976b158e59b1af4e69551647835003e255a76ae307c5a9d94c8ce819da9d",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 4,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/01/ga_ls_wo_3_095080_2022-11-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/09/ga_ls_wo_3_095080_2022-11-09_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/17/ga_ls_wo_3_095080_2022-11-17_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2024-12",
+        "path": "094",
+        "row": "080",
+        "path_row": "094/080",
+        "item_count": 3,
+        "item_id_hash": "7a994b7cf5a58ebb3e74e9df4af7101101a4869402c312954aa7c1ba5ecbd08a",
+        "asset_key_hash": "45dc86194a961c307667568d3a68ec80b7e296b3d0c0aaa4c80866143bc27ef9",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/01/ga_ls_wo_3_094080_2024-12-01_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/17/ga_ls_wo_3_094080_2024-12-17_final_water.tif;derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/25/ga_ls_wo_3_094080_2024-12-25_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      },
+      {
+        "candidate_id": "NWB005",
+        "candidate_name": "Currawinya Lakes",
+        "support_id": "nwb005_ramsar_ref791",
+        "month": "2024-12",
+        "path": "095",
+        "row": "080",
+        "path_row": "095/080",
+        "item_count": 3,
+        "item_id_hash": "8188743fcd809ff2a251f297d9b5ac144393062fe4b7669afed0975beffdf4e8",
+        "asset_key_hash": "b0547acbe98b9b6e850c79fa7db8fe80a5720ac7b32568f83199237f9f074b78",
+        "route_status": "available",
+        "listing_status_code": 200,
+        "head_ok_count": 3,
+        "key_sample": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/08/ga_ls_wo_3_095080_2024-12-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/16/ga_ls_wo_3_095080_2024-12-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/24/ga_ls_wo_3_095080_2024-12-24_final_water.tif",
+        "caveat": "Direct S3 path-row/month listing only; no hydrology metrics computed."
+      }
+    ],
+    "s3_route_records": [
+      {
+        "month": "2018-01",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2018-01_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2018-01_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.152,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2018-01_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2018-01_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.104,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2022-11_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2022-11_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.094,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2022-11_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2022-11_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.117,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2024-12_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2024-12_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2024-12_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2024-12_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_component_359"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2018-01_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2018-01_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.152,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2018-01_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2018-01_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.104,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2022-11_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2022-11_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.094,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2022-11_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2022-11_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.117,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2024-12_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2024-12_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/082",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/082/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB001_2024-12_092082.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB001_2024-12_092082.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F082%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb001_ramsar_ref337"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2018-01_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2018-01_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.111,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "093/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2018-01_093080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2018-01_093080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "093/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2018-01_093081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2018-01_093081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2022-11_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2022-11_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.147,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "093/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2022-11_093080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2022-11_093080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.112,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "093/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2022-11_093081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2022-11_093081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.116,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2024-12_092081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2024-12_092081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.109,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "093/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2024-12_093080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2024-12_093080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.106,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "093/081",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB002_2024-12_093081.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB002_2024-12_093081.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.096,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb002_ramsar_ref1291"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2018-01_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2018-01_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_component_121"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2022-11_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2022-11_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.115,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_component_121"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2024-12_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2024-12_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_component_121"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2018-01_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2018-01_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "092/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/080/2018/01/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2018-01_092080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2018-01_092080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.118,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2022-11_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2022-11_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.115,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "092/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2022-11_092080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2022-11_092080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "091/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/091/080/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2024-12_091080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2024-12_091080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F091%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "092/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/092/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB003_2024-12_092080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB003_2024-12_092080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb003_ramsar_ref993"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/",
+        "water_item_count": 2,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2018-01_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2018-01_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.109,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 12,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 2,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2018-01_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2018-01_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.095,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/",
+        "water_item_count": 2,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2022-11_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2022-11_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 12,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 2,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2022-11_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2022-11_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.104,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2024-12_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2024-12_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2024-12_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2024-12_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_component_354"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2018-01_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2018-01_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.095,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb004_ramsar_component_369"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2022-11_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2022-11_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.104,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_component_369"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2024-12_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2024-12_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_component_369"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2018/01/",
+        "water_item_count": 2,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2018-01_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2018-01_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.109,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 12,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 2,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2018-01_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2018-01_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.095,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/",
+        "water_item_count": 2,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2022-11_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2022-11_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.11,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 12,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 2,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2022-11_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2022-11_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.104,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "093/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2024-12_093085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2024-12_093085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/085",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB004_2024-12_094085.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB004_2024-12_094085.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb004_ramsar_ref265"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.145,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.111,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.112,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.145,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.111,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.112,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.145,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_ramsar_ref791"
+      },
+      {
+        "month": "2018-01",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2018/01/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2018-01_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2018-01_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.108,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2018%2F01%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_ramsar_ref791"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.111,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_ramsar_ref791"
+      },
+      {
+        "month": "2022-11",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2022/11/",
+        "water_item_count": 4,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2022-11_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2022-11_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2022%2F11%2F&max-keys=1000",
+            "key_count": 24,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 4,
+        "support_id": "nwb005_ramsar_ref791"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "094/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/094/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_094080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_094080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.112,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_ramsar_ref791"
+      },
+      {
+        "month": "2024-12",
+        "path_row": "095/080",
+        "prefix": "derivative/ga_ls_wo_3/1-6-0/095/080/2024/12/",
+        "water_item_count": 3,
+        "listing_cache": "artifacts/direct_s3_all_support_probe_016/raw/s3_listing_NWB005_2024-12_095080.json",
+        "head_cache": "artifacts/direct_s3_all_support_probe_016/intermediate/s3_head_NWB005_2024-12_095080.json",
+        "listing_pages": [
+          {
+            "ok": true,
+            "status_code": 200,
+            "elapsed_seconds": 0.113,
+            "content_type": "application/xml",
+            "content_length": "",
+            "error": "",
+            "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F095%2F080%2F2024%2F12%2F&max-keys=1000",
+            "key_count": 18,
+            "next_token_present": false
+          }
+        ],
+        "head_ok_count": 3,
+        "support_id": "nwb005_ramsar_ref791"
+      }
+    ],
+    "support_grids": [
+      {
+        "support_id": "nwb001_ramsar_component_359",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 544,
+        "ysize": 1449,
+        "grid_pixels": 788256,
+        "support_mask_pixels": 208413,
+        "bounds": [
+          1459830.0,
+          -3465630.0,
+          1476150.0,
+          -3422160.0
+        ]
+      },
+      {
+        "support_id": "nwb001_ramsar_ref337",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 880,
+        "ysize": 1449,
+        "grid_pixels": 1275120,
+        "support_mask_pixels": 214506,
+        "bounds": [
+          1459830.0,
+          -3465630.0,
+          1486230.0,
+          -3422160.0
+        ]
+      },
+      {
+        "support_id": "nwb002_ramsar_ref1291",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 403,
+        "ysize": 414,
+        "grid_pixels": 166842,
+        "support_mask_pixels": 93937,
+        "bounds": [
+          1466190.0,
+          -3327930.0,
+          1478280.0,
+          -3315510.0
+        ]
+      },
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 126,
+        "ysize": 101,
+        "grid_pixels": 12726,
+        "support_mask_pixels": 6752,
+        "bounds": [
+          1656090.0,
+          -3304830.0,
+          1659870.0,
+          -3301800.0
+        ]
+      },
+      {
+        "support_id": "nwb003_ramsar_ref993",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 920,
+        "ysize": 722,
+        "grid_pixels": 664240,
+        "support_mask_pixels": 9371,
+        "bounds": [
+          1637700.0,
+          -3304830.0,
+          1665300.0,
+          -3283170.0
+        ]
+      },
+      {
+        "support_id": "nwb004_ramsar_component_354",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 80,
+        "ysize": 205,
+        "grid_pixels": 16400,
+        "support_mask_pixels": 8601,
+        "bounds": [
+          1071420.0,
+          -3948480.0,
+          1073820.0,
+          -3942330.0
+        ]
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 107,
+        "ysize": 184,
+        "grid_pixels": 19688,
+        "support_mask_pixels": 7825,
+        "bounds": [
+          1066650.0,
+          -3942180.0,
+          1069860.0,
+          -3936660.0
+        ]
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 1138,
+        "ysize": 1523,
+        "grid_pixels": 1733174,
+        "support_mask_pixels": 108814,
+        "bounds": [
+          1057230.0,
+          -3971910.0,
+          1091370.0,
+          -3926220.0
+        ]
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 203,
+        "ysize": 467,
+        "grid_pixels": 94801,
+        "support_mask_pixels": 42385,
+        "bounds": [
+          1176060.0,
+          -3183180.0,
+          1182150.0,
+          -3169170.0
+        ]
+      },
+      {
+        "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 374,
+        "ysize": 511,
+        "grid_pixels": 191114,
+        "support_mask_pixels": 45137,
+        "bounds": [
+          1184130.0,
+          -3188520.0,
+          1195350.0,
+          -3173190.0
+        ]
+      },
+      {
+        "support_id": "nwb005_ramsar_ref791",
+        "crs": "EPSG:3577",
+        "pixel_size_m": 30,
+        "xsize": 2445,
+        "ysize": 1386,
+        "grid_pixels": 3388770,
+        "support_mask_pixels": 1676254,
+        "bounds": [
+          1172250.0,
+          -3208110.0,
+          1245600.0,
+          -3166530.0
+        ]
+      }
+    ]
+  },
+  "retry_audit_summary": {
+    "event_count": 0,
+    "events_truncated_count": 0,
+    "status_counts": {},
+    "failure_class_counts": {},
+    "max_attempt_count": 0,
+    "events": []
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_all_support_probe_016_report.md",
+    "manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "support_summary_csv": "docs/direct_s3_all_support_probe_016_support_summary.csv",
+    "comparison_csv": "docs/direct_s3_all_support_probe_016_comparison.csv",
+    "compute_memo_md": "docs/compute_routing_memo_016.md"
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_all_support_probe_016/raw",
+    "intermediate": "artifacts/direct_s3_all_support_probe_016/intermediate",
+    "output": "artifacts/direct_s3_all_support_probe_016/output"
+  },
+  "staging_ignored_check": {
+    "status": "all_ignored",
+    "checked_paths": [
+      "artifacts/direct_s3_all_support_probe_016/raw/probe.json",
+      "artifacts/direct_s3_all_support_probe_016/intermediate/probe.npy",
+      "artifacts/direct_s3_all_support_probe_016/output/probe.json"
+    ],
+    "ignored_paths": [
+      "artifacts/direct_s3_all_support_probe_016/raw/probe.json",
+      "artifacts/direct_s3_all_support_probe_016/intermediate/probe.npy",
+      "artifacts/direct_s3_all_support_probe_016/output/probe.json"
+    ],
+    "stderr": ""
+  },
+  "staging_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "arrays",
+      "temporary extraction JSON",
+      "remote logs"
+    ]
+  },
+  "status_vocabulary": [
+    "blocked_cog_read_failure",
+    "blocked_mask_or_geometry_failure",
+    "blocked_no_items_found",
+    "blocked_remote_or_route_unavailable",
+    "blocked_s3_listing_failure",
+    "blocked_unclassified_failure",
+    "computed_direct_s3_metrics"
+  ],
+  "comparison_status_vocabulary": [
+    "computed_row_blocked",
+    "missing_or_blocked_reference",
+    "not_compared",
+    "wetness_diff",
+    "wetness_within_tolerance_denominator_diff",
+    "within_tolerance"
+  ],
+  "recommendation_for_goal017": "Review legacy wetness-field differences before any direct-S3 scale-up.",
+  "elapsed_seconds": 139.789
+}

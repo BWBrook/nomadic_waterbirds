@@ -170,6 +170,22 @@ waterbirds project.
   legacy Goal 007/009 rows.
 - [legacy_denominator_effect_015.csv](legacy_denominator_effect_015.csv):
   compact Goal 015 quantification of legacy STAC bbox-only denominator effects.
+- [compute_routing_memo_016.md](compute_routing_memo_016.md):
+  Goal 016 `deep-server-ts` target probe, remote smoke, and 33-row direct-S3
+  run routing memo.
+- [direct_s3_all_support_probe_016_report.md](direct_s3_all_support_probe_016_report.md):
+  Goal 016 bounded all-support direct-S3 Water Observations extraction probe
+  report.
+- [direct_s3_all_support_probe_016_manifest.json](direct_s3_all_support_probe_016_manifest.json):
+  machine-readable Goal 016 command, support set, path/row sets, remote route,
+  row counts, comparisons, and staging provenance.
+- [direct_s3_all_support_probe_016_summary.csv](direct_s3_all_support_probe_016_summary.csv):
+  compact Goal 016 33-row support/month base hydrology metric table.
+- [direct_s3_all_support_probe_016_support_summary.csv](direct_s3_all_support_probe_016_support_summary.csv):
+  compact Goal 016 support-level status and quality summary.
+- [direct_s3_all_support_probe_016_comparison.csv](direct_s3_all_support_probe_016_comparison.csv):
+  Goal 016 comparison against Goal 015/014 `NWB002` rows and legacy Goal
+  007/009 rows.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

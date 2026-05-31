@@ -1,0 +1,118 @@
+{
+  "goal": "016-direct-s3-all-support-probe",
+  "run_command": "python3 scripts/direct_s3_all_support_probe_016.py",
+  "accessed_date": "2026-05-31",
+  "primary_support_id_for_comparison": "nwb002_ramsar_ref1291",
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 direct S3 COG assets",
+  "metric_spec_version": "goal016-direct-s3-all-support-base-v1",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "max_reference_grid_pixels": 5000000,
+  "wet_month_threshold": 0.05,
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as readable scenes or invalid observations.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv",
+    "source_goal": "015-comparator-baseline-repair"
+  },
+  "compute": {
+    "preferred_host": "deep-server-ts",
+    "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal016",
+    "preferred_smoke_support_id": "nwb002_ramsar_ref1291",
+    "preferred_smoke_month": "2022-11"
+  },
+  "support_source": {
+    "event_config_path": "settings/event_window_hydrology_007.json",
+    "ramsar_subset_geojson": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+    "waterbodies_zip": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip"
+  },
+  "inputs": {
+    "event_window_summary_csv": "docs/event_window_hydrology_summary.csv",
+    "support_pathrow_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv"
+  },
+  "comparison": {
+    "goal015_repaired_summary_csv": "docs/pathrow_filtered_comparator_015_summary.csv",
+    "goal014_direct_s3_summary_csv": "docs/direct_s3_extraction_rehearsal_014_summary.csv",
+    "legacy_event_window_csv": "docs/event_window_hydrology_series.csv",
+    "legacy_full_window_csv": "docs/event_window_hydrology_series_2018_2024.csv",
+    "fields": [
+      "readable_scene_count",
+      "clear_obs_count",
+      "invalid_obs_count",
+      "clear_obs_fraction",
+      "current_wet_area_m2",
+      "valid_support_area_m2",
+      "current_proportion_wet",
+      "wet_pixel_observation_count",
+      "dry_pixel_observation_count",
+      "quality_flag",
+      "wet_month_flag"
+    ],
+    "tolerances": {
+      "count_abs": 0.0,
+      "fraction_abs": 0.000001,
+      "area_m2_abs": 5.0,
+      "numeric_abs": 0.0
+    }
+  },
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "max_keys": 1000,
+    "max_pages": 3,
+    "timeout_seconds": 45,
+    "head_request_limit_per_prefix": 25
+  },
+  "retry_policy": {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2.0,
+    "backoff_multiplier": 2.0,
+    "max_delay_seconds": 30.0,
+    "jitter_fraction": 0.1
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_all_support_probe_016/raw",
+    "intermediate": "artifacts/direct_s3_all_support_probe_016/intermediate",
+    "output": "artifacts/direct_s3_all_support_probe_016/output"
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_all_support_probe_016_report.md",
+    "manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "support_summary_csv": "docs/direct_s3_all_support_probe_016_support_summary.csv",
+    "comparison_csv": "docs/direct_s3_all_support_probe_016_comparison.csv",
+    "compute_memo_md": "docs/compute_routing_memo_016.md"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "arrays",
+      "temporary extraction JSON",
+      "remote logs"
+    ]
+  }
+}
