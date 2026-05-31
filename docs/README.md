@@ -11,7 +11,8 @@ waterbirds project.
 - [source_evidence_register.md](source_evidence_register.md): official-source
   evidence checked for data-access and wetland-unit feasibility.
 - [literature/](literature/): broad Deep Research report, supervisor triage,
-  and source-verification queue for manuscript planning.
+  source-verification queue, and second-pass traceable citation-mining
+  artefacts for manuscript planning.
 - [data_access_feasibility.md](data_access_feasibility.md): feasibility memo
   for candidate hydrology, biodiversity, climate, and static covariate streams.
 - [wetland_unit_feasibility.md](wetland_unit_feasibility.md): comparison of

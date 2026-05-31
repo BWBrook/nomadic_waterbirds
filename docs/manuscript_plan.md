@@ -32,6 +32,20 @@ journals if the workflow itself becomes the main contribution.
 No claim should be upgraded from hypothesis to manuscript result until the
 listed evidence exists.
 
+## Literature Support Status
+
+The broad Deep Research report and GPT-5.5 Pro traceable literature-mining pass
+are archived under `docs/literature/`. The second pass produced:
+
+- `docs/literature/reports/002-traceable-literature-mining.md`
+- `docs/literature/identifiers/nomadic_waterbirds_identifiers.txt`
+- `docs/literature/tables/literature_claim_matrix.csv`
+- `docs/literature/verification/manual_verification_queue.csv`
+
+These artefacts support manuscript planning and citation triage. They do not
+replace source-level reading, and they do not upgrade any project result until
+the analysis workflow generates matching evidence.
+
 ## Figure Plan
 
 1. Conceptual model: pulsed water, lagged bird response, regional scarcity,
