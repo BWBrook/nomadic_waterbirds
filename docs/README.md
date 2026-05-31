@@ -146,6 +146,17 @@ waterbirds project.
 - [metadata_comparator_status_013.csv](metadata_comparator_status_013.csv):
   Goal 013 STAC, ODC-contingency, Goal 012 regression, and final equivalence
   status table.
+- [direct_s3_extraction_rehearsal_014_report.md](direct_s3_extraction_rehearsal_014_report.md):
+  Goal 014 bounded direct-S3 Water Observations extraction rehearsal for
+  `NWB002`.
+- [direct_s3_extraction_rehearsal_014_manifest.json](direct_s3_extraction_rehearsal_014_manifest.json):
+  machine-readable Goal 014 command, support, item-set, raster-read,
+  comparison, host, runtime, and staging provenance.
+- [direct_s3_extraction_rehearsal_014_summary.csv](direct_s3_extraction_rehearsal_014_summary.csv):
+  compact Goal 014 three-month direct-S3 base hydrology metrics for `NWB002`.
+- [direct_s3_extraction_comparison_014.csv](direct_s3_extraction_comparison_014.csv):
+  Goal 014 comparison against existing event-window metrics and the prior
+  `2018-01` blocked status.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

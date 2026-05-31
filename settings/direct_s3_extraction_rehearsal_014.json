@@ -1,0 +1,113 @@
+{
+  "goal": "014-direct-s3-extraction-rehearsal",
+  "run_command": "python3 scripts/direct_s3_extraction_rehearsal_014.py",
+  "accessed_date": "2026-05-31",
+  "primary_candidate_id": "NWB002",
+  "primary_support_id": "nwb002_ramsar_ref1291",
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "path_rows": [
+    "092/081",
+    "093/080",
+    "093/081"
+  ],
+  "expected_month_item_counts": {
+    "2018-01": 9,
+    "2022-11": 11,
+    "2024-12": 11
+  },
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 direct S3 COG assets",
+  "metric_spec_version": "goal014-direct-s3-base-v1",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "max_reference_grid_pixels": 5000000,
+  "wet_month_threshold": 0.05,
+  "support_source": {
+    "event_config_path": "settings/event_window_hydrology_007.json",
+    "ramsar_subset_geojson": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+    "waterbodies_zip": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip"
+  },
+  "goal013": {
+    "manifest_json": "docs/support_pathrow_coverage_013_manifest.json",
+    "crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "item_sets_csv": "docs/support_pathrow_item_sets_013.csv",
+    "comparator_status_csv": "docs/metadata_comparator_status_013.csv"
+  },
+  "comparison": {
+    "event_window_series_csv": "docs/event_window_hydrology_series.csv",
+    "full_window_status_csv": "docs/event_window_hydrology_series_2018_2024.csv",
+    "fields": [
+      "readable_scene_count",
+      "clear_obs_count",
+      "invalid_obs_count",
+      "clear_obs_fraction",
+      "current_wet_area_m2",
+      "valid_support_area_m2",
+      "current_proportion_wet",
+      "wet_pixel_observation_count",
+      "dry_pixel_observation_count",
+      "quality_flag",
+      "wet_month_flag"
+    ],
+    "tolerances": {
+      "count_abs": 0.0,
+      "fraction_abs": 0.000001,
+      "area_m2_abs": 0.5
+    }
+  },
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "max_keys": 1000,
+    "max_pages": 3,
+    "timeout_seconds": 45,
+    "head_request_limit_per_prefix": 25
+  },
+  "retry_policy": {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2.0,
+    "backoff_multiplier": 2.0,
+    "max_delay_seconds": 30.0,
+    "jitter_fraction": 0.1
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_extraction_rehearsal_014/raw",
+    "intermediate": "artifacts/direct_s3_extraction_rehearsal_014/intermediate",
+    "output": "artifacts/direct_s3_extraction_rehearsal_014/output"
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_extraction_rehearsal_014_report.md",
+    "manifest_json": "docs/direct_s3_extraction_rehearsal_014_manifest.json",
+    "summary_csv": "docs/direct_s3_extraction_rehearsal_014_summary.csv",
+    "comparison_csv": "docs/direct_s3_extraction_comparison_014.csv"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "arrays",
+      "temporary extraction JSON"
+    ]
+  }
+}

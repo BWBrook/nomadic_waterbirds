@@ -1,0 +1,717 @@
+{
+  "goal": "014-direct-s3-extraction-rehearsal",
+  "manifest_type": "direct_s3_extraction_rehearsal_014",
+  "created_at_utc": "2026-05-31T11:39:06.800187+00:00",
+  "accessed_date": "2026-05-31",
+  "command": "python3 scripts/direct_s3_extraction_rehearsal_014.py",
+  "config_path": "settings/direct_s3_extraction_rehearsal_014.json",
+  "reuse_ignored_cache": false,
+  "git_head_at_run": "f3a980780a24af33eaad13998081504cd7b544b4",
+  "git_status_at_run": "## main...origin/main\n M docs/goals/013-support-pathrow-metadata-equivalence/Log.md\n M docs/goals/014-direct-s3-extraction-rehearsal/Log.md\n M docs/source_evidence_register.md\n?? docs/direct_s3_extraction_comparison_014.csv\n?? docs/direct_s3_extraction_rehearsal_014_summary.csv\n?? scripts/direct_s3_extraction_rehearsal_014.py\n?? settings/direct_s3_extraction_rehearsal_014.json\n?? tests/test_goal014_direct_s3_extraction.py",
+  "host_facts": {
+    "hostname": "Mac-mini.lan",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python_version": "3.14.5",
+    "gdal_version": "GDAL 3.13.0 \"Iowa City\", released 2026/05/04"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "support": {
+    "candidate_id": "NWB002",
+    "candidate_name": "Narran Lake Nature Reserve",
+    "support_id": "nwb002_ramsar_ref1291",
+    "geometry_hash_sha256": "54ba27f89230050e020154d9aa2cf95c9460dd2870447d242a4cae5c52903ccc",
+    "support_area_m2": 84539547.6314442,
+    "source": "DCCEEW Geospatial Ramsar Wetlands service",
+    "source_identifier": "REFCODE=1291;OBJECTID=366",
+    "caveat": "Narran parent support remains the defensible event-window geometry until named Clear Lake, Back Lake, Long Arm, or lignum geometry is verified."
+  },
+  "path_rows": [
+    "092/081",
+    "093/080",
+    "093/081"
+  ],
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "goal013_evidence": {
+    "status": "confirmed",
+    "support_id": "nwb002_ramsar_ref1291",
+    "path_rows": [
+      "092/081",
+      "093/080",
+      "093/081"
+    ],
+    "expected_path_rows": [
+      "092/081",
+      "093/080",
+      "093/081"
+    ],
+    "coverage_statuses": [
+      "complete"
+    ],
+    "final_equivalence_status": "equivalent",
+    "stac_item_set_comparison_status": "available_equivalent_for_derived_pathrows",
+    "goal013_git_head_at_run": "e5e89e7"
+  },
+  "item_set_validation": {
+    "status": "matched_goal013_item_sets",
+    "month_counts": {
+      "2018-01": 9,
+      "2022-11": 11,
+      "2024-12": 11
+    },
+    "path_rows": [
+      "092/081",
+      "093/080",
+      "093/081"
+    ],
+    "missing_path_rows": [],
+    "count_mismatches": [],
+    "hash_mismatches": []
+  },
+  "s3_route_records": [
+    {
+      "month": "2018-01",
+      "path_row": "092/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2018-01_092081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2018-01_092081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.345,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2018%2F01%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3
+    },
+    {
+      "month": "2018-01",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2018-01_093080.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2018-01_093080.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.167,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2018%2F01%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3
+    },
+    {
+      "month": "2018-01",
+      "path_row": "093/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2018-01_093081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2018-01_093081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.178,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2018%2F01%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3
+    },
+    {
+      "month": "2022-11",
+      "path_row": "092/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2022-11_092081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2022-11_092081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.186,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2022%2F11%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3
+    },
+    {
+      "month": "2022-11",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2022-11_093080.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2022-11_093080.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.184,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2022%2F11%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4
+    },
+    {
+      "month": "2022-11",
+      "path_row": "093/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2022-11_093081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2022-11_093081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.188,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2022%2F11%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4
+    },
+    {
+      "month": "2024-12",
+      "path_row": "092/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2024-12_092081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2024-12_092081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.159,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F092%2F081%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3
+    },
+    {
+      "month": "2024-12",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2024-12_093080.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2024-12_093080.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.195,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F080%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4
+    },
+    {
+      "month": "2024-12",
+      "path_row": "093/081",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/direct_s3_extraction_rehearsal_014/raw/s3_listing_NWB002_2024-12_093081.json",
+      "head_cache": "artifacts/direct_s3_extraction_rehearsal_014/intermediate/s3_head_NWB002_2024-12_093081.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.169,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F081%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4
+    }
+  ],
+  "support_grid": {
+    "crs": "EPSG:3577",
+    "pixel_size_m": 30,
+    "xsize": 403,
+    "ysize": 414,
+    "grid_pixels": 166842,
+    "support_mask_pixels": 93937,
+    "bounds": [
+      1466190.0,
+      -3327930.0,
+      1478280.0,
+      -3315510.0
+    ]
+  },
+  "tiny_raster_read_probe": {
+    "status": "succeeded",
+    "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/09/ga_ls_wo_3_092081_2018-01-09_final_water.tif",
+    "path_row": "092/081",
+    "shape": [
+      1,
+      1
+    ],
+    "min": 0,
+    "max": 0,
+    "elapsed_seconds": 1.422
+  },
+  "read_records": [
+    {
+      "month": "2018-01",
+      "direct_s3_item_count": 9,
+      "readable_scene_count": 9,
+      "skipped_scene_count": 0,
+      "asset_key_hash": "98b89e47d6708aeda539200bbd5fb0d0bfb8adb7fd84f78a616e3da07a0be4bd",
+      "item_id_hash": "e3821ff32ab24f39fe9521bf44773f2089f0a38baf030f1f7474b7bdf68aa764",
+      "per_scene": [
+        {
+          "item_id": "ga_ls_wo_3_092081_2018-01-09_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/09/ga_ls_wo_3_092081_2018-01-09_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.253
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2018-01-17_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/17/ga_ls_wo_3_092081_2018-01-17_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.292
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2018-01-25_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2018/01/25/ga_ls_wo_3_092081_2018-01-25_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.273
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2018-01-08_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/08/ga_ls_wo_3_093080_2018-01-08_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.275
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2018-01-16_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/16/ga_ls_wo_3_093080_2018-01-16_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.322
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2018-01-24_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/24/ga_ls_wo_3_093080_2018-01-24_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.259
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2018-01-08_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/08/ga_ls_wo_3_093081_2018-01-08_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.292
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2018-01-16_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/16/ga_ls_wo_3_093081_2018-01-16_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.286
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2018-01-24_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2018/01/24/ga_ls_wo_3_093081_2018-01-24_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.307
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "month": "2022-11",
+      "direct_s3_item_count": 11,
+      "readable_scene_count": 11,
+      "skipped_scene_count": 0,
+      "asset_key_hash": "0bcf1ec8fe4dc69f76d824983e94a910d02aeaf02a77ba4fb48dc3d40b2b17ef",
+      "item_id_hash": "d959fefa7881ba67adbe6acd713a67fe769b63f4a40afd5e2f9b777aab179395",
+      "per_scene": [
+        {
+          "item_id": "ga_ls_wo_3_092081_2022-11-04_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/04/ga_ls_wo_3_092081_2022-11-04_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.333
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2022-11-20_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/20/ga_ls_wo_3_092081_2022-11-20_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.315
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2022-11-28_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2022/11/28/ga_ls_wo_3_092081_2022-11-28_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.28
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2022-11-03_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/03/ga_ls_wo_3_093080_2022-11-03_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.284
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2022-11-11_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/11/ga_ls_wo_3_093080_2022-11-11_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.224
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2022-11-19_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/19/ga_ls_wo_3_093080_2022-11-19_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.304
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2022-11-27_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/27/ga_ls_wo_3_093080_2022-11-27_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.328
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2022-11-03_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/03/ga_ls_wo_3_093081_2022-11-03_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.324
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2022-11-11_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/11/ga_ls_wo_3_093081_2022-11-11_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.346
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2022-11-19_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/19/ga_ls_wo_3_093081_2022-11-19_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.383
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2022-11-27_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2022/11/27/ga_ls_wo_3_093081_2022-11-27_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.332
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "month": "2024-12",
+      "direct_s3_item_count": 11,
+      "readable_scene_count": 11,
+      "skipped_scene_count": 0,
+      "asset_key_hash": "3a592bbc87be91945772b6f1e5961e66d2c626b59bfd54cfe29255e50af00ca0",
+      "item_id_hash": "27e7e53bbb40cddf542e0ee4b3929d4f7728ffdcb4a60952d40e076407a5706c",
+      "per_scene": [
+        {
+          "item_id": "ga_ls_wo_3_092081_2024-12-11_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/11/ga_ls_wo_3_092081_2024-12-11_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.264
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2024-12-19_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/19/ga_ls_wo_3_092081_2024-12-19_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.306
+        },
+        {
+          "item_id": "ga_ls_wo_3_092081_2024-12-27_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/092/081/2024/12/27/ga_ls_wo_3_092081_2024-12-27_final_water.tif",
+          "path_row": "092/081",
+          "status": "readable",
+          "elapsed_seconds": 0.293
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2024-12-02_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/02/ga_ls_wo_3_093080_2024-12-02_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.306
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2024-12-10_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/10/ga_ls_wo_3_093080_2024-12-10_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.362
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2024-12-18_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/18/ga_ls_wo_3_093080_2024-12-18_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.274
+        },
+        {
+          "item_id": "ga_ls_wo_3_093080_2024-12-26_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/26/ga_ls_wo_3_093080_2024-12-26_final_water.tif",
+          "path_row": "093/080",
+          "status": "readable",
+          "elapsed_seconds": 0.303
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2024-12-02_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/02/ga_ls_wo_3_093081_2024-12-02_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.282
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2024-12-10_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/10/ga_ls_wo_3_093081_2024-12-10_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.327
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2024-12-18_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/18/ga_ls_wo_3_093081_2024-12-18_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.291
+        },
+        {
+          "item_id": "ga_ls_wo_3_093081_2024-12-26_final",
+          "asset_key": "derivative/ga_ls_wo_3/1-6-0/093/081/2024/12/26/ga_ls_wo_3_093081_2024-12-26_final_water.tif",
+          "path_row": "093/081",
+          "status": "readable",
+          "elapsed_seconds": 0.283
+        }
+      ],
+      "skipped": []
+    }
+  ],
+  "summary_row_count": 3,
+  "summary_row_hash": "b888ef486b51bfdc83a08f94972c1e6322f6309ec2683b3ed67eb76d02cbcfd1",
+  "comparison_summary": {
+    "status": "overlap_mismatch_beyond_tolerance",
+    "overlap_month_count": 2,
+    "overlap_mismatch_count": 2,
+    "mismatch_months": [
+      "2022-11",
+      "2024-12"
+    ],
+    "recommendation": "do_not_scale; run a comparator-baseline repair goal before full-window direct S3 extraction"
+  },
+  "comparison_rows": [
+    {
+      "month": "2018-01",
+      "comparison_target": "goal009_full_window_status_row",
+      "comparison_status": "new_direct_s3_rehearsal_row_for_endpoint_blocked_month",
+      "fields_compared": "status_only",
+      "differing_fields": "",
+      "max_abs_numeric_difference": "",
+      "legacy_bbox_extra_no_data_hint": "",
+      "direct_readable_scene_count": 9,
+      "target_readable_scene_count": "0",
+      "direct_current_wet_area_m2": 437.142883,
+      "target_current_wet_area_m2": "",
+      "direct_current_proportion_wet": 5e-06,
+      "target_current_proportion_wet": "",
+      "target_status": "blocked_event_window_processing_error",
+      "recommendation": "record as bounded rehearsal evidence only; not full-window recovery"
+    },
+    {
+      "month": "2022-11",
+      "comparison_target": "goal007_event_window_stac_metrics",
+      "comparison_status": "mismatch_beyond_tolerance",
+      "fields_compared": [
+        "readable_scene_count",
+        "clear_obs_count",
+        "invalid_obs_count",
+        "clear_obs_fraction",
+        "current_wet_area_m2",
+        "valid_support_area_m2",
+        "current_proportion_wet",
+        "wet_pixel_observation_count",
+        "dry_pixel_observation_count",
+        "quality_flag",
+        "wet_month_flag"
+      ],
+      "differing_fields": [
+        "readable_scene_count",
+        "invalid_obs_count",
+        "clear_obs_fraction"
+      ],
+      "max_abs_numeric_difference": 375748.0,
+      "legacy_bbox_extra_no_data_hint": {
+        "matches_hint": true,
+        "extra_scene_count": 4,
+        "expected_extra_no_data": 375748,
+        "observed_extra_no_data": 375748
+      },
+      "direct_readable_scene_count": 11,
+      "target_readable_scene_count": "15",
+      "direct_current_wet_area_m2": 18173724.0,
+      "target_current_wet_area_m2": "18173724.0",
+      "direct_current_proportion_wet": 0.214966,
+      "target_current_proportion_wet": "0.214966",
+      "target_status": "computed_event_window_metrics",
+      "recommendation": "do_not_scale; first build a path-row-filtered STAC or no-data-adjusted comparator baseline"
+    },
+    {
+      "month": "2024-12",
+      "comparison_target": "goal007_event_window_stac_metrics",
+      "comparison_status": "mismatch_beyond_tolerance",
+      "fields_compared": [
+        "readable_scene_count",
+        "clear_obs_count",
+        "invalid_obs_count",
+        "clear_obs_fraction",
+        "current_wet_area_m2",
+        "valid_support_area_m2",
+        "current_proportion_wet",
+        "wet_pixel_observation_count",
+        "dry_pixel_observation_count",
+        "quality_flag",
+        "wet_month_flag"
+      ],
+      "differing_fields": [
+        "readable_scene_count",
+        "invalid_obs_count",
+        "clear_obs_fraction"
+      ],
+      "max_abs_numeric_difference": 281811.0,
+      "legacy_bbox_extra_no_data_hint": {
+        "matches_hint": true,
+        "extra_scene_count": 3,
+        "expected_extra_no_data": 281811,
+        "observed_extra_no_data": 281811
+      },
+      "direct_readable_scene_count": 11,
+      "target_readable_scene_count": "14",
+      "direct_current_wet_area_m2": 4356122.5,
+      "target_current_wet_area_m2": "4356122.5",
+      "direct_current_proportion_wet": 0.051526,
+      "target_current_proportion_wet": "0.051526",
+      "target_status": "computed_event_window_metrics",
+      "recommendation": "do_not_scale; first build a path-row-filtered STAC or no-data-adjusted comparator baseline"
+    }
+  ],
+  "retry_audit_summary": {
+    "event_count": 0,
+    "events_truncated_count": 0,
+    "status_counts": {},
+    "failure_class_counts": {},
+    "max_attempt_count": 0,
+    "events": []
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_extraction_rehearsal_014_report.md",
+    "manifest_json": "docs/direct_s3_extraction_rehearsal_014_manifest.json",
+    "summary_csv": "docs/direct_s3_extraction_rehearsal_014_summary.csv",
+    "comparison_csv": "docs/direct_s3_extraction_comparison_014.csv"
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_extraction_rehearsal_014/raw",
+    "intermediate": "artifacts/direct_s3_extraction_rehearsal_014/intermediate",
+    "output": "artifacts/direct_s3_extraction_rehearsal_014/output"
+  },
+  "staging_ignored_check": {
+    "status": "all_ignored",
+    "checked_paths": [
+      "artifacts/direct_s3_extraction_rehearsal_014/raw/probe.tif",
+      "artifacts/direct_s3_extraction_rehearsal_014/intermediate/probe.npy",
+      "artifacts/direct_s3_extraction_rehearsal_014/output/probe.json"
+    ],
+    "ignored_paths": [
+      "artifacts/direct_s3_extraction_rehearsal_014/raw/probe.tif",
+      "artifacts/direct_s3_extraction_rehearsal_014/intermediate/probe.npy",
+      "artifacts/direct_s3_extraction_rehearsal_014/output/probe.json"
+    ],
+    "stderr": ""
+  },
+  "staging_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "arrays",
+      "temporary extraction JSON"
+    ]
+  },
+  "remote_compute_used": false,
+  "remote_compute_reason": "Mac mini tiny raster-read probe and bounded three-month extraction completed locally.",
+  "elapsed_seconds": 20.0
+}
