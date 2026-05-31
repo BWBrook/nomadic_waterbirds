@@ -13,7 +13,9 @@ paths for Narran subunit evidence checks and remote rehearsal. Goal 009 staged
 full-window remote hydrology raw/intermediate files only under ignored
 `/data/codex` project artifact paths and brought back only small review
 CSV/JSON/Markdown outputs. Goal 011 ran only bounded route probes and kept
-probe JSON under ignored `artifacts/` paths.
+probe JSON under ignored `artifacts/` paths. Goal 012 ran bounded STAC
+preflight and direct S3 metadata probes only, with raw listings and HEAD
+metadata under ignored `artifacts/` paths.
 
 | ID | Source | Provider | URL | Source type | What was verified | Unresolved questions |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -66,3 +68,4 @@ probe JSON under ignored `artifacts/` paths.
 | S47 | DEA Sandbox guide | Geoscience Australia / Digital Earth Australia | https://knowledge.dea.ga.gov.au/guides/setup/Sandbox/sandbox/ | Official environment documentation | Goal 011 verified the DEA Sandbox as an official managed learning/proof-of-concept environment with preinstalled packages and DEA notebooks. | Sandbox storage and availability constraints make it a prototype environment, not an assumed full-window production route. |
 | S48 | DEA Open Data Cube loading guide | Geoscience Australia / Digital Earth Australia | https://knowledge.dea.ga.gov.au/notebooks/Beginners_guide/04_Loading_data/ | Official datacube documentation | Goal 011 verified official Open Data Cube loading documentation and NCI/Sandbox compatibility for DEA notebook workflows. | A project-specific `ga_ls_wo_3` support/month datacube query has not yet been run or compared with existing STAC/COG metrics. |
 | S49 | Goal 011 bounded hydrology route probe | Geoscience Australia / Digital Earth Australia | https://dea-public-data.s3.ap-southeast-2.amazonaws.com/ ; https://explorer.dea.ga.gov.au/stac/search | Public S3 and STAC access probe | Goal 011 listed a known `ga_ls_wo_3` S3 prefix and HEADed a known Water Observations COG successfully while a one-item STAC search returned HTTP 503; probe JSON remains only under ignored `artifacts/hydrology_access_route_011/`. | S3 object reachability does not by itself prove complete scene discovery for arbitrary supports/months; item-set equivalence must be tested in Goal 012. |
+| S50 | Goal 012 bounded metadata cache and S3 prototype | Geoscience Australia / Digital Earth Australia | https://dea-public-data.s3.ap-southeast-2.amazonaws.com/ ; https://explorer.dea.ga.gov.au/stac/search | Public S3 and STAC metadata probe | Goal 012 selected `NWB002` Narran Lake Nature Reserve and three probe months. Strict STAC preflight returned HTTP 503 for `2018-01`, `2022-11`, and `2024-12`, so no STAC cache fill was launched. Direct S3 path-row listings for `093/080` returned Water Observations COG keys for all three months, and all discovered COG `HEAD` checks returned HTTP 200. | The S3 route is technically viable for the known path-row/month prefixes but is not yet scientifically equivalent for the full support until path-row coverage and STAC/ODC item-set comparison are proven. |

@@ -1,0 +1,97 @@
+{
+  "goal": "012-hydrology-metadata-cache-s3-prototype",
+  "accessed_date": "2026-05-31",
+  "run_command": "python3 scripts/hydrology_metadata_cache_s3_012.py",
+  "candidate": {
+    "candidate_id": "NWB002",
+    "candidate_name": "Narran Lake Nature Reserve",
+    "support_id": "nwb002_ramsar_ref1291",
+    "selection_rationale": "Default Goal 012 candidate: current support set member, all 84 Goal 009 full-window rows blocked, and prior Goal 004/011 evidence includes a known 093/080 S3 path-row for Narran product-access probes.",
+    "candidate_bbox_wgs84": [
+      147.36564063799995,
+      -29.777802256186163,
+      147.49428485099997,
+      -29.67042131618795
+    ],
+    "bbox_source": "Goal 009 failure_or_caveat context for nwb002_ramsar_ref1291 support/month rows."
+  },
+  "months": [
+    {
+      "month": "2018-01",
+      "period": "early",
+      "rationale": "Early full-window blocked month from Goal 009 and Goal 010 preflight design."
+    },
+    {
+      "month": "2022-11",
+      "period": "wet_flood",
+      "rationale": "Wet/flood-period probe month with a known Goal 011 S3 path-row and COG HEAD success."
+    },
+    {
+      "month": "2024-12",
+      "period": "recent",
+      "rationale": "Recent full-window blocked month from Goal 009 and Goal 010 preflight design."
+    }
+  ],
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "stac_preflight": {
+    "limit": 1,
+    "timeout_seconds": 30,
+    "required_success_fraction": 1.0,
+    "max_attempts": 1,
+    "fail_on_status_codes": [
+      408,
+      429,
+      500,
+      502,
+      503,
+      504
+    ]
+  },
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "path_rows": [
+      {
+        "path": "093",
+        "row": "080",
+        "source": "Goal 004/011 Narran smoke-test Water Observations paths.",
+        "status": "known_smoke_path_row"
+      }
+    ],
+    "list_max_keys": 1000,
+    "max_pages_per_prefix": 3,
+    "head_limit_per_month": 25
+  },
+  "staging_paths": {
+    "raw": "artifacts/hydrology_metadata_cache_012/raw",
+    "intermediate": "artifacts/hydrology_metadata_cache_012/intermediate",
+    "output": "artifacts/hydrology_metadata_cache_012/output"
+  },
+  "outputs": {
+    "report_md": "docs/hydrology_metadata_cache_s3_012_report.md",
+    "manifest_json": "docs/hydrology_metadata_cache_s3_012_manifest.json",
+    "item_sets_csv": "docs/hydrology_metadata_item_sets_012.csv",
+    "route_comparison_csv": "docs/hydrology_metadata_route_comparison_012.csv"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://knowledge.dea.ga.gov.au/guides/about/faq/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/"
+  ],
+  "known_goal011_s3_assets": [
+    {
+      "month": "2022-11",
+      "href": "s3://dea-public-data/derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/03/ga_ls_wo_3_093080_2022-11-03_final_water.tif",
+      "source": "Goal 011 live probe and Goal 004 smoke-test summary."
+    }
+  ],
+  "commit_policy": {
+    "commit": "compact Markdown, CSV, JSON manifest, settings, script, and tests",
+    "ignore": "STAC item JSON, S3 listings, inventories, rasters, arrays, temporary route caches, and probe artifacts"
+  }
+}

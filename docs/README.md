@@ -125,6 +125,15 @@ waterbirds project.
   machine-readable Goal 011 acquisition-route comparison table.
 - [hydrology_stac_query_pattern_011.csv](hydrology_stac_query_pattern_011.csv):
   machine-readable Goal 011 STAC query-pattern and cache-opportunity audit.
+- [hydrology_metadata_cache_s3_012_report.md](hydrology_metadata_cache_s3_012_report.md):
+  Goal 012 bounded STAC-cache and direct S3 metadata prototype report.
+- [hydrology_metadata_cache_s3_012_manifest.json](hydrology_metadata_cache_s3_012_manifest.json):
+  machine-readable Goal 012 candidate/month, route-probe, item-set, and
+  staging manifest.
+- [hydrology_metadata_item_sets_012.csv](hydrology_metadata_item_sets_012.csv):
+  compact Goal 012 route-by-month item-set hashes and counts.
+- [hydrology_metadata_route_comparison_012.csv](hydrology_metadata_route_comparison_012.csv):
+  Goal 012 route comparison and next-step recommendation table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

@@ -1,0 +1,375 @@
+{
+  "goal": "012-hydrology-metadata-cache-s3-prototype",
+  "manifest_type": "hydrology_metadata_cache_s3_012",
+  "created_at_utc": "2026-05-31T07:36:26.256210+00:00",
+  "accessed_date": "2026-05-31",
+  "command": "python3 scripts/hydrology_metadata_cache_s3_012.py",
+  "config_path": "settings/hydrology_metadata_cache_s3_012.json",
+  "reuse_ignored_cache": false,
+  "host_facts": {
+    "hostname": "Mac-mini.lan",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "candidate": {
+    "candidate_id": "NWB002",
+    "candidate_name": "Narran Lake Nature Reserve",
+    "support_id": "nwb002_ramsar_ref1291",
+    "selection_rationale": "Default Goal 012 candidate: current support set member, all 84 Goal 009 full-window rows blocked, and prior Goal 004/011 evidence includes a known 093/080 S3 path-row for Narran product-access probes.",
+    "candidate_bbox_wgs84": [
+      147.36564063799995,
+      -29.777802256186163,
+      147.49428485099997,
+      -29.67042131618795
+    ],
+    "bbox_source": "Goal 009 failure_or_caveat context for nwb002_ramsar_ref1291 support/month rows."
+  },
+  "months": [
+    {
+      "month": "2018-01",
+      "period": "early",
+      "rationale": "Early full-window blocked month from Goal 009 and Goal 010 preflight design."
+    },
+    {
+      "month": "2022-11",
+      "period": "wet_flood",
+      "rationale": "Wet/flood-period probe month with a known Goal 011 S3 path-row and COG HEAD success."
+    },
+    {
+      "month": "2024-12",
+      "period": "recent",
+      "rationale": "Recent full-window blocked month from Goal 009 and Goal 010 preflight design."
+    }
+  ],
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://knowledge.dea.ga.gov.au/guides/about/faq/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/"
+  ],
+  "staging_paths": {
+    "raw": "artifacts/hydrology_metadata_cache_012/raw",
+    "intermediate": "artifacts/hydrology_metadata_cache_012/intermediate",
+    "output": "artifacts/hydrology_metadata_cache_012/output"
+  },
+  "staging_policy": {
+    "commit": "compact Markdown, CSV, JSON manifest, settings, script, and tests",
+    "ignore": "STAC item JSON, S3 listings, inventories, rasters, arrays, temporary route caches, and probe artifacts"
+  },
+  "stac_preflight": {
+    "threshold": {
+      "limit": 1,
+      "timeout_seconds": 30,
+      "required_success_fraction": 1.0,
+      "max_attempts": 1,
+      "fail_on_status_codes": [
+        408,
+        429,
+        500,
+        502,
+        503,
+        504
+      ]
+    },
+    "results": [
+      {
+        "month": "2018-01",
+        "period": "early",
+        "payload": {
+          "collections": [
+            "ga_ls_wo_3"
+          ],
+          "bbox": [
+            147.36564063799995,
+            -29.777802256186163,
+            147.49428485099997,
+            -29.67042131618795
+          ],
+          "datetime": "2018-01-01T00:00:00Z/2018-02-01T00:00:00Z",
+          "limit": 1
+        },
+        "ok": false,
+        "status_code": 503,
+        "elapsed_seconds": 0.181,
+        "content_type": "text/html",
+        "content_length": "162",
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "month": "2022-11",
+        "period": "wet_flood",
+        "payload": {
+          "collections": [
+            "ga_ls_wo_3"
+          ],
+          "bbox": [
+            147.36564063799995,
+            -29.777802256186163,
+            147.49428485099997,
+            -29.67042131618795
+          ],
+          "datetime": "2022-11-01T00:00:00Z/2022-12-01T00:00:00Z",
+          "limit": 1
+        },
+        "ok": false,
+        "status_code": 503,
+        "elapsed_seconds": 0.141,
+        "content_type": "text/html",
+        "content_length": "162",
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "month": "2024-12",
+        "period": "recent",
+        "payload": {
+          "collections": [
+            "ga_ls_wo_3"
+          ],
+          "bbox": [
+            147.36564063799995,
+            -29.777802256186163,
+            147.49428485099997,
+            -29.67042131618795
+          ],
+          "datetime": "2024-12-01T00:00:00Z/2025-01-01T00:00:00Z",
+          "limit": 1
+        },
+        "ok": false,
+        "status_code": 503,
+        "elapsed_seconds": 0.146,
+        "content_type": "text/html",
+        "content_length": "162",
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      }
+    ],
+    "status": {
+      "route_status": "unavailable_service_unstable",
+      "failure_months": [
+        "2018-01",
+        "2022-11",
+        "2024-12"
+      ],
+      "reason": "At least one configured probe month failed the strict STAC preflight; cache fill was not launched."
+    }
+  },
+  "stac_cache_records": [],
+  "s3_route_records": [
+    {
+      "month": "2018-01",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/",
+      "listing_path": "artifacts/hydrology_metadata_cache_012/raw/s3_listing_NWB002_2018-01_093080.json",
+      "head_path": "artifacts/hydrology_metadata_cache_012/intermediate/s3_head_NWB002_2018-01_093080.json",
+      "key_count": 18,
+      "water_item_count": 3,
+      "head_count": 3,
+      "listing_status_code": 200,
+      "all_head_ok": true,
+      "listing_page_count": 1
+    },
+    {
+      "month": "2022-11",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/",
+      "listing_path": "artifacts/hydrology_metadata_cache_012/raw/s3_listing_NWB002_2022-11_093080.json",
+      "head_path": "artifacts/hydrology_metadata_cache_012/intermediate/s3_head_NWB002_2022-11_093080.json",
+      "key_count": 24,
+      "water_item_count": 4,
+      "head_count": 4,
+      "listing_status_code": 200,
+      "all_head_ok": true,
+      "listing_page_count": 1
+    },
+    {
+      "month": "2024-12",
+      "path_row": "093/080",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/",
+      "listing_path": "artifacts/hydrology_metadata_cache_012/raw/s3_listing_NWB002_2024-12_093080.json",
+      "head_path": "artifacts/hydrology_metadata_cache_012/intermediate/s3_head_NWB002_2024-12_093080.json",
+      "key_count": 24,
+      "water_item_count": 4,
+      "head_count": 4,
+      "listing_status_code": 200,
+      "all_head_ok": true,
+      "listing_page_count": 1
+    }
+  ],
+  "item_sets": [
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2018-01",
+      "route": "candidate_month_stac_cache",
+      "path_or_bbox_key": "ga_ls_wo_3|NWB002|2018-01|044a09cadd38925f",
+      "item_count": 0,
+      "item_id_hash": "",
+      "asset_key_hash": "",
+      "route_status": "unavailable_service_unstable",
+      "cache_path_status": "not_written",
+      "item_id_sample": "",
+      "asset_key_sample": "",
+      "caveat": "At least one configured probe month failed the strict STAC preflight; cache fill was not launched."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2018-01",
+      "route": "direct_s3_path_row",
+      "path_or_bbox_key": "093/080",
+      "item_count": 3,
+      "item_id_hash": "1acd7747d8c8f871ec313f8395ee6ecce9478b12645b8f6d93404f3414bbecc0",
+      "asset_key_hash": "cf986404e13e7ed54aea8e9889b17975f7aecca5ad0c81edcdf6fa721a2c968f",
+      "route_status": "available",
+      "cache_path_status": "ignored_raw_listing_and_head_metadata",
+      "item_id_sample": "ga_ls_wo_3_093080_2018-01-08_final;ga_ls_wo_3_093080_2018-01-16_final;ga_ls_wo_3_093080_2018-01-24_final",
+      "asset_key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/08/ga_ls_wo_3_093080_2018-01-08_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/16/ga_ls_wo_3_093080_2018-01-16_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2018/01/24/ga_ls_wo_3_093080_2018-01-24_final_water.tif",
+      "caveat": "Path-row/month object listing only; not yet a complete support-intersection inventory."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2022-11",
+      "route": "candidate_month_stac_cache",
+      "path_or_bbox_key": "ga_ls_wo_3|NWB002|2022-11|044a09cadd38925f",
+      "item_count": 0,
+      "item_id_hash": "",
+      "asset_key_hash": "",
+      "route_status": "unavailable_service_unstable",
+      "cache_path_status": "not_written",
+      "item_id_sample": "",
+      "asset_key_sample": "",
+      "caveat": "At least one configured probe month failed the strict STAC preflight; cache fill was not launched."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2022-11",
+      "route": "direct_s3_path_row",
+      "path_or_bbox_key": "093/080",
+      "item_count": 4,
+      "item_id_hash": "662f5e146bece34f2cc3fb0c4e61b855099e58e512216ae48b9fd630108bb04c",
+      "asset_key_hash": "017c6a6ddcfea1cb1f04f2d92a22d5cedb4b9fdd32e906888d0db32bdd27df3a",
+      "route_status": "available",
+      "cache_path_status": "ignored_raw_listing_and_head_metadata",
+      "item_id_sample": "ga_ls_wo_3_093080_2022-11-03_final;ga_ls_wo_3_093080_2022-11-11_final;ga_ls_wo_3_093080_2022-11-19_final",
+      "asset_key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/03/ga_ls_wo_3_093080_2022-11-03_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/11/ga_ls_wo_3_093080_2022-11-11_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2022/11/19/ga_ls_wo_3_093080_2022-11-19_final_water.tif",
+      "caveat": "Path-row/month object listing only; not yet a complete support-intersection inventory."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2024-12",
+      "route": "candidate_month_stac_cache",
+      "path_or_bbox_key": "ga_ls_wo_3|NWB002|2024-12|044a09cadd38925f",
+      "item_count": 0,
+      "item_id_hash": "",
+      "asset_key_hash": "",
+      "route_status": "unavailable_service_unstable",
+      "cache_path_status": "not_written",
+      "item_id_sample": "",
+      "asset_key_sample": "",
+      "caveat": "At least one configured probe month failed the strict STAC preflight; cache fill was not launched."
+    },
+    {
+      "candidate_id": "NWB002",
+      "candidate_name": "Narran Lake Nature Reserve",
+      "support_id": "nwb002_ramsar_ref1291",
+      "month": "2024-12",
+      "route": "direct_s3_path_row",
+      "path_or_bbox_key": "093/080",
+      "item_count": 4,
+      "item_id_hash": "45a5ec0797c7123f5af0362708a64464942aa14478823637163b4b4186adc74c",
+      "asset_key_hash": "2a2db15111a2a40f56abce1ee30a5bc7cea10e237fd45b813a92358e02d4efe2",
+      "route_status": "available",
+      "cache_path_status": "ignored_raw_listing_and_head_metadata",
+      "item_id_sample": "ga_ls_wo_3_093080_2024-12-02_final;ga_ls_wo_3_093080_2024-12-10_final;ga_ls_wo_3_093080_2024-12-18_final",
+      "asset_key_sample": "derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/02/ga_ls_wo_3_093080_2024-12-02_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/10/ga_ls_wo_3_093080_2024-12-10_final_water.tif;derivative/ga_ls_wo_3/1-6-0/093/080/2024/12/18/ga_ls_wo_3_093080_2024-12-18_final_water.tif",
+      "caveat": "Path-row/month object listing only; not yet a complete support-intersection inventory."
+    }
+  ],
+  "item_set_comparisons": [
+    {
+      "month": "2018-01",
+      "status": "comparison_blocked_stac_unavailable",
+      "s3_item_count": 3,
+      "stac_item_count": 0,
+      "s3_asset_key_hash": "cf986404e13e7ed54aea8e9889b17975f7aecca5ad0c81edcdf6fa721a2c968f",
+      "stac_asset_key_hash": "",
+      "caveat": "S3 route viability only; scientific equivalence cannot be proven without STAC or another official metadata comparator."
+    },
+    {
+      "month": "2022-11",
+      "status": "comparison_blocked_stac_unavailable",
+      "s3_item_count": 4,
+      "stac_item_count": 0,
+      "s3_asset_key_hash": "017c6a6ddcfea1cb1f04f2d92a22d5cedb4b9fdd32e906888d0db32bdd27df3a",
+      "stac_asset_key_hash": "",
+      "caveat": "S3 route viability only; scientific equivalence cannot be proven without STAC or another official metadata comparator."
+    },
+    {
+      "month": "2024-12",
+      "status": "comparison_blocked_stac_unavailable",
+      "s3_item_count": 4,
+      "stac_item_count": 0,
+      "s3_asset_key_hash": "2a2db15111a2a40f56abce1ee30a5bc7cea10e237fd45b813a92358e02d4efe2",
+      "stac_asset_key_hash": "",
+      "caveat": "S3 route viability only; scientific equivalence cannot be proven without STAC or another official metadata comparator."
+    }
+  ],
+  "route_comparison": [
+    {
+      "route": "candidate_month_stac_cache",
+      "scientific_equivalence_status": "not_evaluable_now",
+      "stac_dependence": "strict_preflight_and_cache_fill",
+      "s3_or_object_store_dependence": "COG assets after metadata discovery",
+      "failure_mode": "At least one configured probe month failed the strict STAC preflight; cache fill was not launched.",
+      "implementation_cost": "moderate",
+      "recommendation": "Do not launch full extraction until endpoint preflight passes; keep cache code path ready.",
+      "evidence": "preflight_status=unavailable_service_unstable; failure_months=2018-01;2022-11;2024-12"
+    },
+    {
+      "route": "direct_s3_path_row_index",
+      "scientific_equivalence_status": "technical_viability_not_equivalence",
+      "stac_dependence": "none_for_known_path_row_month_listing",
+      "s3_or_object_store_dependence": "public S3 prefix listing and COG HEAD metadata",
+      "failure_mode": "path-row coverage may be incomplete for full candidate support",
+      "implementation_cost": "moderate",
+      "recommendation": "Promote to Goal 013 prototype only if path-row coverage can be derived for every support bbox.",
+      "evidence": "s3_month_records_with_water_items=3; all_head_ok=True"
+    },
+    {
+      "route": "item_set_comparison",
+      "scientific_equivalence_status": "blocked",
+      "stac_dependence": "requires STAC or datacube comparator",
+      "s3_or_object_store_dependence": "uses direct S3 item keys",
+      "failure_mode": "STAC unavailable blocks equivalence proof",
+      "implementation_cost": "low_after_routes_exist",
+      "recommendation": "Repeat comparison when STAC or ODC metadata is available.",
+      "evidence": "comparison_statuses=comparison_blocked_stac_unavailable"
+    },
+    {
+      "route": "odc_nci_or_dea_sandbox",
+      "scientific_equivalence_status": "deferred_official_comparator",
+      "stac_dependence": "none in repo loop; backend indexed metadata",
+      "s3_or_object_store_dependence": "environment-dependent",
+      "failure_mode": "requires account/environment setup",
+      "implementation_cost": "high",
+      "recommendation": "Use if STAC remains unavailable and S3 path-row coverage cannot be proven locally.",
+      "evidence": "Goal 011 official-source review; no Goal 012 ODC run requested or needed."
+    }
+  ],
+  "outputs": {
+    "report_md": "docs/hydrology_metadata_cache_s3_012_report.md",
+    "manifest_json": "docs/hydrology_metadata_cache_s3_012_manifest.json",
+    "item_sets_csv": "docs/hydrology_metadata_item_sets_012.csv",
+    "route_comparison_csv": "docs/hydrology_metadata_route_comparison_012.csv"
+  },
+  "elapsed_seconds": 3.121
+}
