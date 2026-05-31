@@ -157,6 +157,19 @@ waterbirds project.
 - [direct_s3_extraction_comparison_014.csv](direct_s3_extraction_comparison_014.csv):
   Goal 014 comparison against existing event-window metrics and the prior
   `2018-01` blocked status.
+- [comparator_baseline_repair_015_report.md](comparator_baseline_repair_015_report.md):
+  Goal 015 path-row-filtered comparator baseline repair and scene-selection
+  policy recommendation.
+- [comparator_baseline_repair_015_manifest.json](comparator_baseline_repair_015_manifest.json):
+  machine-readable Goal 015 STAC route, scene-selection, comparator,
+  comparison, host, runtime, and staging provenance.
+- [pathrow_filtered_comparator_015_summary.csv](pathrow_filtered_comparator_015_summary.csv):
+  compact Goal 015 repaired three-month comparator baseline for `NWB002`.
+- [comparator_baseline_repair_015_comparison.csv](comparator_baseline_repair_015_comparison.csv):
+  Goal 015 repaired-comparator comparison against Goal 014 direct-S3 rows and
+  legacy Goal 007/009 rows.
+- [legacy_denominator_effect_015.csv](legacy_denominator_effect_015.csv):
+  compact Goal 015 quantification of legacy STAC bbox-only denominator effects.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

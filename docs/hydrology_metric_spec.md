@@ -42,6 +42,18 @@ Use calendar months in local date terms derived from observation acquisition
 date. Retain the original observation dates so later goals can re-aggregate to
 seasonal or event windows.
 
+## Support-Relevant Scene Selection
+
+For support-level monthly Water Observations metrics, first derive the WRS-2
+path/rows whose official scene footprints intersect the support geometry. STAC
+bbox searches may be used to discover candidate metadata, but monthly metrics
+must count and summarise only scenes from those support-intersecting path/rows.
+
+Bbox-only STAC hits outside the derived support path/row set must not be
+counted as readable scenes, no-data observations, invalid observations, or
+monthly denominator terms for that support. Each output row should record the
+path/row set and enough item-set provenance to audit the scene-selection rule.
+
 ## Pixel Classification Rules
 
 For each Water Observations pixel value:

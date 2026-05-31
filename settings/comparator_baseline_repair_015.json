@@ -1,0 +1,103 @@
+{
+  "goal": "015-comparator-baseline-repair",
+  "run_command": "python3 scripts/comparator_baseline_repair_015.py",
+  "accessed_date": "2026-05-31",
+  "primary_candidate_id": "NWB002",
+  "primary_support_id": "nwb002_ramsar_ref1291",
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "path_rows": [
+    "092/081",
+    "093/080",
+    "093/081"
+  ],
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 STAC metadata filtered to support-intersecting WRS path/rows",
+  "metric_spec_version": "goal015-pathrow-filtered-comparator-v1",
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as readable scenes or invalid observations.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv",
+    "fallback_if_stac_unavailable": "comparator_blocked_stac_unavailable"
+  },
+  "stac": {
+    "search_url": "https://explorer.dea.ga.gov.au/stac/search",
+    "limit": 20,
+    "timeout_seconds": 30
+  },
+  "s3": {
+    "bucket": "dea-public-data"
+  },
+  "comparison": {
+    "fields": [
+      "readable_scene_count",
+      "clear_obs_count",
+      "invalid_obs_count",
+      "clear_obs_fraction",
+      "current_wet_area_m2",
+      "valid_support_area_m2",
+      "current_proportion_wet",
+      "wet_pixel_observation_count",
+      "dry_pixel_observation_count",
+      "quality_flag",
+      "wet_month_flag"
+    ],
+    "tolerances": {
+      "count_abs": 0.0,
+      "fraction_abs": 0.000001,
+      "area_m2_abs": 0.5,
+      "numeric_abs": 0.0
+    }
+  },
+  "inputs": {
+    "goal013_manifest_json": "docs/support_pathrow_coverage_013_manifest.json",
+    "goal013_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "goal013_item_sets_csv": "docs/support_pathrow_item_sets_013.csv",
+    "goal014_manifest_json": "docs/direct_s3_extraction_rehearsal_014_manifest.json",
+    "goal014_summary_csv": "docs/direct_s3_extraction_rehearsal_014_summary.csv",
+    "goal014_comparison_csv": "docs/direct_s3_extraction_comparison_014.csv",
+    "legacy_event_window_csv": "docs/event_window_hydrology_series.csv",
+    "legacy_full_window_csv": "docs/event_window_hydrology_series_2018_2024.csv"
+  },
+  "staging_paths": {
+    "raw": "artifacts/comparator_baseline_repair_015/raw",
+    "intermediate": "artifacts/comparator_baseline_repair_015/intermediate",
+    "output": "artifacts/comparator_baseline_repair_015/output"
+  },
+  "outputs": {
+    "report_md": "docs/comparator_baseline_repair_015_report.md",
+    "manifest_json": "docs/comparator_baseline_repair_015_manifest.json",
+    "summary_csv": "docs/pathrow_filtered_comparator_015_summary.csv",
+    "comparison_csv": "docs/comparator_baseline_repair_015_comparison.csv",
+    "denominator_effect_csv": "docs/legacy_denominator_effect_015.csv"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw STAC JSON",
+      "S3 listings",
+      "rasters",
+      "arrays",
+      "temporary run JSON"
+    ]
+  }
+}
