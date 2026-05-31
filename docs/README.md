@@ -111,6 +111,11 @@ waterbirds project.
   compact Goal 009 full-window support-level summary table.
 - [remote_full_window_hydrology_009_retry_summary.csv](remote_full_window_hydrology_009_retry_summary.csv):
   compact Goal 009 per-support computed/blocked/retry status table.
+- [stac_recovery_010_report.md](stac_recovery_010_report.md):
+  Goal 010 service-stability preflight and recovery launch/blocker report.
+- [stac_recovery_010_manifest.json](stac_recovery_010_manifest.json):
+  machine-readable Goal 010 endpoint probes, blocked-row sample, launch
+  decision, and remote staging manifest.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
