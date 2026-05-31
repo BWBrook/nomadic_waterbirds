@@ -146,6 +146,10 @@ waterbirds project.
 - [goals/011-hydrology-acquisition-route-redesign/](goals/011-hydrology-acquisition-route-redesign/):
   Goal 011 package for assessing lower-STAC-dependence or alternate official
   DEA acquisition routes before another full-window hydrology run.
+- [goals/012-hydrology-metadata-cache-s3-prototype/](goals/012-hydrology-metadata-cache-s3-prototype/):
+  Goal 012 package for prototyping bounded candidate-month STAC metadata
+  caching and direct public S3/item-set discovery before any further hydrology
+  recovery run.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
