@@ -225,6 +225,9 @@ waterbirds project.
   Goal 016 package for testing bounded direct-S3 Water Observations extraction
   across all current event-window supports and the three repaired probe
   months.
+- [goals/017-legacy-wetness-difference-triage/](goals/017-legacy-wetness-difference-triage/):
+  Goal 017 package for classifying the six legacy wetness-field differences
+  from the all-support direct-S3 probe before full-window scale-up.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
