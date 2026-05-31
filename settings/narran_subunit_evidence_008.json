@@ -1,0 +1,61 @@
+{
+  "goal": "008-narran-subunit-and-remote-hydrology-rehearsal",
+  "accessed_date": "2026-05-31",
+  "candidate_id": "NWB002",
+  "candidate_name": "Narran Lake Nature Reserve",
+  "parent_support_id": "nwb002_ramsar_ref1291",
+  "parent_ramsar_refcode": 1291,
+  "goal007_config_path": "settings/event_window_hydrology_007.json",
+  "dea_waterbodies_zip_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/dea_waterbodies/3-0-0/shapefile/ga_ls_wb_3_v3.zip",
+  "existing_waterbodies_zip_path": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip",
+  "scratch_paths": {
+    "data_scratch": "data/scratch/goal008",
+    "narran_raw": "artifacts/narran_subunit_evidence/raw"
+  },
+  "staged_files": {
+    "ramsar_subset_geojson": "artifacts/narran_subunit_evidence/raw/ramsar_goal008_narran_subset.geojson",
+    "dea_waterbodies_zip": "artifacts/narran_subunit_evidence/raw/ga_ls_wb_3_v3.zip"
+  },
+  "source_files": [
+    {
+      "id": "dcceew_narran_page",
+      "label": "DCCEEW Narran Lake Nature Reserve Ramsar page",
+      "url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/dcceew_narran_page.html"
+    },
+    {
+      "id": "ramsar_ris_2022",
+      "label": "Narran Lake Nature Reserve Ramsar information sheet 2022",
+      "url": "https://rsis.ramsar.org/RISapp/files/RISrep/AU995RIS_2207_en.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/AU995RIS_2207_en.pdf"
+    },
+    {
+      "id": "ramsar_ecd_2011",
+      "label": "Narran Lake Nature Reserve ecological character description 2011",
+      "url": "https://rsis.ramsar.org/RISapp/files/34152861/documents/AU995_ECD160815.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/AU995_ECD160815.pdf"
+    },
+    {
+      "id": "nsw_draft_plan_2025",
+      "label": "NSW Narran Lake Nature Reserve draft plan of management 2025",
+      "url": "https://www.environment.nsw.gov.au/sites/default/files/2025-09/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf"
+    },
+    {
+      "id": "nsw_vegetation_map_metadata_2026",
+      "label": "Data.NSW Wetland Vegetation of Narran Lakes 2024-25 metadata",
+      "url": "https://www.data.nsw.gov.au/data/dataset/wetland-vegetation-of-narran-lakes-2024-25",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/data_nsw_wetland_vegetation_narran_2024_25.html"
+    },
+    {
+      "id": "nsw_vegetation_map_quality_2026",
+      "label": "Wetland Vegetation of Narran Lakes 2024-25 data quality statement",
+      "url": "https://www.planningportal.nsw.gov.au/opendata/dataset/wetland-vegetation-of-narran-lakes-2024-25/resource/data_quality_report/pdp",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/wetland_vegetation_narran_2024_25_data_quality.pdf"
+    }
+  ],
+  "outputs": {
+    "crosswalk_csv": "docs/narran_named_subunit_crosswalk.csv",
+    "manifest_json": "docs/narran_named_subunit_evidence_manifest.json"
+  }
+}

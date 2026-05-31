@@ -16,6 +16,48 @@ def load_module():
 
 
 class Goal005HydrologyMetricTests(unittest.TestCase):
+    def test_memory_vector_driver_falls_back_for_older_gdal_names(self):
+        module = load_module()
+        original = module.ogr.GetDriverByName
+        sentinel = object()
+
+        def fake_get_driver(name):
+            if name == "MEM":
+                return None
+            if name == "Memory":
+                return sentinel
+            return original(name)
+
+        module.ogr.GetDriverByName = fake_get_driver
+        try:
+            self.assertIs(module.memory_vector_driver(), sentinel)
+        finally:
+            module.ogr.GetDriverByName = original
+
+    def test_memory_vector_driver_keeps_falsey_mem_driver_when_available(self):
+        module = load_module()
+        original = module.ogr.GetDriverByName
+
+        class FalseyDriver:
+            def __bool__(self):
+                return False
+
+        mem_driver = FalseyDriver()
+        memory_driver = object()
+
+        def fake_get_driver(name):
+            if name == "MEM":
+                return mem_driver
+            if name == "Memory":
+                return memory_driver
+            return original(name)
+
+        module.ogr.GetDriverByName = fake_get_driver
+        try:
+            self.assertIs(module.memory_vector_driver(), mem_driver)
+        finally:
+            module.ogr.GetDriverByName = original
+
     def test_monthly_metrics_aggregate_scene_observations_by_pixel(self):
         module = load_module()
         support_mask = np.array([[True, True], [True, False]])

@@ -185,13 +185,23 @@ def rasterize_geometry(
     raster.SetProjection(srs.ExportToWkt())
     band = raster.GetRasterBand(1)
     band.Fill(0)
-    vector = ogr.GetDriverByName("MEM").CreateDataSource("")
+    vector = memory_vector_driver().CreateDataSource("")
     layer = vector.CreateLayer("support", srs=srs, geom_type=ogr.wkbMultiPolygon)
     feature = ogr.Feature(layer.GetLayerDefn())
     feature.SetGeometry(geom.Clone())
     layer.CreateFeature(feature)
     gdal.RasterizeLayer(raster, [1], layer, burn_values=[1])
     return band.ReadAsArray().astype(bool)
+
+
+def memory_vector_driver():
+    driver = ogr.GetDriverByName("MEM")
+    if driver is not None:
+        return driver
+    driver = ogr.GetDriverByName("Memory")
+    if driver is None:
+        raise RuntimeError("No in-memory OGR vector driver is available")
+    return driver
 
 
 def summarise_support_month(scene_values: list[np.ndarray], support_mask: np.ndarray) -> dict[str, Any]:

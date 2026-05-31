@@ -1,0 +1,136 @@
+{
+  "goal": "008-narran-subunit-and-remote-hydrology-rehearsal",
+  "manifest_type": "narran_named_subunit_evidence",
+  "accessed_at_utc": "2026-05-31T00:37:53.817025+00:00",
+  "command": "python3 scripts/narran_subunit_evidence_008.py",
+  "config_path": "settings/narran_subunit_evidence_008.json",
+  "git_commit_at_run": "eee404f",
+  "source_urls": {
+    "dcceew_narran_page": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+    "ramsar_ris_2022": "https://rsis.ramsar.org/RISapp/files/RISrep/AU995RIS_2207_en.pdf",
+    "ramsar_ecd_2011": "https://rsis.ramsar.org/RISapp/files/34152861/documents/AU995_ECD160815.pdf",
+    "nsw_draft_plan_2025": "https://www.environment.nsw.gov.au/sites/default/files/2025-09/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf",
+    "nsw_vegetation_map_metadata_2026": "https://www.data.nsw.gov.au/data/dataset/wetland-vegetation-of-narran-lakes-2024-25",
+    "nsw_vegetation_map_quality_2026": "https://www.planningportal.nsw.gov.au/opendata/dataset/wetland-vegetation-of-narran-lakes-2024-25/resource/data_quality_report/pdp"
+  },
+  "ramsar_service_query": "https://gis.environment.gov.au/gispubmap/rest/services/ogc_services/Ramsar_Wetlands/MapServer/0/query?where=REFCODE+IN+%28337%2C1291%2C993%2C265%2C791%29&outFields=OBJECTID%2CREFCODE%2CSTATE%2CAREA_HA%2CTOTAL_SITE_AREA_HA%2CSOURCE%2CRAMSAR_NAME%2CWETLAND_NAME%2CJURISDICTION%2CGAZETTED_AREA_HA%2CWETLANDSDB_URL%2CMETADATA_URL&returnGeometry=true&outSR=4326&f=geojson",
+  "staged_raw_files": [
+    {
+      "path": "artifacts/narran_subunit_evidence/raw/ramsar_goal008_narran_subset.geojson",
+      "bytes": 28523,
+      "sha256": "4744af7bd450a2ca0863f79689ccf1e1bc919372fa7a2d640140637058a4db9b",
+      "committed": false,
+      "status": "downloaded_from_ramsar_service_query"
+    },
+    {
+      "path": "artifacts/narran_subunit_evidence/raw/ga_ls_wb_3_v3.zip",
+      "bytes": 46502008,
+      "sha256": "7f491f8487770ad237e7000ff5f3cb3b607e18abe1a0690d5ea4a6c2f3241450",
+      "committed": false,
+      "status": "reused_or_copied_for_overlap_check"
+    },
+    {
+      "id": "dcceew_narran_page",
+      "label": "DCCEEW Narran Lake Nature Reserve Ramsar page",
+      "url": "https://www.dcceew.gov.au/water/wetlands/australian-ramsar-wetlands/narran-lake-nature-reserve",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/dcceew_narran_page.html",
+      "path": "artifacts/narran_subunit_evidence/raw/dcceew_narran_page.html",
+      "bytes": 95756,
+      "sha256": "9d2c8a705b8882c5c86794c7a1ea0ab7b38be51f367e16975db8c86a1616ccd7",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    },
+    {
+      "id": "ramsar_ris_2022",
+      "label": "Narran Lake Nature Reserve Ramsar information sheet 2022",
+      "url": "https://rsis.ramsar.org/RISapp/files/RISrep/AU995RIS_2207_en.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/AU995RIS_2207_en.pdf",
+      "path": "artifacts/narran_subunit_evidence/raw/AU995RIS_2207_en.pdf",
+      "bytes": 663297,
+      "sha256": "ce39ed13f9ac76b00a23368fdd1815968da97cc6ae4d4bc2e4cdd1b8dd65d145",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    },
+    {
+      "id": "ramsar_ecd_2011",
+      "label": "Narran Lake Nature Reserve ecological character description 2011",
+      "url": "https://rsis.ramsar.org/RISapp/files/34152861/documents/AU995_ECD160815.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/AU995_ECD160815.pdf",
+      "path": "artifacts/narran_subunit_evidence/raw/AU995_ECD160815.pdf",
+      "bytes": 7045674,
+      "sha256": "8ef9b62da6f6378f608fdc2fd81331d45e5382644c38c3dfc60d4b5fe5eb540d",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    },
+    {
+      "id": "nsw_draft_plan_2025",
+      "label": "NSW Narran Lake Nature Reserve draft plan of management 2025",
+      "url": "https://www.environment.nsw.gov.au/sites/default/files/2025-09/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf",
+      "path": "artifacts/narran_subunit_evidence/raw/narran-lake-nature-reserve-draft-plan-of-management-250346.pdf",
+      "bytes": 5009252,
+      "sha256": "cf334d9e063d867f733b79aaa5dfe580df736e8522029295eeffbc48009901b8",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    },
+    {
+      "id": "nsw_vegetation_map_metadata_2026",
+      "label": "Data.NSW Wetland Vegetation of Narran Lakes 2024-25 metadata",
+      "url": "https://www.data.nsw.gov.au/data/dataset/wetland-vegetation-of-narran-lakes-2024-25",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/data_nsw_wetland_vegetation_narran_2024_25.html",
+      "path": "artifacts/narran_subunit_evidence/raw/data_nsw_wetland_vegetation_narran_2024_25.html",
+      "bytes": 119655,
+      "sha256": "c3b724317d2a826c601a37f7b9a863030cb3616266753f397734df40614865d9",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    },
+    {
+      "id": "nsw_vegetation_map_quality_2026",
+      "label": "Wetland Vegetation of Narran Lakes 2024-25 data quality statement",
+      "url": "https://www.planningportal.nsw.gov.au/opendata/dataset/wetland-vegetation-of-narran-lakes-2024-25/resource/data_quality_report/pdp",
+      "staged_path": "artifacts/narran_subunit_evidence/raw/wetland_vegetation_narran_2024_25_data_quality.pdf",
+      "path": "artifacts/narran_subunit_evidence/raw/wetland_vegetation_narran_2024_25_data_quality.pdf",
+      "bytes": 34117,
+      "sha256": "e23ba3dded78bde247acfcd181efe38a5f9a9a00d3e37c22f2a3c62ff0265e70",
+      "committed": false,
+      "status": "reused_existing_staged_file"
+    }
+  ],
+  "source_checks": [
+    {
+      "topic": "Clear Lake",
+      "status": "name and approximate location verified; standalone vector geometry not verified",
+      "support_id": "nwb002_named_clear_lake_unresolved"
+    },
+    {
+      "topic": "Back Lake",
+      "status": "name and approximate location verified; standalone vector geometry not verified",
+      "support_id": "nwb002_named_back_lake_unresolved"
+    },
+    {
+      "topic": "Long Arm",
+      "status": "name and hydrological sequence verified; standalone vector geometry not verified",
+      "support_id": "nwb002_named_long_arm_unresolved"
+    },
+    {
+      "topic": "Lignum/channelised floodplain",
+      "status": "vegetation context verified; support-ready named polygon not verified",
+      "support_id": "nwb002_lignum_channelised_floodplain_unresolved"
+    },
+    {
+      "topic": "DEA Waterbodies parent overlaps",
+      "status": "parent-overlap screens computed; no named subunit UID relationship verified",
+      "count": 39
+    }
+  ],
+  "crosswalk_rows": 44,
+  "parent_support_count": 1,
+  "named_unresolved_support_count": 4,
+  "dea_parent_overlap_count": 39,
+  "dea_waterbodies_layer_feature_count": 324890,
+  "outputs": {
+    "crosswalk_csv": "docs/narran_named_subunit_crosswalk.csv",
+    "manifest_json": "docs/narran_named_subunit_evidence_manifest.json"
+  },
+  "cleanup_status": "Raw source HTML/PDF, Ramsar GeoJSON, and DEA Waterbodies ZIP are staged only under ignored Goal 008 artifact paths and are not committed."
+}

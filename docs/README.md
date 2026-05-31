@@ -78,6 +78,21 @@ waterbirds project.
   machine-readable Goal 007 monthly support-level hydrology series.
 - [event_window_hydrology_summary.csv](event_window_hydrology_summary.csv):
   compact Goal 007 support-level event-window review table.
+- [narran_named_subunit_evidence_report.md](narran_named_subunit_evidence_report.md):
+  Goal 008 Narran named-subunit evidence report for Clear Lake, Back Lake,
+  Long Arm, lignum/channelised floodplain context, and DEA parent-overlap
+  screens.
+- [narran_named_subunit_evidence_manifest.json](narran_named_subunit_evidence_manifest.json):
+  machine-readable Goal 008 Narran source and staging provenance manifest.
+- [narran_named_subunit_crosswalk.csv](narran_named_subunit_crosswalk.csv):
+  machine-readable Goal 008 Narran support-evidence table.
+- [compute_routing_memo_008.md](compute_routing_memo_008.md):
+  mandatory Goal 008 compute-routing memo for `deep-server` hydrology
+  scale-up.
+- [remote_hydrology_rehearsal_008_report.md](remote_hydrology_rehearsal_008_report.md):
+  Goal 008 `deep-server-ts` remote hydrology rehearsal report.
+- [remote_hydrology_rehearsal_008_manifest.json](remote_hydrology_rehearsal_008_manifest.json):
+  machine-readable Goal 008 remote probe, rehearsal, and blocker manifest.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

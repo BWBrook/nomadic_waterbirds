@@ -1,0 +1,121 @@
+{
+  "goal": "008-narran-subunit-and-remote-hydrology-rehearsal",
+  "manifest_type": "remote_hydrology_rehearsal",
+  "accessed_at_utc": "2026-05-31T00:33:07Z",
+  "host_choice": {
+    "preferred": "deep-server-ts",
+    "direct_alias": {
+      "alias": "deep-server",
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=20 deep-server '...'",
+      "status": "blocked",
+      "result": "Operation timed out connecting to 131.217.90.193:22"
+    },
+    "tailnet_alias": {
+      "alias": "deep-server-ts",
+      "status": "reachable",
+      "hostname": "deep-server",
+      "user": "bwbrook",
+      "uname": "Linux deep-server 6.8.0-117-generic #117-Ubuntu SMP PREEMPT_DYNAMIC Tue May 5 19:26:24 UTC 2026 x86_64",
+      "nproc": 64,
+      "memory": "125Gi total; 123Gi available at probe",
+      "data_filesystem": "13T total; 8.1T used; 4.5T available; 65% used",
+      "python_version": "3.12.3",
+      "gdal_version": "GDAL 3.8.4, released 2024/02/08",
+      "python_osgeo": "3.8.4",
+      "numpy_version": "1.26.4",
+      "git_version": "2.43.0",
+      "github_ssh": "Permission denied (publickey)"
+    }
+  },
+  "remote_workspace": {
+    "path": "/data/codex/repos/nomadic_waterbirds_goal008",
+    "source_staging": "rsync from Mac mini .git plus git ls-files --cached --others --exclude-standard",
+    "raw_artifact_policy": "Local ignored raw artifacts were not sent as source files; remote generated/raw files stayed under ignored remote data/artifact paths."
+  },
+  "commands": [
+    {
+      "name": "remote_sync",
+      "command": "rsync -a .git/ deep-server-ts:/data/codex/repos/nomadic_waterbirds_goal008/.git/ && git ls-files --cached --others --exclude-standard | rsync -a --files-from=- ./ deep-server-ts:/data/codex/repos/nomadic_waterbirds_goal008/",
+      "status": "passed"
+    },
+    {
+      "name": "remote_tests",
+      "command": "ssh deep-server-ts 'cd /data/codex/repos/nomadic_waterbirds_goal008 && python3 -m unittest discover -s tests -p \"test*.py\"'",
+      "status": "passed",
+      "result": "6 tests OK"
+    },
+    {
+      "name": "remote_narran_evidence_script",
+      "command": "ssh deep-server-ts 'cd /data/codex/repos/nomadic_waterbirds_goal008 && python3 scripts/narran_subunit_evidence_008.py'",
+      "status": "passed",
+      "result": "44 crosswalk rows; 39 DEA parent-overlap screens"
+    },
+    {
+      "name": "remote_hydrology_smoke_initial",
+      "command": "inline one-support one-month Narran parent hydrology smoke",
+      "status": "blocked_then_fixed",
+      "result": "blocked_support_grid due OGR MEM driver name mismatch on GDAL 3.8"
+    },
+    {
+      "name": "remote_hydrology_smoke_after_driver_fix",
+      "command": "inline one-support one-month Narran parent hydrology smoke",
+      "status": "blocked_upstream",
+      "result": "reference grid built; DEA STAC returned HTTP Error 503: Service Temporarily Unavailable"
+    },
+    {
+      "name": "stac_availability_probe",
+      "command": "remote stac_search for 2020-03, 2022-11, 2024-11, 2024-12; local stac_search for 2020-03, 2024-12",
+      "status": "blocked_upstream",
+      "result": "all sampled DEA STAC searches returned HTTP 503"
+    }
+  ],
+  "remote_hydrology_smoke": {
+    "support_id": "nwb002_ramsar_ref1291",
+    "month": "2024-12",
+    "elapsed_seconds": 1.219,
+    "row_count": 1,
+    "status_counts": {
+      "blocked_event_window_processing_error": 1
+    },
+    "reference_grid": {
+      "crs": "EPSG:3577",
+      "pixel_size_m": 30,
+      "xsize": 403,
+      "ysize": 414,
+      "grid_pixels": 166842,
+      "support_mask_pixels": 93937,
+      "bounds": [
+        1466190,
+        -3327930,
+        1478280,
+        -3315510
+      ]
+    },
+    "failure_or_caveat": "HTTP Error 503: Service Temporarily Unavailable"
+  },
+  "remote_output_artifacts": [
+    {
+      "path": "/data/codex/repos/nomadic_waterbirds_goal008/artifacts/remote_hydrology_rehearsal/output/goal008_remote_narran_parent_2024_12_series.csv",
+      "bytes": 1863,
+      "sha256": "efee69eda6c18177c521dc2145e55bfc7181b32d55bc92477ede5928a367a72c",
+      "committed": false
+    },
+    {
+      "path": "/data/codex/repos/nomadic_waterbirds_goal008/artifacts/remote_hydrology_rehearsal/output/goal008_remote_narran_parent_2024_12_summary.csv",
+      "bytes": 814,
+      "sha256": "270175eaf8d1858c7a799b2582e7316179b9124e33e8e099673e525aa63423ab",
+      "committed": false
+    },
+    {
+      "path": "/data/codex/repos/nomadic_waterbirds_goal008/artifacts/remote_hydrology_rehearsal/output/goal008_remote_narran_parent_2024_12_manifest.json",
+      "bytes": 2218,
+      "sha256": "548ae0a32b03314a28c03db046e1e8bcdcd29a04ffca87e42ec71e78f5e5698b",
+      "committed": false
+    }
+  ],
+  "full_event_window_2018_2024": {
+    "status": "not_run",
+    "reason": "DEA STAC returned HTTP 503 from both remote and local probes; launching the full run would produce blocked rows rather than useful scale-up evidence."
+  },
+  "cleanup_status": "Remote rehearsal outputs and any downloaded remote raw files are under ignored /data/codex working-copy artifact paths; no raw source data were committed."
+}
