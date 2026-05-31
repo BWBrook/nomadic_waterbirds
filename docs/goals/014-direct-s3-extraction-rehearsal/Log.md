@@ -65,4 +65,7 @@ Status: Ready for action agent.
     recommendations and legacy bbox-only no-data scene hints;
   - source URL coverage, ignored staging, committed-size, committed
     raw-extension, local Markdown-link, and unfinished-marker checks passed.
-- Commit/push complete:
+- Commit/push complete: primary Goal 014 package commit `f1c9a09`
+  (`Rehearse direct S3 hydrology extraction`) pushed to `origin/main` on
+  2026-05-31; this log-finalization checkpoint was committed and pushed
+  immediately afterward.
