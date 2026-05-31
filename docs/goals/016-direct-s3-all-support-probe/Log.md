@@ -67,7 +67,10 @@ Status: In progress.
   over 112 Markdown files, unfinished-marker scan over changed Goal 016
   outputs, and `gh repo view BWBrook/nomadic_waterbirds --json visibility`
   (`PRIVATE`).
-- Commit/push complete:
+- Commit/push complete: 2026-05-31 23:27 AEST; validated package committed
+  as `19d3842` (`Probe all-support direct S3 hydrology extraction`). This log
+  finalisation is committed separately and pushed with the package to
+  `origin/main`.
 
 ## Notes
 
