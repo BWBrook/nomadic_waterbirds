@@ -175,6 +175,9 @@ waterbirds project.
   Goal 013 package for proving support-to-Landsat-path/row coverage and
   official metadata equivalence before promoting direct S3 hydrology
   extraction.
+- [goals/014-direct-s3-extraction-rehearsal/](goals/014-direct-s3-extraction-rehearsal/):
+  Goal 014 package for rehearsing bounded direct-S3 Water Observations
+  extraction for `NWB002` before any full-window or all-support scale-up.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
