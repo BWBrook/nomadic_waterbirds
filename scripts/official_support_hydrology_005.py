@@ -15,13 +15,16 @@ import json
 import math
 import os
 import platform
+import random
+import socket
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import numpy as np
 from osgeo import gdal, ogr, osr
@@ -43,6 +46,210 @@ INVALID_BITS = {
 }
 INVALID_MASK = sum(INVALID_BITS.values())
 WATER_BIT = 128
+TRANSIENT_HTTP_STATUS_CODES = {408, 429, 500, 502, 503, 504}
+DETERMINISTIC_HTTP_STATUS_CODES = {400, 401, 403, 404}
+DEFAULT_RETRY_POLICY = {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2.0,
+    "backoff_multiplier": 2.0,
+    "max_delay_seconds": 30.0,
+    "jitter_fraction": 0.1,
+}
+RETRY_AUDIT_LOG: list[dict[str, Any]] = []
+
+
+class RetryExhaustedError(RuntimeError):
+    """Raised when a transient remote failure persists after bounded retry."""
+
+    def __init__(self, event: dict[str, Any]):
+        self.event = event
+        context = event.get("context", {})
+        message = (
+            f"{event.get('failure_class')}: {event.get('operation')} failed after "
+            f"{event.get('attempt_count')}/{event.get('max_attempts')} attempts; "
+            f"context={context}; last_error={event.get('last_error')}"
+        )
+        super().__init__(message)
+
+
+def normalise_retry_policy(config: dict[str, Any] | None = None) -> dict[str, Any]:
+    policy = dict(DEFAULT_RETRY_POLICY)
+    if config and isinstance(config.get("retry_policy"), dict):
+        policy.update(config["retry_policy"])
+    policy["max_attempts"] = max(1, int(policy["max_attempts"]))
+    policy["initial_delay_seconds"] = max(0.0, float(policy["initial_delay_seconds"]))
+    policy["backoff_multiplier"] = max(1.0, float(policy["backoff_multiplier"]))
+    policy["max_delay_seconds"] = max(0.0, float(policy["max_delay_seconds"]))
+    policy["jitter_fraction"] = max(0.0, float(policy["jitter_fraction"]))
+    return policy
+
+
+def reset_retry_audit_log() -> None:
+    RETRY_AUDIT_LOG.clear()
+
+
+def retry_audit_events() -> list[dict[str, Any]]:
+    return [dict(event) for event in RETRY_AUDIT_LOG]
+
+
+def retry_audit_summary(max_events: int = 200) -> dict[str, Any]:
+    events = retry_audit_events()
+    status_counts: dict[str, int] = {}
+    failure_class_counts: dict[str, int] = {}
+    for event in events:
+        status = str(event.get("final_status", "unknown"))
+        failure_class = str(event.get("failure_class", "unknown"))
+        status_counts[status] = status_counts.get(status, 0) + 1
+        failure_class_counts[failure_class] = failure_class_counts.get(failure_class, 0) + 1
+    if len(events) <= max_events:
+        retained_events = events
+        truncated_count = 0
+    else:
+        head = max_events // 2
+        tail = max_events - head
+        retained_events = events[:head] + events[-tail:]
+        truncated_count = len(events) - len(retained_events)
+    return {
+        "event_count": len(events),
+        "events_truncated_count": truncated_count,
+        "status_counts": status_counts,
+        "failure_class_counts": failure_class_counts,
+        "max_attempt_count": max((int(event.get("attempt_count", 0)) for event in events), default=0),
+        "events": retained_events,
+    }
+
+
+def _failure_domain(operation: str) -> str:
+    lowered = operation.lower()
+    if "cog" in lowered or "asset" in lowered or "gdal" in lowered or "read" in lowered:
+        return "asset"
+    return "endpoint"
+
+
+def _status_code_from_message(message: str) -> int | None:
+    for code in sorted(TRANSIENT_HTTP_STATUS_CODES | DETERMINISTIC_HTTP_STATUS_CODES):
+        needles = (
+            f"HTTP {code}",
+            f"HTTP response code: {code}",
+            f"status {code}",
+            f"code {code}",
+            f": {code}",
+        )
+        if any(needle in message for needle in needles):
+            return code
+    return None
+
+
+def classify_remote_failure(exc: BaseException, operation: str) -> dict[str, Any]:
+    domain = _failure_domain(operation)
+    message = str(exc)
+    status_code: int | None = None
+    transient = False
+
+    if isinstance(exc, urllib.error.HTTPError):
+        status_code = int(exc.code)
+        transient = status_code in TRANSIENT_HTTP_STATUS_CODES
+    elif isinstance(exc, (TimeoutError, socket.timeout)):
+        transient = True
+    elif isinstance(exc, urllib.error.URLError):
+        transient = True
+    else:
+        status_code = _status_code_from_message(message)
+        transient_tokens = (
+            "timed out",
+            "timeout",
+            "temporarily unavailable",
+            "connection reset",
+            "connection refused",
+            "curl error",
+            "server returned nothing",
+        )
+        transient = (status_code in TRANSIENT_HTTP_STATUS_CODES) or any(
+            token in message.lower() for token in transient_tokens
+        )
+
+    if transient:
+        failure_class = "transient_asset_read_failure" if domain == "asset" else "transient_endpoint_failure"
+    else:
+        failure_class = "deterministic_asset_read_failure" if domain == "asset" else "deterministic_endpoint_failure"
+    if isinstance(exc, urllib.error.HTTPError):
+        try:
+            exc.close()
+        except Exception:
+            pass
+    return {
+        "operation": operation,
+        "transient": transient,
+        "failure_class": failure_class,
+        "status_code": status_code,
+        "exception_type": type(exc).__name__,
+        "message": message,
+    }
+
+
+def _retry_delay_seconds(
+    policy: dict[str, Any], attempt_number: int, random_func: Callable[[], float]
+) -> float:
+    base = policy["initial_delay_seconds"] * (policy["backoff_multiplier"] ** max(0, attempt_number - 1))
+    delay = min(policy["max_delay_seconds"], base)
+    if delay and policy["jitter_fraction"]:
+        jitter = delay * policy["jitter_fraction"] * ((random_func() * 2.0) - 1.0)
+        delay = max(0.0, delay + jitter)
+    return delay
+
+
+def retry_remote_operation(
+    operation: str,
+    context: dict[str, Any],
+    config: dict[str, Any] | None,
+    action: Callable[[], Any],
+    sleep_func: Callable[[float], None] = time.sleep,
+    random_func: Callable[[], float] = random.random,
+) -> Any:
+    policy = normalise_retry_policy(config)
+    last_classification: dict[str, Any] | None = None
+    for attempt in range(1, policy["max_attempts"] + 1):
+        try:
+            result = action()
+        except Exception as exc:
+            classification = classify_remote_failure(exc, operation)
+            last_classification = classification
+            can_retry = classification["transient"] and attempt < policy["max_attempts"]
+            if can_retry:
+                sleep_func(_retry_delay_seconds(policy, attempt, random_func))
+                continue
+            event = {
+                "operation": operation,
+                "context": context,
+                "attempt_count": attempt,
+                "max_attempts": policy["max_attempts"],
+                "final_status": "exhausted_transient_failure"
+                if classification["transient"]
+                else "deterministic_failure",
+                "failure_class": classification["failure_class"],
+                "status_code": classification["status_code"],
+                "exception_type": classification["exception_type"],
+                "last_error": classification["message"],
+            }
+            RETRY_AUDIT_LOG.append(event)
+            if classification["transient"]:
+                raise RetryExhaustedError(event) from exc
+            raise
+        else:
+            if attempt > 1:
+                event = {
+                    "operation": operation,
+                    "context": context,
+                    "attempt_count": attempt,
+                    "max_attempts": policy["max_attempts"],
+                    "final_status": "success_after_retry",
+                    "failure_class": last_classification["failure_class"] if last_classification else "",
+                    "status_code": last_classification["status_code"] if last_classification else None,
+                    "exception_type": last_classification["exception_type"] if last_classification else "",
+                    "last_error": last_classification["message"] if last_classification else "",
+                }
+                RETRY_AUDIT_LOG.append(event)
+            return result
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -305,7 +512,12 @@ def stac_search(config: dict[str, Any], bbox: tuple[float, float, float, float],
         "datetime": f"{start}/{stop}",
         "limit": int(config["stac_limit"]),
     }
-    data = post_json(config["dea_stac_search_url"], payload)
+    data = retry_remote_operation(
+        "dea_stac_search",
+        {"month": month, "bbox": [minx, miny, maxx, maxy]},
+        config,
+        lambda: post_json(config["dea_stac_search_url"], payload),
+    )
     data["_query_payload"] = payload
     return data
 
@@ -316,29 +528,38 @@ def warp_scene_to_grid(
     xsize: int,
     ysize: int,
     dst_srs: str,
+    config: dict[str, Any] | None = None,
 ) -> np.ndarray:
-    dataset = gdal.Open(s3_to_vsi(href))
-    if dataset is None:
-        raise RuntimeError(f"GDAL could not open {href}")
-    warped = gdal.Warp(
-        "",
-        dataset,
-        format="MEM",
-        dstSRS=dst_srs,
-        outputBounds=bounds,
-        width=xsize,
-        height=ysize,
-        resampleAlg="near",
-        outputType=gdal.GDT_Byte,
-        dstNodata=1,
-        errorThreshold=0.0,
+    def read_scene() -> np.ndarray:
+        dataset = gdal.Open(s3_to_vsi(href))
+        if dataset is None:
+            raise RuntimeError(f"GDAL could not open {href}")
+        warped = gdal.Warp(
+            "",
+            dataset,
+            format="MEM",
+            dstSRS=dst_srs,
+            outputBounds=bounds,
+            width=xsize,
+            height=ysize,
+            resampleAlg="near",
+            outputType=gdal.GDT_Byte,
+            dstNodata=1,
+            errorThreshold=0.0,
+        )
+        if warped is None:
+            raise RuntimeError(f"GDAL warp returned no dataset for {href}")
+        array = warped.ReadAsArray()
+        if array is None:
+            raise RuntimeError(f"GDAL warp returned no array for {href}")
+        return array.astype(np.uint8, copy=False)
+
+    return retry_remote_operation(
+        "remote_cog_read",
+        {"href": href, "xsize": xsize, "ysize": ysize},
+        config,
+        read_scene,
     )
-    if warped is None:
-        raise RuntimeError(f"GDAL warp returned no dataset for {href}")
-    array = warped.ReadAsArray()
-    if array is None:
-        raise RuntimeError(f"GDAL warp returned no array for {href}")
-    return array.astype(np.uint8, copy=False)
 
 
 def format_value(value: Any) -> Any:

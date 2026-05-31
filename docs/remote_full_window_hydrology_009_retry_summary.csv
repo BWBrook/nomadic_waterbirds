@@ -1,0 +1,12 @@
+support_id,candidate_id,candidate_name,support_level,support_type,months_expected,computed_event_window_metrics,blocked_event_window_processing_error,quality_high,quality_minimum,quality_fail,dominant_failure_class,dominant_failure_count
+nwb001_ramsar_component_359,NWB001,Macquarie Marshes,subunit,ramsar_component,84,25,59,3,19,62,transient_endpoint_failure,59
+nwb001_ramsar_ref337,NWB001,Macquarie Marshes,parent,official_ramsar_named_complex_union,84,12,72,3,8,73,transient_endpoint_failure,72
+nwb002_ramsar_ref1291,NWB002,Narran Lake Nature Reserve,parent,official_ramsar_named_complex_geometry,84,0,84,0,0,84,transient_endpoint_failure,84
+nwb003_ramsar_component_121,NWB003,Gwydir Wetlands: Gingham and Lower Gwydir Watercourses,subunit,ramsar_component,84,11,73,0,11,73,transient_endpoint_failure,73
+nwb003_ramsar_ref993,NWB003,Gwydir Wetlands: Gingham and Lower Gwydir Watercourses,parent,official_ramsar_named_complex_union,84,0,84,0,0,84,transient_endpoint_failure,84
+nwb004_ramsar_component_354,NWB004,Kerang Wetlands,subunit,ramsar_component,84,84,0,51,28,5,,0
+nwb004_ramsar_component_369,NWB004,Kerang Wetlands,subunit,ramsar_component,84,13,71,2,7,75,transient_endpoint_failure,71
+nwb004_ramsar_ref265,NWB004,Kerang Wetlands,parent,official_ramsar_named_complex_union,84,0,84,0,0,84,transient_endpoint_failure,84
+nwb005_dea_waterbody_r4ysdndx8_v3,NWB005,Currawinya Lakes,subunit,dea_waterbody_overlap,84,0,84,0,0,84,transient_endpoint_failure,84
+nwb005_dea_waterbody_r4yss38r6_v3,NWB005,Currawinya Lakes,subunit,dea_waterbody_overlap,84,0,84,0,0,84,transient_endpoint_failure,84
+nwb005_ramsar_ref791,NWB005,Currawinya Lakes,parent,official_ramsar_named_complex_geometry,84,0,84,0,0,84,transient_endpoint_failure,84

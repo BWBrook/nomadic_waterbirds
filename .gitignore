@@ -16,6 +16,7 @@ __pycache__/
 data/*
 !data/README.md
 !data/.gitkeep
+*.zip
 
 # Generated analysis and manuscript artefacts
 artifacts/*

@@ -93,6 +93,23 @@ waterbirds project.
   Goal 008 `deep-server-ts` remote hydrology rehearsal report.
 - [remote_hydrology_rehearsal_008_manifest.json](remote_hydrology_rehearsal_008_manifest.json):
   machine-readable Goal 008 remote probe, rehearsal, and blocker manifest.
+- [stac_resilience_009_report.md](stac_resilience_009_report.md):
+  Goal 009 retry/backoff, transient-failure classification, and STAC endpoint
+  probe report.
+- [stac_resilience_009_manifest.json](stac_resilience_009_manifest.json):
+  machine-readable Goal 009 local/remote STAC probe and retry-policy
+  manifest.
+- [remote_full_window_hydrology_009_report.md](remote_full_window_hydrology_009_report.md):
+  Goal 009 `deep-server-ts` full-window hydrology run report and caveats.
+- [remote_full_window_hydrology_009_manifest.json](remote_full_window_hydrology_009_manifest.json):
+  machine-readable Goal 009 remote run, retry, output, and cleanup manifest.
+- [event_window_hydrology_series_2018_2024.csv](event_window_hydrology_series_2018_2024.csv):
+  machine-readable Goal 009 full-window support/month hydrology series with
+  classified blocked rows.
+- [event_window_hydrology_summary_2018_2024.csv](event_window_hydrology_summary_2018_2024.csv):
+  compact Goal 009 full-window support-level summary table.
+- [remote_full_window_hydrology_009_retry_summary.csv](remote_full_window_hydrology_009_retry_summary.csv):
+  compact Goal 009 per-support computed/blocked/retry status table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

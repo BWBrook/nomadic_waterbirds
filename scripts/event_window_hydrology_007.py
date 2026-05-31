@@ -30,7 +30,10 @@ from official_support_hydrology_005 import (  # noqa: E402
     epsg_srs,
     format_value,
     geometry_from_feature,
+    normalise_retry_policy,
     rasterize_geometry,
+    reset_retry_audit_log,
+    retry_audit_summary,
     sha256_bytes,
     sha256_file,
     stac_search,
@@ -48,8 +51,18 @@ gdal.UseExceptions()
 ogr.UseExceptions()
 
 REPO = SCRIPT_DIR.parents[0]
-CONFIG_PATH = REPO / "settings" / "event_window_hydrology_007.json"
 QUALITY_PASS = {"quality_high", "quality_minimum"}
+
+
+def configured_event_path() -> Path:
+    raw = os.environ.get("NOMADIC_WATERBIRDS_EVENT_CONFIG")
+    if not raw:
+        return REPO / "settings" / "event_window_hydrology_007.json"
+    path = Path(raw)
+    return path if path.is_absolute() else REPO / path
+
+
+CONFIG_PATH = configured_event_path()
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -68,7 +81,7 @@ def quiet_git_commit() -> str:
         return "unknown"
 
 
-def iter_months(start_month: str, end_month: str) -> list[dict[str, str]]:
+def iter_months(start_month: str, end_month: str, rationale: str = "Goal 007 bounded event-window month") -> list[dict[str, str]]:
     start_year, start_mon = map(int, start_month.split("-"))
     end_year, end_mon = map(int, end_month.split("-"))
     current = dt.date(start_year, start_mon, 1)
@@ -78,7 +91,7 @@ def iter_months(start_month: str, end_month: str) -> list[dict[str, str]]:
         months.append(
             {
                 "month": f"{current.year:04d}-{current.month:02d}",
-                "rationale": "Goal 007 bounded event-window month",
+                "rationale": rationale,
             }
         )
         year = current.year + (current.month == 12)
@@ -866,7 +879,9 @@ def process_event_window(
                         skipped.append({"id": feature.get("id", ""), "reason": "missing water asset"})
                         continue
                     try:
-                        scene_arrays.append(warp_scene_to_grid(href, bounds, xsize, ysize, config["reference_crs"]))
+                        scene_arrays.append(
+                            warp_scene_to_grid(href, bounds, xsize, ysize, config["reference_crs"], config=config)
+                        )
                         readable_count += 1
                     except Exception as exc:
                         skipped.append({"id": feature.get("id", ""), "reason": str(exc)})
@@ -1105,9 +1120,14 @@ def summary_fieldnames() -> list[str]:
 def run() -> int:
     start_time = time.time()
     config = load_json(CONFIG_PATH)
+    reset_retry_audit_log()
     for relpath in config["scratch_paths"].values():
         (REPO / relpath).mkdir(parents=True, exist_ok=True)
-    months = iter_months(config["event_window"]["start_month"], config["event_window"]["end_month"])
+    months = iter_months(
+        config["event_window"]["start_month"],
+        config["event_window"]["end_month"],
+        config["event_window"].get("month_rationale", "Goal 007 bounded event-window month"),
+    )
 
     ramsar_path = REPO / config["staged_files"]["ramsar_subset_geojson"]
     waterbodies_zip = REPO / config["staged_files"]["dea_waterbodies_zip"]
@@ -1156,7 +1176,7 @@ def run() -> int:
         "goal": config["goal"],
         "manifest_type": "named_subunit_evidence",
         "accessed_at_utc": now,
-        "command": "python3 scripts/event_window_hydrology_007.py",
+        "command": config.get("run_command", "python3 scripts/event_window_hydrology_007.py"),
         "config_path": str(CONFIG_PATH.relative_to(REPO)),
         "source_urls": {
             "ramsar_service_layer": config["ramsar_service_layer_url"],
@@ -1192,7 +1212,7 @@ def run() -> int:
         "started_at_utc": dt.datetime.fromtimestamp(start_time, tz=dt.UTC).isoformat(),
         "finished_at_utc": now,
         "elapsed_seconds": round(time.time() - start_time, 3),
-        "command": "python3 scripts/event_window_hydrology_007.py",
+        "command": config.get("run_command", "python3 scripts/event_window_hydrology_007.py"),
         "python_version": sys.version,
         "platform": platform.platform(),
         "gdal_version": gdal.VersionInfo("--version"),
@@ -1200,6 +1220,8 @@ def run() -> int:
         "config_path": str(CONFIG_PATH.relative_to(REPO)),
         "event_window": config["event_window"],
         "months": [month["month"] for month in months],
+        "retry_policy": normalise_retry_policy(config),
+        "retry_audit_summary": retry_audit_summary(),
         "source_products": {
             "dea_stac_search": config["dea_stac_search_url"],
             "dea_collection": config["dea_collection"],

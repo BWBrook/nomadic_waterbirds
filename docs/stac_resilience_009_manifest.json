@@ -1,0 +1,239 @@
+{
+  "goal": "009-remote-full-window-hydrology-scale-up",
+  "manifest_type": "stac_resilience_009",
+  "created_at_utc": "2026-05-31T04:02:53.002408+00:00",
+  "retry_implementation": {
+    "code_paths": [
+      "scripts/official_support_hydrology_005.py",
+      "scripts/event_window_hydrology_007.py",
+      "scripts/stac_resilience_probe_009.py",
+      "scripts/remote_full_window_hydrology_009.py"
+    ],
+    "test_path": "tests/test_goal009_stac_resilience.py",
+    "focused_test_command": "python3 -m unittest tests.test_goal009_stac_resilience",
+    "all_local_tests_command": "python3 -m unittest discover -s tests -p 'test*.py'",
+    "classification_rules": {
+      "transient_http_status_codes": [
+        408,
+        429,
+        500,
+        502,
+        503,
+        504
+      ],
+      "stac_failure_class": "transient_endpoint_failure",
+      "remote_cog_failure_class": "transient_asset_read_failure",
+      "deterministic_endpoint_failure_examples": [
+        400,
+        401,
+        403,
+        404
+      ]
+    }
+  },
+  "retry_policy": {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2.0,
+    "backoff_multiplier": 2.0,
+    "max_delay_seconds": 15.0,
+    "jitter_fraction": 0.1
+  },
+  "probe_commands": [
+    "python3 scripts/stac_resilience_probe_009.py --host-label mac-mini --output artifacts/remote_full_window_hydrology/output/stac_probe_macmini_009.json",
+    "ssh deep-server-ts 'cd /data/codex/repos/nomadic_waterbirds_goal009 && python3 scripts/stac_resilience_probe_009.py --host-label deep-server-ts --output artifacts/remote_full_window_hydrology/output/stac_probe_deep_server_ts_009.json'"
+  ],
+  "local_probe": {
+    "goal": "009-remote-full-window-hydrology-scale-up",
+    "manifest_type": "stac_resilience_probe",
+    "host_label": "mac-mini",
+    "host_facts": {
+      "hostname": "Mac-mini.lan",
+      "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+      "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+      "gdal_version": "GDAL 3.13.0 \"Iowa City\", released 2026/05/04",
+      "numpy_version": "2.4.6"
+    },
+    "started_at_utc": "2026-05-31T01:42:26.854217+00:00",
+    "finished_at_utc": "2026-05-31T01:44:01.207517+00:00",
+    "elapsed_seconds": 94.353,
+    "command": "python3 scripts/stac_resilience_probe_009.py",
+    "config_path": "settings/remote_full_window_hydrology_009.json",
+    "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+    "dea_collection": "ga_ls_wo_3",
+    "probe_bbox_wgs84": [
+      147.47,
+      147.49,
+      -29.79,
+      -29.77
+    ],
+    "probe_bbox_caveat": "Tiny Narran product-access AOI from Goal 004; used only for endpoint availability.",
+    "probe_months": [
+      "2018-01",
+      "2022-11",
+      "2024-12"
+    ],
+    "retry_policy": {
+      "max_attempts": 3,
+      "initial_delay_seconds": 2.0,
+      "backoff_multiplier": 2.0,
+      "max_delay_seconds": 15.0,
+      "jitter_fraction": 0.1
+    },
+    "endpoint_status": "available",
+    "results": [
+      {
+        "month": "2018-01",
+        "started_at_utc": "2026-05-31T01:42:26.854302+00:00",
+        "finished_at_utc": "2026-05-31T01:42:28.004398+00:00",
+        "status": "available",
+        "feature_count": 12,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "attempt_count": 1
+      },
+      {
+        "month": "2022-11",
+        "started_at_utc": "2026-05-31T01:42:28.004411+00:00",
+        "finished_at_utc": "2026-05-31T01:44:00.738052+00:00",
+        "status": "available",
+        "feature_count": 15,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "retry_events": [
+          {
+            "operation": "dea_stac_search",
+            "context": {
+              "month": "2022-11",
+              "bbox": [
+                147.47,
+                -29.79,
+                147.49,
+                -29.77
+              ]
+            },
+            "attempt_count": 2,
+            "max_attempts": 3,
+            "final_status": "success_after_retry",
+            "failure_class": "transient_endpoint_failure",
+            "status_code": null,
+            "exception_type": "TimeoutError",
+            "last_error": "The read operation timed out"
+          }
+        ]
+      },
+      {
+        "month": "2024-12",
+        "started_at_utc": "2026-05-31T01:44:00.738081+00:00",
+        "finished_at_utc": "2026-05-31T01:44:01.154932+00:00",
+        "status": "available",
+        "feature_count": 14,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "attempt_count": 1
+      }
+    ],
+    "retry_audit_events": [
+      {
+        "operation": "dea_stac_search",
+        "context": {
+          "month": "2022-11",
+          "bbox": [
+            147.47,
+            -29.79,
+            147.49,
+            -29.77
+          ]
+        },
+        "attempt_count": 2,
+        "max_attempts": 3,
+        "final_status": "success_after_retry",
+        "failure_class": "transient_endpoint_failure",
+        "status_code": null,
+        "exception_type": "TimeoutError",
+        "last_error": "The read operation timed out"
+      }
+    ]
+  },
+  "remote_probe": {
+    "goal": "009-remote-full-window-hydrology-scale-up",
+    "manifest_type": "stac_resilience_probe",
+    "host_label": "deep-server-ts",
+    "host_facts": {
+      "hostname": "deep-server",
+      "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+      "python_version": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+      "gdal_version": "GDAL 3.8.4, released 2024/02/08",
+      "numpy_version": "1.26.4"
+    },
+    "started_at_utc": "2026-05-31T01:45:31.517145+00:00",
+    "finished_at_utc": "2026-05-31T01:45:32.402760+00:00",
+    "elapsed_seconds": 0.886,
+    "command": "python3 scripts/stac_resilience_probe_009.py",
+    "config_path": "settings/remote_full_window_hydrology_009.json",
+    "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+    "dea_collection": "ga_ls_wo_3",
+    "probe_bbox_wgs84": [
+      147.47,
+      147.49,
+      -29.79,
+      -29.77
+    ],
+    "probe_bbox_caveat": "Tiny Narran product-access AOI from Goal 004; used only for endpoint availability.",
+    "probe_months": [
+      "2018-01",
+      "2022-11",
+      "2024-12"
+    ],
+    "retry_policy": {
+      "max_attempts": 3,
+      "initial_delay_seconds": 2.0,
+      "backoff_multiplier": 2.0,
+      "max_delay_seconds": 15.0,
+      "jitter_fraction": 0.1
+    },
+    "endpoint_status": "available",
+    "results": [
+      {
+        "month": "2018-01",
+        "started_at_utc": "2026-05-31T01:45:31.517343+00:00",
+        "finished_at_utc": "2026-05-31T01:45:31.872691+00:00",
+        "status": "available",
+        "feature_count": 12,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "attempt_count": 1
+      },
+      {
+        "month": "2022-11",
+        "started_at_utc": "2026-05-31T01:45:31.872723+00:00",
+        "finished_at_utc": "2026-05-31T01:45:32.141474+00:00",
+        "status": "available",
+        "feature_count": 15,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "attempt_count": 1
+      },
+      {
+        "month": "2024-12",
+        "started_at_utc": "2026-05-31T01:45:32.141507+00:00",
+        "finished_at_utc": "2026-05-31T01:45:32.400157+00:00",
+        "status": "available",
+        "feature_count": 14,
+        "failure_class": "",
+        "status_code": null,
+        "caveat": "Endpoint probe only; tiny Narran AOI is not a wetland support mask.",
+        "attempt_count": 1
+      }
+    ],
+    "retry_audit_events": []
+  },
+  "endpoint_decision": {
+    "status": "full_run_launched",
+    "reason": "Mac mini and deep-server-ts probes both returned endpoint_status=available for 2018-01, 2022-11, and 2024-12 before the full run."
+  }
+}
