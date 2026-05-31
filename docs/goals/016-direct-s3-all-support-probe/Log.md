@@ -2,7 +2,7 @@
 
 Goal: Direct S3 all-support probe
 
-Status: In progress.
+Status: Complete.
 
 ## Supervisor Setup
 

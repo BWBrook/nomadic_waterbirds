@@ -1,0 +1,134 @@
+{
+  "goal": "017-legacy-wetness-difference-triage",
+  "manifest_type": "legacy_wetness_difference_triage_017",
+  "created_at_utc": "2026-05-31T13:50:54.712178+00:00",
+  "accessed_date": "2026-05-31",
+  "command": "python3 scripts/legacy_wetness_difference_triage_017.py",
+  "config_path": "settings/legacy_wetness_difference_triage_017.json",
+  "git_head_at_run": "198c7c03ae92343a029566f5a990898066384516",
+  "git_status_at_run": "## main...origin/main\n M docs/goals/016-direct-s3-all-support-probe/Log.md\n M docs/goals/017-legacy-wetness-difference-triage/Log.md\n?? docs/legacy_wetness_difference_triage_017_audit.csv\n?? docs/legacy_wetness_difference_triage_017_item_delta.csv\n?? docs/legacy_wetness_difference_triage_017_manifest.json\n?? docs/legacy_wetness_difference_triage_017_metric_delta.csv\n?? docs/legacy_wetness_difference_triage_017_report.md\n?? scripts/legacy_wetness_difference_triage_017.py\n?? settings/legacy_wetness_difference_triage_017.json\n?? tests/test_goal017_legacy_wetness_difference_triage.py",
+  "host_facts": {
+    "hostname": "Mac-mini.lan",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python_version": "3.14.5"
+  },
+  "source_files": {
+    "goal016_comparison_csv": "docs/direct_s3_all_support_probe_016_comparison.csv",
+    "goal016_summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "goal016_support_summary_csv": "docs/direct_s3_all_support_probe_016_support_summary.csv",
+    "goal016_manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "legacy_event_window_csv": "docs/event_window_hydrology_series.csv",
+    "legacy_full_window_csv": "docs/event_window_hydrology_series_2018_2024.csv",
+    "support_pathrow_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "target_row_count": 6,
+  "target_rows": [
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2018-01",
+      "reference_source": "goal009_full_window_context"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_354",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb005_ramsar_ref791",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window"
+    }
+  ],
+  "root_cause_counts": {
+    "insufficient_reference_evidence": 4,
+    "tolerance_or_rounding_only": 2
+  },
+  "current_direct_s3_defect_found": false,
+  "bounded_reruns_used": false,
+  "bounded_rerun_reason": "Static evidence was sufficient to classify rows as tolerance-only or insufficient legacy reference evidence.",
+  "outputs": {
+    "report_md": "docs/legacy_wetness_difference_triage_017_report.md",
+    "manifest_json": "docs/legacy_wetness_difference_triage_017_manifest.json",
+    "audit_csv": "docs/legacy_wetness_difference_triage_017_audit.csv",
+    "item_delta_csv": "docs/legacy_wetness_difference_triage_017_item_delta.csv",
+    "metric_delta_csv": "docs/legacy_wetness_difference_triage_017_metric_delta.csv"
+  },
+  "audit_row_hash": "0eb9de8a474f7495a97614890476de116ce6627837bfa57b214cc0e5ce64fc79",
+  "item_delta_row_hash": "77e229bab49eff361dae5d5047591b72b61782b663e538c29c925b65bda17101",
+  "metric_delta_row_count": 126,
+  "root_cause_vocabulary": [
+    "tolerance_or_rounding_only",
+    "legacy_bbox_scene_selection_effect",
+    "legacy_support_grid_or_mask_effect",
+    "legacy_metric_formula_or_quality_effect",
+    "current_direct_s3_extraction_defect",
+    "insufficient_reference_evidence",
+    "unresolved_requires_bounded_rerun"
+  ],
+  "tolerances": {
+    "rounding_area_m2_abs": 25.0,
+    "rounding_fraction_abs": 1.5e-06,
+    "count_abs": 0.0,
+    "integer_count_abs": 0.0
+  },
+  "staging_paths": {
+    "raw": "artifacts/legacy_wetness_difference_triage_017/raw",
+    "intermediate": "artifacts/legacy_wetness_difference_triage_017/intermediate",
+    "output": "artifacts/legacy_wetness_difference_triage_017/output"
+  },
+  "staging_ignored_check": {
+    "status": "all_ignored",
+    "checked_paths": [
+      "artifacts/legacy_wetness_difference_triage_017/raw/probe.json",
+      "artifacts/legacy_wetness_difference_triage_017/intermediate/probe.npy",
+      "artifacts/legacy_wetness_difference_triage_017/output/probe.json"
+    ],
+    "ignored_paths": [
+      "artifacts/legacy_wetness_difference_triage_017/raw/probe.json",
+      "artifacts/legacy_wetness_difference_triage_017/intermediate/probe.npy",
+      "artifacts/legacy_wetness_difference_triage_017/output/probe.json"
+    ],
+    "stderr": ""
+  },
+  "staging_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw STAC JSON",
+      "S3 listings",
+      "rasters",
+      "arrays",
+      "temporary rerun JSON",
+      "remote logs"
+    ]
+  },
+  "recommendation_for_goal018": "Build a bounded all-support path-row-filtered comparator or item-provenance reconstruction for the material legacy rows before full-window direct-S3 production.",
+  "elapsed_seconds": 0.041
+}

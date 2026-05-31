@@ -186,6 +186,19 @@ waterbirds project.
 - [direct_s3_all_support_probe_016_comparison.csv](direct_s3_all_support_probe_016_comparison.csv):
   Goal 016 comparison against Goal 015/014 `NWB002` rows and legacy Goal
   007/009 rows.
+- [legacy_wetness_difference_triage_017_report.md](legacy_wetness_difference_triage_017_report.md):
+  Goal 017 classification of the six legacy wetness-field differences from
+  the all-support direct-S3 probe.
+- [legacy_wetness_difference_triage_017_manifest.json](legacy_wetness_difference_triage_017_manifest.json):
+  machine-readable Goal 017 target set, root-cause counts, command,
+  validation inputs, host, runtime, and staging provenance.
+- [legacy_wetness_difference_triage_017_audit.csv](legacy_wetness_difference_triage_017_audit.csv):
+  compact Goal 017 row-level root-cause audit and scale-up recommendation
+  table.
+- [legacy_wetness_difference_triage_017_item_delta.csv](legacy_wetness_difference_triage_017_item_delta.csv):
+  Goal 017 item, path-row, scene-count, and support-grid delta table.
+- [legacy_wetness_difference_triage_017_metric_delta.csv](legacy_wetness_difference_triage_017_metric_delta.csv):
+  Goal 017 field-level computed-versus-legacy metric deltas.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

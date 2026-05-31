@@ -1,0 +1,135 @@
+{
+  "goal": "017-legacy-wetness-difference-triage",
+  "run_command": "python3 scripts/legacy_wetness_difference_triage_017.py",
+  "accessed_date": "2026-05-31",
+  "target_status": "wetness_diff",
+  "target_rows": [
+    {
+      "support_id": "nwb004_ramsar_component_354",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2018-01",
+      "reference_source": "goal009_full_window_context"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window"
+    },
+    {
+      "support_id": "nwb005_ramsar_ref791",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window"
+    }
+  ],
+  "inputs": {
+    "goal016_comparison_csv": "docs/direct_s3_all_support_probe_016_comparison.csv",
+    "goal016_summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "goal016_support_summary_csv": "docs/direct_s3_all_support_probe_016_support_summary.csv",
+    "goal016_manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "legacy_event_window_csv": "docs/event_window_hydrology_series.csv",
+    "legacy_full_window_csv": "docs/event_window_hydrology_series_2018_2024.csv",
+    "support_pathrow_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv"
+  },
+  "outputs": {
+    "report_md": "docs/legacy_wetness_difference_triage_017_report.md",
+    "manifest_json": "docs/legacy_wetness_difference_triage_017_manifest.json",
+    "audit_csv": "docs/legacy_wetness_difference_triage_017_audit.csv",
+    "item_delta_csv": "docs/legacy_wetness_difference_triage_017_item_delta.csv",
+    "metric_delta_csv": "docs/legacy_wetness_difference_triage_017_metric_delta.csv"
+  },
+  "staging_paths": {
+    "raw": "artifacts/legacy_wetness_difference_triage_017/raw",
+    "intermediate": "artifacts/legacy_wetness_difference_triage_017/intermediate",
+    "output": "artifacts/legacy_wetness_difference_triage_017/output"
+  },
+  "root_cause_vocabulary": [
+    "tolerance_or_rounding_only",
+    "legacy_bbox_scene_selection_effect",
+    "legacy_support_grid_or_mask_effect",
+    "legacy_metric_formula_or_quality_effect",
+    "current_direct_s3_extraction_defect",
+    "insufficient_reference_evidence",
+    "unresolved_requires_bounded_rerun"
+  ],
+  "tolerances": {
+    "rounding_area_m2_abs": 25.0,
+    "rounding_fraction_abs": 0.0000015,
+    "count_abs": 0.0,
+    "integer_count_abs": 0.0
+  },
+  "metric_delta_fields": [
+    "readable_scene_count",
+    "clear_obs_count",
+    "invalid_obs_count",
+    "clear_obs_fraction",
+    "current_wet_area_m2",
+    "valid_support_area_m2",
+    "current_proportion_wet",
+    "wet_pixel_observation_count",
+    "dry_pixel_observation_count",
+    "quality_flag",
+    "wet_month_flag",
+    "n_pixel_u",
+    "clear_pixel_count",
+    "clear_pixel_fraction",
+    "no_data_count",
+    "contiguity_count",
+    "low_solar_angle_count",
+    "terrain_shadow_count",
+    "high_slope_count",
+    "cloud_shadow_count",
+    "cloud_count"
+  ],
+  "wetness_fields": [
+    "current_wet_area_m2",
+    "current_proportion_wet",
+    "wet_pixel_observation_count",
+    "dry_pixel_observation_count"
+  ],
+  "support_grid_fields": [
+    "geometry_hash_sha256",
+    "n_pixel_u",
+    "valid_support_area_m2",
+    "support_area_m2",
+    "clear_pixel_count",
+    "clear_pixel_fraction"
+  ],
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw STAC JSON",
+      "S3 listings",
+      "rasters",
+      "arrays",
+      "temporary rerun JSON",
+      "remote logs"
+    ]
+  }
+}
