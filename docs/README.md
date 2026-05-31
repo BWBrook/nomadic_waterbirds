@@ -134,6 +134,9 @@ waterbirds project.
 - [goals/010-hydrology-recovery-resume/](goals/010-hydrology-recovery-resume/):
   Goal 010 package for service-stability preflight and conditional recovery of
   the Goal 009 endpoint-blocked full-window hydrology table.
+- [goals/011-hydrology-acquisition-route-redesign/](goals/011-hydrology-acquisition-route-redesign/):
+  Goal 011 package for assessing lower-STAC-dependence or alternate official
+  DEA acquisition routes before another full-window hydrology run.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
