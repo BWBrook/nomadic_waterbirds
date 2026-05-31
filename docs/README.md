@@ -189,6 +189,9 @@ waterbirds project.
 - [goals/014-direct-s3-extraction-rehearsal/](goals/014-direct-s3-extraction-rehearsal/):
   Goal 014 package for rehearsing bounded direct-S3 Water Observations
   extraction for `NWB002` before any full-window or all-support scale-up.
+- [goals/015-comparator-baseline-repair/](goals/015-comparator-baseline-repair/):
+  Goal 015 package for repairing the path-row-filtered comparator baseline
+  and clarifying support-relevant scene selection before direct-S3 scale-up.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
