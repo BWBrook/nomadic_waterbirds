@@ -1,0 +1,186 @@
+{
+  "goal": "011-hydrology-acquisition-route-redesign",
+  "manifest_type": "hydrology_acquisition_route_011",
+  "created_at_utc": "2026-05-31T06:05:00Z",
+  "accessed_date": "2026-05-31",
+  "git_context_at_start": {
+    "branch": "main",
+    "required_checkpoint": "fdb22dc",
+    "starting_head": "29d749f",
+    "starting_status": "## main...origin/main"
+  },
+  "objective": "Select a lower-STAC-dependence or alternate official DEA acquisition route before another full 2018-01 through 2024-12 Water Observations run.",
+  "source_urls_checked": [
+    {
+      "id": "S01",
+      "title": "DEA Water Observations (Landsat)",
+      "url": "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+      "route_role": "primary product",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S44",
+      "title": "DEA Amazon Web Services guide",
+      "url": "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+      "route_role": "public S3 and inventory route",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S45",
+      "title": "DEA STAC downloading and streaming guide",
+      "url": "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+      "route_role": "STAC metadata and streaming route",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S46",
+      "title": "DEA FAQ: download data from DEA",
+      "url": "https://knowledge.dea.ga.gov.au/guides/about/faq/",
+      "route_role": "STAC versus direct S3 access decision context",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S02",
+      "title": "DEA Water Observations Statistics (Landsat)",
+      "url": "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-statistics-landsat/",
+      "route_role": "lower-evidence fallback",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S03",
+      "title": "DEA Waterbodies (Landsat)",
+      "url": "https://knowledge.dea.ga.gov.au/data/product/dea-waterbodies-landsat/?tab=description",
+      "route_role": "lower-evidence fallback",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S47",
+      "title": "DEA Sandbox",
+      "url": "https://knowledge.dea.ga.gov.au/guides/setup/Sandbox/sandbox/",
+      "route_role": "official managed environment",
+      "status": "official_current_source"
+    },
+    {
+      "id": "S48",
+      "title": "DEA Open Data Cube loading guide",
+      "url": "https://knowledge.dea.ga.gov.au/notebooks/Beginners_guide/04_Loading_data/",
+      "route_role": "official datacube route",
+      "status": "official_current_source"
+    }
+  ],
+  "query_pattern_audit": {
+    "series_path": "docs/event_window_hydrology_series_2018_2024.csv",
+    "support_count": 11,
+    "candidate_count": 5,
+    "month_count": 84,
+    "status_quo_live_stac_searches": 924,
+    "status_quo_max_http_attempts": 2772,
+    "candidate_month_cache_searches": 420,
+    "candidate_month_cache_reduction_percent": 54.5,
+    "month_support_set_cache_searches": 84,
+    "month_support_set_cache_reduction_percent": 90.9,
+    "direct_s3_or_inventory_live_stac_searches": 0,
+    "direct_s3_or_inventory_reduction_percent": 100.0,
+    "audit_csv": "docs/hydrology_stac_query_pattern_011.csv"
+  },
+  "prior_goal_evidence": {
+    "goal009": {
+      "report": "docs/remote_full_window_hydrology_009_report.md",
+      "manifest": "docs/remote_full_window_hydrology_009_manifest.json",
+      "row_count": 924,
+      "computed_rows": 145,
+      "blocked_rows": 779,
+      "dominant_failure_class": "transient_endpoint_failure"
+    },
+    "goal010": {
+      "report": "docs/stac_recovery_010_report.md",
+      "manifest": "docs/stac_recovery_010_manifest.json",
+      "decision": "stop_service_stability_blocker",
+      "mac_mini_endpoint_status": "service_unavailable_503",
+      "deep_server_endpoint_status": "transient_endpoint_failure"
+    }
+  },
+  "live_probe": {
+    "command": "python3 scripts/hydrology_acquisition_route_probe_011.py --host-label mac-mini-goal011 --output artifacts/hydrology_access_route_011/output/route_probe_macmini_011.json",
+    "artifact_path": "artifacts/hydrology_access_route_011/output/route_probe_macmini_011.json",
+    "artifact_committed": false,
+    "host_label": "mac-mini-goal011",
+    "host_facts": {
+      "hostname": "Mac-mini.lan",
+      "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+      "python_version": "3.14.5"
+    },
+    "limits": {
+      "s3_max_keys": 5,
+      "stac_limit": 1,
+      "raw_downloads": false,
+      "full_stac_dump": false
+    },
+    "results": {
+      "s3_prefix_list_status_code": 200,
+      "s3_prefix_list_key_count": 5,
+      "s3_known_cog_head_status_code": 200,
+      "s3_known_cog_content_length": 3365877,
+      "stac_one_item_status_code": 503
+    }
+  },
+  "route_statuses": [
+    {
+      "route": "status_quo_stac_retry",
+      "status": "not_recommended_primary",
+      "reason": "Scientifically equivalent when available, but 924 live searches and repeated 503/transient endpoint evidence make another full run risky."
+    },
+    {
+      "route": "candidate_month_stac_cache",
+      "status": "recommended_primary_redesign",
+      "reason": "Scientifically near-equivalent and reduces live searches by 54.5% if item coverage tests pass."
+    },
+    {
+      "route": "month_support_set_stac_cache",
+      "status": "recommended_stretch_redesign",
+      "reason": "Reduces live searches by 90.9%, but requires stronger pagination and item-filtering validation."
+    },
+    {
+      "route": "direct_public_s3_or_inventory",
+      "status": "recommended_parallel_prototype",
+      "reason": "Public S3 list and COG HEAD worked during a live STAC 503 outage; equivalence still needs item-set comparison."
+    },
+    {
+      "route": "official_odc_nci_or_dea_sandbox",
+      "status": "deferred_contingency",
+      "reason": "Official and likely robust, but requires environment/account setup and code adaptation."
+    },
+    {
+      "route": "water_observations_statistics",
+      "status": "context_only",
+      "reason": "Annual/seasonal/multi-year summaries are not monthly event-window support metrics."
+    },
+    {
+      "route": "dea_waterbodies_timeseries",
+      "status": "context_or_uid_fallback_only",
+      "reason": "Useful for selected open-water UIDs, not equivalent for whole wetland supports or vegetated/floodplain wetlands."
+    }
+  ],
+  "outputs": [
+    "docs/hydrology_acquisition_route_011_report.md",
+    "docs/hydrology_acquisition_route_011_manifest.json",
+    "docs/hydrology_acquisition_options_011.csv",
+    "docs/hydrology_stac_query_pattern_011.csv",
+    "scripts/hydrology_acquisition_route_probe_011.py",
+    "tests/test_goal011_hydrology_acquisition_route.py"
+  ],
+  "recommendation": {
+    "next_goal": "Goal 012 bounded hydrology metadata acquisition prototype",
+    "primary_route": "candidate_month_stac_cache",
+    "parallel_route": "direct_public_s3_or_inventory",
+    "do_not_use_as_primary": [
+      "status_quo_stac_retry",
+      "water_observations_statistics",
+      "dea_waterbodies_timeseries"
+    ]
+  },
+  "staging_policy": {
+    "commit": "scripts, tests, compact CSV/JSON/Markdown reports, settings if added",
+    "ignore": "raw rasters, full STAC item dumps, S3 inventory files, metadata caches, temporary arrays, and probe artifacts under artifacts/"
+  }
+}

@@ -116,6 +116,15 @@ waterbirds project.
 - [stac_recovery_010_manifest.json](stac_recovery_010_manifest.json):
   machine-readable Goal 010 endpoint probes, blocked-row sample, launch
   decision, and remote staging manifest.
+- [hydrology_acquisition_route_011_report.md](hydrology_acquisition_route_011_report.md):
+  Goal 011 hydrology acquisition-route comparison and recommendation.
+- [hydrology_acquisition_route_011_manifest.json](hydrology_acquisition_route_011_manifest.json):
+  machine-readable Goal 011 official-source, probe, route-status, and
+  recommendation manifest.
+- [hydrology_acquisition_options_011.csv](hydrology_acquisition_options_011.csv):
+  machine-readable Goal 011 acquisition-route comparison table.
+- [hydrology_stac_query_pattern_011.csv](hydrology_stac_query_pattern_011.csv):
+  machine-readable Goal 011 STAC query-pattern and cache-opportunity audit.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
