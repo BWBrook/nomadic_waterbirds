@@ -10,6 +10,8 @@ waterbirds project.
   access routes, permissions, inclusion rules, and next actions.
 - [source_evidence_register.md](source_evidence_register.md): official-source
   evidence checked for data-access and wetland-unit feasibility.
+- [literature/](literature/): broad Deep Research report, supervisor triage,
+  and source-verification queue for manuscript planning.
 - [data_access_feasibility.md](data_access_feasibility.md): feasibility memo
   for candidate hydrology, biodiversity, climate, and static covariate streams.
 - [wetland_unit_feasibility.md](wetland_unit_feasibility.md): comparison of
@@ -85,6 +87,9 @@ waterbirds project.
 - [goals/007-named-subunit-evidence-event-series/](goals/007-named-subunit-evidence-event-series/):
   Goal 007 package for strengthening named-subunit evidence and building a
   bounded event-window hydrology series.
+- [goals/008-narran-subunit-and-remote-hydrology-rehearsal/](goals/008-narran-subunit-and-remote-hydrology-rehearsal/):
+  Goal 008 package for resolving Narran subunit evidence and rehearsing
+  `deep-server` hydrology compute.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

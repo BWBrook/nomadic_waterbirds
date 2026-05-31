@@ -91,6 +91,20 @@ Pause for Barry before:
 - Do not use remote compute during foundation goals.
 - For later heavy extraction, modelling, or geospatial work, choose compute
   deliberately and record the rationale in project notes before dispatching.
+- When a goal explicitly authorises remote compute, prefer `deep-server` for
+  CPU-heavy single-host Linux extraction, long remote-sensing loops, large
+  geospatial staging, or runs likely to take more than about 30 minutes on the
+  Mac mini.
+- Use the Mac mini as the control plane for heavy work: prepare reproducible
+  scripts and small local checks here, then stage source and ignored artefacts
+  to the selected remote host when scale, runtime, or platform fit justify it.
+- Do not downsize scientifically important event windows only to avoid using
+  available remote compute. If a local run forces a scientifically weaker
+  fallback, write a compute-routing memo and either run or recommend a
+  `deep-server` rehearsal as authorised by the goal.
+- GPU work should prefer Alien WSL when it fits dual RTX 2080 GPUs; use Nectar
+  GPU only when more VRAM, throughput, isolation, or availability is needed.
+  Use `kunanyi` only for production-grade multi-node or large job-array work.
 
 ## Manuscript And Reproducibility
 
