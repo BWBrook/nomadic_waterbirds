@@ -2,7 +2,7 @@
 
 Goal: Comparator baseline repair
 
-Status: In progress.
+Status: Completed and pushed to main.
 
 ## Supervisor Setup
 
@@ -56,4 +56,6 @@ Status: In progress.
   Goal 015 output-consistency audit, source URL coverage check, ignored-staging
   check, committed-size check, committed raw-extension check, local Markdown
   link check (109 links), unfinished-marker scan, and final dirty-state review.
-- Commit/push complete:
+- Commit/push complete: Goal 015 package committed as `184e0bb` (`Repair
+  hydrology comparator baseline`); this final log-status commit and the
+  package commit were pushed to `origin/main` on 2026-05-31.
