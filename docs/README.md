@@ -205,6 +205,10 @@ waterbirds project.
 - [goals/015-comparator-baseline-repair/](goals/015-comparator-baseline-repair/):
   Goal 015 package for repairing the path-row-filtered comparator baseline
   and clarifying support-relevant scene selection before direct-S3 scale-up.
+- [goals/016-direct-s3-all-support-probe/](goals/016-direct-s3-all-support-probe/):
+  Goal 016 package for testing bounded direct-S3 Water Observations extraction
+  across all current event-window supports and the three repaired probe
+  months.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
