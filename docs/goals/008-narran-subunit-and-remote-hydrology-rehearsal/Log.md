@@ -87,3 +87,5 @@
   Narran CSV/manifest shape checks, ignored staging-path checks, committed
   file-size and raw-extension hygiene, local Markdown link check
   (`127` links, none missing), and unfinished-marker scan all passed.
+- 2026-05-31: Committed and pushed Goal 008 package to `origin/main` as
+  `9b60e0e` (`Resolve Narran evidence and rehearse remote hydrology`).
