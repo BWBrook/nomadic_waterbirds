@@ -134,6 +134,18 @@ waterbirds project.
   compact Goal 012 route-by-month item-set hashes and counts.
 - [hydrology_metadata_route_comparison_012.csv](hydrology_metadata_route_comparison_012.csv):
   Goal 012 route comparison and next-step recommendation table.
+- [support_pathrow_coverage_013_report.md](support_pathrow_coverage_013_report.md):
+  Goal 013 support-to-WRS-path/row coverage and metadata equivalence report.
+- [support_pathrow_coverage_013_manifest.json](support_pathrow_coverage_013_manifest.json):
+  machine-readable Goal 013 WRS source, S3/STAC route, comparator, and
+  staging manifest.
+- [support_pathrow_crosswalk_013.csv](support_pathrow_crosswalk_013.csv):
+  compact Goal 013 support-to-Landsat-path/row crosswalk.
+- [support_pathrow_item_sets_013.csv](support_pathrow_item_sets_013.csv):
+  compact Goal 013 direct-S3 item-set counts and hashes for `NWB002`.
+- [metadata_comparator_status_013.csv](metadata_comparator_status_013.csv):
+  Goal 013 STAC, ODC-contingency, Goal 012 regression, and final equivalence
+  status table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

@@ -1,0 +1,109 @@
+{
+  "goal": "013-support-pathrow-metadata-equivalence",
+  "accessed_date": "2026-05-31",
+  "run_command": "python3 scripts/support_pathrow_metadata_013.py",
+  "primary_candidate_id": "NWB002",
+  "primary_support_id": "nwb002_ramsar_ref1291",
+  "months": [
+    "2018-01",
+    "2022-11",
+    "2024-12"
+  ],
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "dea_stac_search_url": "https://explorer.dea.ga.gov.au/stac/search",
+  "support_source": {
+    "event_config_path": "settings/event_window_hydrology_007.json",
+    "ramsar_subset_geojson": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+    "waterbodies_zip": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip",
+    "source_table": "docs/event_window_hydrology_series_2018_2024.csv"
+  },
+  "wrs2_source": {
+    "source_id": "USGS_WRS2_DESCENDING_2018",
+    "title": "Landsat World Reference System - 2 Descending (Daytime) Shapefile",
+    "provider": "U.S. Geological Survey / Landsat Missions",
+    "source_page_url": "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile",
+    "download_url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/files/WRS2_descending.zip",
+    "catalogue_url": "https://www.usgs.gov/landsat-missions/landsat-shapefiles-and-kml-files",
+    "orbit_direction": "descending_daytime",
+    "projection": "EPSG:4326",
+    "staged_zip_path": "artifacts/support_pathrow_metadata_013/raw/WRS2_descending.zip",
+    "zip_layer_path": "WRS2_descending.shp",
+    "coverage_method": "geometry_intersection"
+  },
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "max_keys": 1000,
+    "max_pages": 3,
+    "timeout_seconds": 45,
+    "head_request_limit_per_prefix": 25
+  },
+  "stac_preflight": {
+    "limit": 100,
+    "timeout_seconds": 45,
+    "required_success_fraction": 1.0,
+    "max_attempts": 1,
+    "fail_status_codes": [
+      408,
+      429,
+      500,
+      502,
+      503,
+      504
+    ]
+  },
+  "official_comparator": {
+    "local_modules": [
+      "datacube",
+      "odc.stac"
+    ],
+    "odc_loading_guide_url": "https://knowledge.dea.ga.gov.au/notebooks/Beginners_guide/04_Loading_data/",
+    "dea_sandbox_url": "https://knowledge.dea.ga.gov.au/guides/setup/Sandbox/sandbox/"
+  },
+  "goal012": {
+    "item_sets_csv": "docs/hydrology_metadata_item_sets_012.csv",
+    "known_path_row": "093/080"
+  },
+  "staging_paths": {
+    "raw": "artifacts/support_pathrow_metadata_013/raw",
+    "intermediate": "artifacts/support_pathrow_metadata_013/intermediate",
+    "output": "artifacts/support_pathrow_metadata_013/output"
+  },
+  "outputs": {
+    "report_md": "docs/support_pathrow_coverage_013_report.md",
+    "manifest_json": "docs/support_pathrow_coverage_013_manifest.json",
+    "crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "item_sets_csv": "docs/support_pathrow_item_sets_013.csv",
+    "comparator_status_csv": "docs/metadata_comparator_status_013.csv"
+  },
+  "source_urls": [
+    "https://www.usgs.gov/landsat-missions/landsat-shapefiles-and-kml-files",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile",
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://knowledge.dea.ga.gov.au/notebooks/Beginners_guide/04_Loading_data/",
+    "https://knowledge.dea.ga.gov.au/guides/setup/Sandbox/sandbox/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw WRS geometry",
+      "raw S3 listings",
+      "STAC item JSON",
+      "HEAD metadata",
+      "rasters",
+      "arrays",
+      "temporary route caches"
+    ]
+  }
+}
