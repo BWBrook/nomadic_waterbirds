@@ -95,6 +95,9 @@ Pause for Barry before:
   CPU-heavy single-host Linux extraction, long remote-sensing loops, large
   geospatial staging, or runs likely to take more than about 30 minutes on the
   Mac mini.
+- Before any remote/HPC execution goal, read the relevant control-plane docs
+  under `/Users/bwbrook/work/nectar`, especially compute selection, project
+  integration, data placement, current status, and the target machine note.
 - Use the Mac mini as the control plane for heavy work: prepare reproducible
   scripts and small local checks here, then stage source and ignored artefacts
   to the selected remote host when scale, runtime, or platform fit justify it.

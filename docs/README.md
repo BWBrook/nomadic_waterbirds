@@ -105,6 +105,9 @@ waterbirds project.
 - [goals/008-narran-subunit-and-remote-hydrology-rehearsal/](goals/008-narran-subunit-and-remote-hydrology-rehearsal/):
   Goal 008 package for resolving Narran subunit evidence and rehearsing
   `deep-server` hydrology compute.
+- [goals/009-remote-full-window-hydrology-scale-up/](goals/009-remote-full-window-hydrology-scale-up/):
+  Goal 009 package for retry/backoff hardening and remote full-window
+  hydrology scale-up on `deep-server-ts`.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
