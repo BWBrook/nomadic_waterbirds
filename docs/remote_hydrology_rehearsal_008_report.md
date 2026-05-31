@@ -29,7 +29,7 @@ The synced remote working copy ran:
 python3 -m unittest discover -s tests -p "test*.py"
 ```
 
-Result: 6 tests passed.
+Result: 7 tests passed.
 
 The remote copy also ran:
 

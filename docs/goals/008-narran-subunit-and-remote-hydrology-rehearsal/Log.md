@@ -62,7 +62,7 @@
   unignored source file list via `rsync`; raw local artifacts were not sent as
   source files.
 - 2026-05-31: Remote tests passed on `deep-server-ts` with `python3 -m
-  unittest discover -s tests -p "test*.py"`: 6 tests OK after the Goal 008
+  unittest discover -s tests -p "test*.py"`: 7 tests OK after the Goal 008
   GDAL portability test was added.
 - 2026-05-31: Remote Narran evidence script passed on `deep-server-ts`,
   producing 44 crosswalk rows and 39 DEA parent-overlap screens.
@@ -83,9 +83,9 @@
 - 2026-05-31: Drafted Goal 008 reports/manifests and updated project
   navigation, source evidence, data stream register, and decision log.
 - 2026-05-31: Validation passed before commit: `git diff --check`, Python
-  compile checks for changed scripts, 6 local unit tests, JSON parsing,
+  compile checks for changed scripts, 7 local unit tests, JSON parsing,
   Narran CSV/manifest shape checks, ignored staging-path checks, committed
   file-size and raw-extension hygiene, local Markdown link check
-  (`127` links, none missing), and unfinished-marker scan all passed.
+  (`120` links, none missing), and unfinished-marker scan all passed.
 - 2026-05-31: Committed and pushed Goal 008 package to `origin/main` as
   `9b60e0e` (`Resolve Narran evidence and rehearse remote hydrology`).

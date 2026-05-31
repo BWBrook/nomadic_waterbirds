@@ -42,7 +42,7 @@
       "name": "remote_tests",
       "command": "ssh deep-server-ts 'cd /data/codex/repos/nomadic_waterbirds_goal008 && python3 -m unittest discover -s tests -p \"test*.py\"'",
       "status": "passed",
-      "result": "6 tests OK"
+      "result": "7 tests OK"
     },
     {
       "name": "remote_narran_evidence_script",
