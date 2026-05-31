@@ -159,6 +159,10 @@ waterbirds project.
   Goal 012 package for prototyping bounded candidate-month STAC metadata
   caching and direct public S3/item-set discovery before any further hydrology
   recovery run.
+- [goals/013-support-pathrow-metadata-equivalence/](goals/013-support-pathrow-metadata-equivalence/):
+  Goal 013 package for proving support-to-Landsat-path/row coverage and
+  official metadata equivalence before promoting direct S3 hydrology
+  extraction.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
