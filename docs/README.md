@@ -264,6 +264,23 @@ waterbirds project.
 - [bird_linkage_design_021_manifest.json](bird_linkage_design_021_manifest.json):
   Goal 021 validation manifest with hashes, row counts, and Goal 020
   restriction carry-forward evidence.
+- [bird_data_access_feasibility_022.md](bird_data_access_feasibility_022.md):
+  Goal 022 supervisor-facing eBird pilot access-feasibility memo.
+- [ebird_pilot_request_package_022.md](ebird_pilot_request_package_022.md):
+  Goal 022 request-ready eBird pilot package for Barry review, with no
+  request submitted.
+- [bird_data_access_matrix_022.csv](bird_data_access_matrix_022.csv):
+  Goal 022 machine-readable feasibility matrix for eBird, Birdata, EAWS, and
+  ALA.
+- [ebird_required_fields_022.csv](ebird_required_fields_022.csv):
+  Goal 022 field-level eBird request and future-ingestion requirements.
+- [birdata_eaws_permission_questions_022.md](birdata_eaws_permission_questions_022.md):
+  Goal 022 permission-question brief for Birdata and EAWS.
+- [ala_context_rules_022.md](ala_context_rules_022.md):
+  Goal 022 context-only and forbidden-use rules for ALA.
+- [bird_data_access_022_manifest.json](bird_data_access_022_manifest.json):
+  Goal 022 validation manifest with official-source checks, row counts, and
+  carry-forward evidence.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
@@ -319,6 +336,9 @@ waterbirds project.
 - [goals/021-bird-observation-linkage-design/](goals/021-bird-observation-linkage-design/):
   Goal 021 package for constrained bird-observation linkage design, access
   protocol, and validation without biodiversity data ingestion.
+- [goals/022-bird-data-access-feasibility/](goals/022-bird-data-access-feasibility/):
+  Goal 022 package for request-prep and feasibility checks for the first
+  eBird complete-checklist pilot lane.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

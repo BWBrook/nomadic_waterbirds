@@ -1,0 +1,126 @@
+{
+  "goal": "022-bird-data-access-feasibility",
+  "manifest_type": "goal022_bird_data_access_feasibility",
+  "run_command": "python3 scripts/validate_bird_data_access_022.py",
+  "accessed_date": "2026-06-01",
+  "decision_status": "ready_for_ebird_request_review",
+  "goal020_reference": {
+    "readiness_rows_path": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "expected_row_count": 924,
+    "expected_core_eligible": 820,
+    "expected_core_eligible_with_caveat": 81,
+    "expected_sensitivity_only": 23,
+    "expected_goal018_legacy_caveat_count": 4
+  },
+  "goal021_reference": {
+    "manifest_path": "docs/bird_linkage_design_021_manifest.json",
+    "expected_status": "ready_for_bird_data_access_feasibility",
+    "candidate_screen_path": "docs/candidate_species_guild_screen_021.csv",
+    "join_contract_path": "docs/bird_hydrology_join_contract_021.csv"
+  },
+  "files": {
+    "feasibility_memo": "docs/bird_data_access_feasibility_022.md",
+    "ebird_request_package": "docs/ebird_pilot_request_package_022.md",
+    "access_matrix": "docs/bird_data_access_matrix_022.csv",
+    "ebird_fields": "docs/ebird_required_fields_022.csv",
+    "birdata_eaws_questions": "docs/birdata_eaws_permission_questions_022.md",
+    "ala_context_rules": "docs/ala_context_rules_022.md",
+    "manifest_json": "docs/bird_data_access_022_manifest.json",
+    "source_evidence_register": "docs/source_evidence_register.md",
+    "data_stream_register": "docs/data_stream_register.md",
+    "decision_log": "docs/decision_log.md",
+    "docs_readme": "docs/README.md",
+    "goal_log": "docs/goals/022-bird-data-access-feasibility/Log.md",
+    "validation_script": "scripts/validate_bird_data_access_022.py",
+    "settings": "settings/bird_data_access_022.json",
+    "tests": "tests/test_goal022_bird_data_access.py"
+  },
+  "csv_schemas": {
+    "access_matrix": {
+      "required_columns": [
+        "stream",
+        "decision_status",
+        "primary_role",
+        "access_route",
+        "official_source_ids",
+        "request_or_permission_action",
+        "allowed_use",
+        "forbidden_use",
+        "key_fields_or_products",
+        "hydrology_restriction",
+        "species_guild_status",
+        "next_gate"
+      ],
+      "min_rows": 4,
+      "status_vocab": [
+        "request_ready",
+        "needs_clarification",
+        "context_only",
+        "defer"
+      ],
+      "required_streams": [
+        "eBird",
+        "Birdata",
+        "EAWS",
+        "ALA"
+      ]
+    },
+    "ebird_fields": {
+      "required_columns": [
+        "field_group",
+        "field_name_or_group",
+        "required_status",
+        "source_product",
+        "downstream_use",
+        "validation_rule",
+        "privacy_or_terms_note"
+      ],
+      "min_rows": 20,
+      "required_status_vocab": [
+        "required",
+        "required_when_available",
+        "required_when_applicable",
+        "optional",
+        "derived_later"
+      ]
+    }
+  },
+  "required_public_sources": [
+    "S56",
+    "S57",
+    "S58",
+    "S59",
+    "S60",
+    "S61",
+    "S62",
+    "S63",
+    "S64",
+    "S65",
+    "S66"
+  ],
+  "guardrails": {
+    "forbidden_extensions": [
+      ".shp",
+      ".dbf",
+      ".shx",
+      ".prj",
+      ".gpkg",
+      ".geojson",
+      ".kml",
+      ".kmz",
+      ".tif",
+      ".tiff",
+      ".nc",
+      ".parquet",
+      ".rds",
+      ".zip",
+      ".tar",
+      ".gz",
+      ".sqlite",
+      ".duckdb",
+      ".npy",
+      ".npz"
+    ],
+    "max_changed_file_size_mb": 5
+  }
+}

@@ -1,0 +1,25 @@
+field_group,field_name_or_group,required_status,source_product,downstream_use,validation_rule,privacy_or_terms_note
+checklist_identity,checklist_id,required,EBD plus sampling event metadata,stable event key for checklist-level units,must be non-empty and stable across observation and sampling-event files,do not expose raw IDs outside approved project outputs
+observation_identity,observation_id,required,EBD,stable observation key for species/count rows,must be non-empty for detections and joinable to checklist,raw observation records remain restricted
+taxonomy,species_code_or_taxon_id,required,EBD,taxon normalisation and provisional guild screen,must map to eBird taxonomy version and project taxon dictionary,not a final species-list lock-in
+taxonomy,scientific_name_and_common_name,required,EBD,human review and reporting labels,must be present for included detections,preserve source naming and version metadata
+checklist_completeness,complete_checklist_flag,required,sampling event metadata,occurrence/non-detection eligibility,must indicate complete checklist for core non-detection design,incomplete checklists cannot support absence inference
+protocol,protocol_type,required,sampling event metadata,effort and detectability model covariate,must identify travelling stationary area or compatible protocol,incidental or incompatible protocols are risk-flagged
+date_time,observation_date,required,EBD or sampling event metadata,monthly hydrology join,must parse to date and fall within 2018-01-01 to 2024-12-31,month-level derived join only after intake QA
+date_time,start_time,optional,sampling event metadata,time-of-day observation covariate,missing values allowed but flagged for detectability modelling,retain only as permitted by eBird terms
+effort,duration_minutes,required,sampling event metadata,effort offset and inclusion QA,must be positive and within agreed pilot bounds,do not use records with unusable effort for relative-count core
+effort,distance_km,required_when_applicable,sampling event metadata,travelling effort covariate,must be non-negative for travelling protocols,stationary protocols may have zero or null distance
+effort,party_size,required,sampling event metadata,observer effort covariate,must be positive or explicitly missing with reason,avoid observer-identifying details
+effort,number_observers,required,sampling event metadata,effort covariate,must be positive or explicitly missing with reason,do not store personal identifiers
+location,latitude_longitude_or_approved_precision,required,EBD or location metadata,support assignment and precision QA,must allow documented support assignment or safe support-level bucket,respect private and sensitive-location treatment
+location,locality_and_region_codes,required,EBD or location metadata,wetland and jurisdiction review,must include enough locality context for support QA,do not publish site-level sensitive locations
+location,spatial_precision_or_locality_type,required_when_available,EBD or location metadata,sensitive/generalised-location audit,must identify shared/private/sensitive or coarse locations where supplied,coarse records require separate support assignment handling
+counting,count_value_or_presence_code,required,EBD,relative-count proxy and occurrence detection,must distinguish numeric counts from present-only codes,present-only counts cannot be raw abundance proxies
+quality,reviewed_or_validity_status,required_when_available,EBD,eBird quality-control filter,must retain enough status to exclude invalid or unreviewed flagged records if needed,do not override eBird review status
+sensitivity,sensitive_species_flag_or_suppression_code,required_when_available,EBD,sensitive-record handling and support-bucket route,must flag records with suppressed or generalised public output,sensitive records require approved handling before support assignment
+provenance,ebird_data_version_or_download_date,required,EBD,versioned provenance and reproducibility,must be captured at intake,no raw data committed to Git
+provenance,request_id_or_terms_version,required,EBD request documentation,licence and purpose tracking,must tie all downstream tables to approved request purpose,no reuse for a different purpose without a new request
+join_key,support_id,derived_later,project hydrology support assignment,Goal 020 hydrology join,must map to known support_id or support-level privacy bucket,not derived in Goal 022
+join_key,month,derived_later,observation_date,Goal 020 hydrology join,must match YYYY-MM hydrology month labels,not derived from records in Goal 022
+response_layer,detection_flag,derived_later,complete-checklist processing,occurrence/non-detection endpoint,false only allowed from complete-checklist design,not derived in Goal 022
+response_layer,relative_count_metric,derived_later,count and effort fields,count endpoint or abundance proxy,must state whether numeric count present-only or effort-adjusted summary,not absolute abundance without observation model
