@@ -241,6 +241,10 @@ waterbirds project.
 - [goals/017-legacy-wetness-difference-triage/](goals/017-legacy-wetness-difference-triage/):
   Goal 017 package for classifying the six legacy wetness-field differences
   from the all-support direct-S3 probe before full-window scale-up.
+- [goals/018-pathrow-comparator-reconstruction/](goals/018-pathrow-comparator-reconstruction/):
+  Goal 018 package for reconstructing path-row-filtered comparator or
+  item-provenance evidence for the material legacy rows before direct-S3
+  full-window production.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
