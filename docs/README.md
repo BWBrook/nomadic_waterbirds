@@ -281,6 +281,19 @@ waterbirds project.
 - [bird_data_access_022_manifest.json](bird_data_access_022_manifest.json):
   Goal 022 validation manifest with official-source checks, row counts, and
   carry-forward evidence.
+- [ebird_request_submission_checklist_023.md](ebird_request_submission_checklist_023.md):
+  Goal 023 human submission checklist with Barry action-time confirmation
+  language and no live-form action by `nomad`.
+- [ebird_request_text_023.md](ebird_request_text_023.md):
+  Goal 023 paste-ready eBird Basic Dataset request text for Barry review.
+- [ebird_intake_staging_plan_023.md](ebird_intake_staging_plan_023.md):
+  Goal 023 future eBird delivery quarantine, provenance, and no-raw-data-in-Git
+  staging design.
+- [ebird_intake_qa_contract_023.csv](ebird_intake_qa_contract_023.csv):
+  Goal 023 machine-readable QA contract for future eBird delivery intake.
+- [ebird_request_023_manifest.json](ebird_request_023_manifest.json):
+  Goal 023 validation manifest with request envelope, source IDs, hashes, and
+  carry-forward evidence.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
@@ -339,6 +352,9 @@ waterbirds project.
 - [goals/022-bird-data-access-feasibility/](goals/022-bird-data-access-feasibility/):
   Goal 022 package for request-prep and feasibility checks for the first
   eBird complete-checklist pilot lane.
+- [goals/023-ebird-request-support-intake-staging/](goals/023-ebird-request-support-intake-staging/):
+  Goal 023 package for eBird request submission support and future intake
+  staging without live submission or biodiversity data handling.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

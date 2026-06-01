@@ -1,0 +1,95 @@
+{
+  "goal": "023-ebird-request-support-intake-staging",
+  "manifest_type": "goal023_ebird_request_support_intake",
+  "created_at_utc": "2026-06-01T11:47:08Z",
+  "accessed_date": "2026-06-01",
+  "run_command": "python3 scripts/validate_ebird_request_intake_023.py",
+  "decision_status": "ready_for_human_ebird_submission_review",
+  "request_submission_status": "not_submitted_by_goal023",
+  "action_time_confirmation_required": true,
+  "request_envelope": {
+    "product_route": "eBird Basic Dataset complete-checklist pilot with sampling-event and effort metadata",
+    "start_date": "2018-01-01",
+    "end_date": "2024-12-31",
+    "support_count": 11,
+    "wetland_complexes": [
+      "Macquarie Marshes",
+      "Narran Lake Nature Reserve",
+      "Gwydir Wetlands",
+      "Kerang Wetlands",
+      "Currawinya Lakes"
+    ],
+    "core_hydrology_classes": [
+      "core_eligible",
+      "core_eligible_with_caveat"
+    ],
+    "sensitivity_hydrology_class": "sensitivity_only",
+    "species_guild_status": "provisional_goal021_review_screen"
+  },
+  "goal020_reference": {
+    "readiness_rows_path": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "readiness_row_count": 924,
+    "readiness_class_counts": {
+      "core_eligible_with_caveat": 81,
+      "core_eligible": 820,
+      "sensitivity_only": 23
+    },
+    "legacy_comparator_caveat_rows": 4
+  },
+  "goal021_reference": {
+    "manifest_path": "docs/bird_linkage_design_021_manifest.json",
+    "design_goal_status": "ready_for_bird_data_access_feasibility",
+    "candidate_screen_path": "docs/candidate_species_guild_screen_021.csv",
+    "join_contract_path": "docs/bird_hydrology_join_contract_021.csv"
+  },
+  "goal022_reference": {
+    "manifest_path": "docs/bird_data_access_022_manifest.json",
+    "decision_status": "ready_for_ebird_request_review",
+    "request_package_path": "docs/ebird_pilot_request_package_022.md",
+    "required_fields_path": "docs/ebird_required_fields_022.csv"
+  },
+  "official_sources_checked": [
+    "S56",
+    "S57",
+    "S58",
+    "S59"
+  ],
+  "new_public_sources_checked_for_goal023": [],
+  "artifacts": {
+    "submission_checklist": {
+      "path": "docs/ebird_request_submission_checklist_023.md",
+      "sha256": "f42f08a7075855c757f290fffe920a5a37fb49df55a1708aeae4f433243c361a"
+    },
+    "request_text": {
+      "path": "docs/ebird_request_text_023.md",
+      "sha256": "30b188aae4bf8f55d198039fbecdb6ed4006a7d22fbadd1b602c556765ef0ef3"
+    },
+    "intake_plan": {
+      "path": "docs/ebird_intake_staging_plan_023.md",
+      "sha256": "789f1d4ba8c49e9ef9514a4ab7e0a5db7088a5be0816e64cecc3d9658ab865f8"
+    },
+    "qa_contract": {
+      "path": "docs/ebird_intake_qa_contract_023.csv",
+      "row_count": 17,
+      "row_hash": "253c9333521028cedd8fbd21f2fe9ce6ec98b2214892b0c6515eb3fc7d02775b",
+      "sha256": "57cbd71dd50220dbfb0403187bbb7202ccd466643de5d13d59357835e1ce5493"
+    }
+  },
+  "validation": {
+    "status": "pass",
+    "checks": [
+      "required_files",
+      "goal020_counts",
+      "goal021_status",
+      "goal022_status",
+      "request_envelope",
+      "submission_boundary_language",
+      "qa_contract_schema",
+      "source_register",
+      "markdown_links",
+      "unfinished_marker_scan",
+      "request_status_claim_guardrail",
+      "changed_file_guardrails"
+    ]
+  }
+}

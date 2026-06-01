@@ -1,0 +1,166 @@
+{
+  "goal": "023-ebird-request-support-intake-staging",
+  "manifest_type": "goal023_ebird_request_support_intake",
+  "run_command": "python3 scripts/validate_ebird_request_intake_023.py",
+  "accessed_date": "2026-06-01",
+  "decision_status": "ready_for_human_ebird_submission_review",
+  "goal020_reference": {
+    "readiness_rows_path": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "expected_row_count": 924,
+    "expected_core_eligible": 820,
+    "expected_core_eligible_with_caveat": 81,
+    "expected_sensitivity_only": 23,
+    "expected_goal018_legacy_caveat_count": 4
+  },
+  "goal021_reference": {
+    "manifest_path": "docs/bird_linkage_design_021_manifest.json",
+    "expected_status": "ready_for_bird_data_access_feasibility",
+    "candidate_screen_path": "docs/candidate_species_guild_screen_021.csv",
+    "join_contract_path": "docs/bird_hydrology_join_contract_021.csv"
+  },
+  "goal022_reference": {
+    "manifest_path": "docs/bird_data_access_022_manifest.json",
+    "expected_status": "ready_for_ebird_request_review",
+    "request_package_path": "docs/ebird_pilot_request_package_022.md",
+    "required_fields_path": "docs/ebird_required_fields_022.csv"
+  },
+  "request_envelope": {
+    "product_route": "eBird Basic Dataset complete-checklist pilot with sampling-event and effort metadata",
+    "start_date": "2018-01-01",
+    "end_date": "2024-12-31",
+    "support_count": 11,
+    "wetland_complexes": [
+      "Macquarie Marshes",
+      "Narran Lake Nature Reserve",
+      "Gwydir Wetlands",
+      "Kerang Wetlands",
+      "Currawinya Lakes"
+    ],
+    "core_hydrology_classes": [
+      "core_eligible",
+      "core_eligible_with_caveat"
+    ],
+    "sensitivity_hydrology_class": "sensitivity_only",
+    "species_guild_status": "provisional_goal021_review_screen"
+  },
+  "files": {
+    "submission_checklist": "docs/ebird_request_submission_checklist_023.md",
+    "request_text": "docs/ebird_request_text_023.md",
+    "intake_plan": "docs/ebird_intake_staging_plan_023.md",
+    "qa_contract": "docs/ebird_intake_qa_contract_023.csv",
+    "manifest_json": "docs/ebird_request_023_manifest.json",
+    "data_stream_register": "docs/data_stream_register.md",
+    "source_evidence_register": "docs/source_evidence_register.md",
+    "decision_log": "docs/decision_log.md",
+    "docs_readme": "docs/README.md",
+    "goal_log": "docs/goals/023-ebird-request-support-intake-staging/Log.md",
+    "validation_script": "scripts/validate_ebird_request_intake_023.py",
+    "settings": "settings/ebird_request_intake_023.json",
+    "tests": "tests/test_goal023_ebird_request_intake.py"
+  },
+  "csv_schemas": {
+    "qa_contract": {
+      "required_columns": [
+        "qa_id",
+        "stage",
+        "category",
+        "severity",
+        "check_name",
+        "required_input",
+        "pass_condition",
+        "stop_rule",
+        "provenance_field",
+        "notes"
+      ],
+      "min_rows": 15,
+      "stage_vocab": [
+        "pre_parse",
+        "quarantine",
+        "schema_audit",
+        "linkage_preflight",
+        "release_gate"
+      ],
+      "category_vocab": [
+        "inventory",
+        "provenance",
+        "terms",
+        "schema",
+        "sampling_event",
+        "checklist_completeness",
+        "sensitive_records",
+        "spatial",
+        "temporal",
+        "support_assignment",
+        "duplicates",
+        "handoff"
+      ],
+      "severity_vocab": [
+        "blocker",
+        "warning",
+        "note"
+      ]
+    }
+  },
+  "required_public_sources": [
+    "S56",
+    "S57",
+    "S58",
+    "S59"
+  ],
+  "new_public_sources_checked_for_goal023": [],
+  "required_text": {
+    "submission_checklist": [
+      "Goal 023 prepares submission support only",
+      "nomad did not submit the eBird request",
+      "The final submit/send action requires Barry's direct confirmation",
+      "I, Barry W. Brook, confirm that the next submit/send action"
+    ],
+    "request_text": [
+      "Hydrological reaction norms of Australia's nomadic waterbirds",
+      "eBird Basic Dataset",
+      "2018-01-01",
+      "2024-12-31",
+      "No final species list"
+    ],
+    "intake_plan": [
+      "data/ebird_raw/request_<request_id>/",
+      "data/ebird_quarantine/request_<request_id>/",
+      "Stop before parsing records",
+      "Goal 023 does not create derived bird tables"
+    ]
+  },
+  "guardrails": {
+    "forbidden_extensions": [
+      ".shp",
+      ".dbf",
+      ".shx",
+      ".prj",
+      ".gpkg",
+      ".geojson",
+      ".kml",
+      ".kmz",
+      ".tif",
+      ".tiff",
+      ".nc",
+      ".parquet",
+      ".rds",
+      ".zip",
+      ".tar",
+      ".gz",
+      ".sqlite",
+      ".duckdb",
+      ".npy",
+      ".npz",
+      ".jpg",
+      ".jpeg",
+      ".png"
+    ],
+    "max_changed_file_size_mb": 5,
+    "forbidden_claim_patterns": [
+      "submitted\\s+the\\s+eBird\\s+request",
+      "request\\s+was\\s+submitted",
+      "downloaded\\s+eBird\\s+records",
+      "raw\\s+eBird\\s+records\\s+were\\s+processed"
+    ]
+  }
+}
