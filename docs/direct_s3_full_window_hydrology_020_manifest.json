@@ -1,0 +1,73 @@
+{
+  "goal": "020-production-hydrology-audit",
+  "manifest_type": "goal020_hydrology_audit",
+  "created_at_utc": "2026-06-01T06:05:00Z",
+  "accessed_date": "2026-06-01",
+  "config_path": "settings/audit_direct_s3_full_window_hydrology_020.json",
+  "command": "python3 scripts/audit_direct_s3_full_window_hydrology_020.py",
+  "git_head_at_run": "ff207a9cab5423c5836bf4d253ae510faf9bdf80",
+  "git_status_at_run": "## main...origin/main\n M docs/README.md\n M docs/data_stream_register.md\n M docs/decision_log.md\n M docs/goals/020-production-hydrology-audit/Log.md\n?? docs/direct_s3_full_window_hydrology_020_audit_report.md\n?? docs/direct_s3_full_window_hydrology_020_manifest.json\n?? docs/direct_s3_full_window_hydrology_020_month_summary.csv\n?? docs/direct_s3_full_window_hydrology_020_quality_fail_rows.csv\n?? docs/direct_s3_full_window_hydrology_020_readiness.csv\n?? docs/direct_s3_full_window_hydrology_020_support_summary.csv\n?? docs/hydrology_to_bird_linkage_gate_020.md\n?? scripts/audit_direct_s3_full_window_hydrology_020.py\n?? settings/audit_direct_s3_full_window_hydrology_020.json\n?? tests/test_goal020_hydrology_audit.py",
+  "host_facts": {
+    "hostname": "Mac-mini.lan",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python_version": "3.14.5"
+  },
+  "goal019_manifest": "docs/direct_s3_full_window_hydrology_019_manifest.json",
+  "goal019_row_count": 924,
+  "goal019_support_count": 11,
+  "goal019_month_count": 84,
+  "goal019_series_csv": "docs/direct_s3_full_window_hydrology_019_series.csv",
+  "goal019_item_sets_csv": "docs/direct_s3_full_window_hydrology_019_item_sets.csv",
+  "goal019_summary_csv": "docs/direct_s3_full_window_hydrology_019_summary.csv",
+  "goal018_readiness_csv": "docs/pathrow_comparator_reconstruction_018_readiness.csv",
+  "quality_fail_count": 23,
+  "quality_fail_reasons": {
+    "low_clear_fraction": 21,
+    "low_support_area_after_mask": 2
+  },
+  "quality_fail_rows": 23,
+  "readiness_class_counts": {
+    "core_eligible_with_caveat": 81,
+    "core_eligible": 820,
+    "sensitivity_only": 23
+  },
+  "goal019_series_row_count": 924,
+  "goal019_item_set_row_count": 924,
+  "goal019_summary_row_count": 96,
+  "goal019_status_counts": {
+    "computed_direct_s3_metrics": 924
+  },
+  "goal019_quality_counts": {
+    "quality_fail": 23,
+    "quality_high": 751,
+    "quality_minimum": 150
+  },
+  "series_row_hash": "f6319aa43be88588e1f19286471bc1157e99331a814e56cb371d5164c8736c5a",
+  "item_set_row_hash": "0efa3deaf93fe4aa7d0854ac694f579fb3d195ba0b03ac4138ea3e80b11e0f1b",
+  "readiness_row_hash": "8097070c5ecb0807e4a92a3c2d69c49813f88d128f1f00b292812f0b7c270b7b",
+  "support_summary_row_hash": "f86f795d4cb521941943920a03b407a75a4b19141065ee729a21143ad5cd40e0",
+  "month_summary_row_hash": "ef9e376b31c6e99a1e7f48c3c9b3f5125e7af3cbb23b7281879c01a5a050ed22",
+  "readiness_restrictions": [
+    "exclude_quality_fail_rows_from_core",
+    "retain_quality_fail_rows_in_sensitivity",
+    "carry_goal018_comparator_caveat",
+    "review_derived_metric_boundary_rows_in_context"
+  ],
+  "goal020_readiness_decision": "ready_for_constrained_bird_linkage_design",
+  "recommend_goal": "Goal 021",
+  "run_checks": {
+    "expected_row_count": 924,
+    "expected_support_count": 11,
+    "expected_month_count": 84,
+    "quality_fail_expected_count": 23
+  },
+  "outputs": {
+    "manifest_json": "docs/direct_s3_full_window_hydrology_020_manifest.json",
+    "audit_report_md": "docs/direct_s3_full_window_hydrology_020_audit_report.md",
+    "gate_memo_md": "docs/hydrology_to_bird_linkage_gate_020.md",
+    "quality_fail_csv": "docs/direct_s3_full_window_hydrology_020_quality_fail_rows.csv",
+    "readiness_csv": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "support_summary_csv": "docs/direct_s3_full_window_hydrology_020_support_summary.csv",
+    "month_summary_csv": "docs/direct_s3_full_window_hydrology_020_month_summary.csv"
+  }
+}

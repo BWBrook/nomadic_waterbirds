@@ -218,13 +218,29 @@ waterbirds project.
 - [direct_s3_full_window_hydrology_019_report.md](direct_s3_full_window_hydrology_019_report.md):
   Goal 019 full-window direct-S3 hydrology production report for the current
   11-support, 2018-2024 window.
+- [direct_s3_full_window_hydrology_020_audit_report.md](direct_s3_full_window_hydrology_020_audit_report.md):
+  Goal 020 readiness and caveat audit for the Goal 019 full-window table.
+- [hydrology_to_bird_linkage_gate_020.md](hydrology_to_bird_linkage_gate_020.md):
+  Goal 020 hydrology-to-bird-linkage design-gate memo and recommendation.
 - [direct_s3_full_window_hydrology_019_manifest.json](direct_s3_full_window_hydrology_019_manifest.json):
   machine-readable Goal 019 command, remote route, support/month grid,
   output hashes, resume evidence, and staging provenance.
+- [direct_s3_full_window_hydrology_020_manifest.json](direct_s3_full_window_hydrology_020_manifest.json):
+  machine-readable Goal 020 audit manifest with input/output hashes and
+  readiness counts.
 - [direct_s3_full_window_hydrology_019_series.csv](direct_s3_full_window_hydrology_019_series.csv):
   Goal 019 production support-month hydrology series with base metrics,
   derived time-history metrics, regional-current-support summaries, row
   status, and compact item provenance.
+- [direct_s3_full_window_hydrology_020_quality_fail_rows.csv](direct_s3_full_window_hydrology_020_quality_fail_rows.csv):
+  Row-level Goal 020 quality-fail classifications for all 23 retained support-
+  month rows.
+- [direct_s3_full_window_hydrology_020_readiness.csv](direct_s3_full_window_hydrology_020_readiness.csv):
+  Row-level Goal 020 readiness table for all 924 support-month rows.
+- [direct_s3_full_window_hydrology_020_support_summary.csv](direct_s3_full_window_hydrology_020_support_summary.csv):
+  Goal 020 support-level readiness summary table.
+- [direct_s3_full_window_hydrology_020_month_summary.csv](direct_s3_full_window_hydrology_020_month_summary.csv):
+  Goal 020 month-level readiness summary table.
 - [direct_s3_full_window_hydrology_019_item_sets.csv](direct_s3_full_window_hydrology_019_item_sets.csv):
   compact Goal 019 support-month path-row item counts and hashes.
 - [direct_s3_full_window_hydrology_019_summary.csv](direct_s3_full_window_hydrology_019_summary.csv):
@@ -281,6 +297,9 @@ waterbirds project.
 - [goals/019-full-window-direct-s3-hydrology-production/](goals/019-full-window-direct-s3-hydrology-production/):
   Goal 019 package for remote restartable full-window direct-S3 hydrology
   production.
+- [goals/020-production-hydrology-audit/](goals/020-production-hydrology-audit/):
+  Goal 020 package for hydrology production audit, row-level caveat
+  classification, and constrained bird-linkage gate decision.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

@@ -1,0 +1,12 @@
+support_id,row_count,core_eligible_count,core_eligible_with_caveat_count,sensitivity_only_count,exclude_before_bird_linkage_count,blocked_requires_recovery_count,exclude_count,quality_high_count,quality_minimum_count,quality_fail_count
+nwb001_ramsar_component_359,84,78,5,1,0,0,0,65,18,1
+nwb001_ramsar_ref337,84,78,5,1,0,0,0,66,17,1
+nwb002_ramsar_ref1291,84,81,3,0,0,0,0,79,5,0
+nwb003_ramsar_component_121,84,78,5,1,0,0,0,77,6,1
+nwb003_ramsar_ref993,84,72,9,3,0,0,0,58,23,3
+nwb004_ramsar_component_354,84,72,9,3,0,0,0,71,10,3
+nwb004_ramsar_component_369,84,63,15,6,0,0,0,68,10,6
+nwb004_ramsar_ref265,84,64,15,5,0,0,0,48,31,5
+nwb005_dea_waterbody_r4ysdndx8_v3,84,72,9,3,0,0,0,58,23,3
+nwb005_dea_waterbody_r4yss38r6_v3,84,81,3,0,0,0,0,80,4,0
+nwb005_ramsar_ref791,84,81,3,0,0,0,0,81,3,0

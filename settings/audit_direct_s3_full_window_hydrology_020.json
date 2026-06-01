@@ -1,0 +1,83 @@
+{
+  "goal": "020-production-hydrology-audit",
+  "accessed_date": "2026-06-01",
+  "run_command": "python3 scripts/audit_direct_s3_full_window_hydrology_020.py",
+  "expected_support_count": 11,
+  "month_window": {
+    "start": "2018-01",
+    "end": "2024-12"
+  },
+  "expected_month_count": 84,
+  "expected_row_count": 924,
+  "quality_pass_flags": [
+    "quality_high",
+    "quality_minimum"
+  ],
+  "quality_fail_expected_count": 23,
+  "expected_support_types": [
+    "official_ramsar_named_complex_geometry",
+    "official_ramsar_named_complex_union",
+    "ramsar_component",
+    "dea_waterbody_overlap"
+  ],
+  "inputs": {
+    "goal019_manifest_json": "docs/direct_s3_full_window_hydrology_019_manifest.json",
+    "goal019_series_csv": "docs/direct_s3_full_window_hydrology_019_series.csv",
+    "goal019_item_sets_csv": "docs/direct_s3_full_window_hydrology_019_item_sets.csv",
+    "goal019_summary_csv": "docs/direct_s3_full_window_hydrology_019_summary.csv",
+    "goal018_readiness_csv": "docs/pathrow_comparator_reconstruction_018_readiness.csv"
+  },
+  "outputs": {
+    "audit_report_md": "docs/direct_s3_full_window_hydrology_020_audit_report.md",
+    "gate_memo_md": "docs/hydrology_to_bird_linkage_gate_020.md",
+    "manifest_json": "docs/direct_s3_full_window_hydrology_020_manifest.json",
+    "quality_fail_csv": "docs/direct_s3_full_window_hydrology_020_quality_fail_rows.csv",
+    "readiness_csv": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "support_summary_csv": "docs/direct_s3_full_window_hydrology_020_support_summary.csv",
+    "month_summary_csv": "docs/direct_s3_full_window_hydrology_020_month_summary.csv"
+  },
+  "checks": {
+    "min_clear_obs_fraction": 0.20,
+    "min_scene_count": 1,
+    "min_clear_pixel_support_ratio": 0.50
+  },
+  "readiness_classes": [
+    "core_eligible",
+    "core_eligible_with_caveat",
+    "sensitivity_only",
+    "exclude_before_bird_linkage",
+    "blocked_requires_recovery"
+  ],
+  "decision": {
+    "ready_for_constrained_bird_linkage": "ready_for_constrained_bird_linkage_design",
+    "recommend_goal": "Goal 021",
+    "readiness_restrictions": [
+      "exclude_quality_fail_rows_from_core",
+      "retain_quality_fail_rows_in_sensitivity",
+      "carry_goal018_comparator_caveat",
+      "review_derived_metric_boundary_rows_in_context"
+    ]
+  },
+  "blocked_raw_extensions": [
+    ".shp",
+    ".dbf",
+    ".shx",
+    ".prj",
+    ".gpkg",
+    ".geojson",
+    ".kml",
+    ".kmz",
+    ".tif",
+    ".tiff",
+    ".nc",
+    ".parquet",
+    ".rds",
+    ".zip",
+    ".tar",
+    ".gz",
+    ".sqlite",
+    ".duckdb",
+    ".npy",
+    ".npz"
+  ]
+}
