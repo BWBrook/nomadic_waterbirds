@@ -1,0 +1,124 @@
+{
+  "goal": "021-bird-observation-linkage-design",
+  "manifest_type": "goal021_bird_observation_linkage_design",
+  "created_at_utc": "2026-06-01T06:26:47Z",
+  "accessed_date": "2026-06-01",
+  "run_command": "python3 scripts/validate_bird_linkage_design_021.py",
+  "goal020_decision": "ready_for_constrained_bird_linkage_design",
+  "design_goal_status": "ready_for_bird_data_access_feasibility",
+  "goal020_reference": {
+    "manifest_path": "docs/direct_s3_full_window_hydrology_020_manifest.json",
+    "readiness_rows_path": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "quality_fail_rows_path": "docs/direct_s3_full_window_hydrology_020_quality_fail_rows.csv",
+    "readiness_row_count": 924,
+    "quality_fail_row_count": 23,
+    "readiness_class_counts": {
+      "core_eligible_with_caveat": 81,
+      "core_eligible": 820,
+      "sensitivity_only": 23
+    },
+    "quality_fail_reasons": {
+      "low_clear_fraction": 21,
+      "low_support_area_after_mask": 2
+    },
+    "legacy_comparator_caveat_rows": 4
+  },
+  "artifacts": {
+    "design_memo": {
+      "path": "docs/bird_observation_linkage_design_021.md",
+      "row_count": 121,
+      "sha256": "53d4a4c6db0f657005dc2f0f3cbcbacb55042b186a3eb9b1efcc77e4905d9e08"
+    },
+    "join_contract": {
+      "path": "docs/bird_hydrology_join_contract_021.csv",
+      "row_count": 6,
+      "row_hash": "01e2a8dca1b30fbf8ef896b17b0a8fd48d952b00ab6e4514de1f5cc34a1ea8be",
+      "sha256": "7435d627a02f27aba3dfa48cfbd3495e6bfe582ed70a4478a61177d62faf95a9"
+    },
+    "unit_schema": {
+      "path": "docs/bird_observation_unit_schema_021.csv",
+      "row_count": 25,
+      "row_hash": "e1e20a542516e47ebc0e9283aa9bc660d7ca48c1134a84c76186978e3d245016",
+      "sha256": "42236ecdaeeb67a2cc9acb7fc21d2a1e1c0ee6b1f612d362aa4d5ca199847838"
+    },
+    "candidate_screen": {
+      "path": "docs/candidate_species_guild_screen_021.csv",
+      "row_count": 15,
+      "row_hash": "39cd1e3e7a788635e82fe4fb5907e42f4485436817363c7dff0cd10dab96afd5",
+      "sha256": "b87b82a9ec4fbd4326f9797e9b35bdada177579fc9f59ed394ee4dbadd3b9dc9"
+    },
+    "access_protocol": {
+      "path": "docs/biodiversity_data_access_protocol_021.md",
+      "lines": 103,
+      "sha256": "6d3c6053947dc802196f76692b40e1d1edf96109be8a06e3b4b5defdf8cc103a"
+    }
+  },
+  "validation": {
+    "status": "pass",
+    "errors": [],
+    "warnings": [
+      "candidate row 12: explicitly review with lab leader",
+      "candidate row 13: explicitly review with lab leader"
+    ],
+    "file_scans": [
+      {
+        "path": "docs/bird_hydrology_join_contract_021.csv",
+        "required_columns": [
+          "lane_id",
+          "observation_grain",
+          "hydrology_key",
+          "hydrology_classes_eligible",
+          "hydrology_classes_forbidden",
+          "response_layer",
+          "spatial_support_rule",
+          "temporal_join_rule",
+          "stream_role",
+          "forbidden_uses",
+          "validation_checks"
+        ],
+        "row_count": 6
+      },
+      {
+        "path": "docs/bird_observation_unit_schema_021.csv",
+        "required_columns": [
+          "field_name",
+          "data_type",
+          "required",
+          "source_streams",
+          "description",
+          "validation",
+          "privacy_sensitivity_notes"
+        ],
+        "row_count": 25
+      },
+      {
+        "path": "docs/candidate_species_guild_screen_021.csv",
+        "required_columns": [
+          "status",
+          "species_or_guild",
+          "proposed_streams",
+          "hydrological_hypothesis",
+          "detectability_risk",
+          "licence_note",
+          "provisional_role",
+          "notes",
+          "decision_owner",
+          "requires_lab_leader_approval"
+        ],
+        "row_count": 15
+      }
+    ]
+  },
+  "source_evidence_ids": [
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+  ]
+}

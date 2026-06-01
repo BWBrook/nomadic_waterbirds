@@ -1,0 +1,212 @@
+{
+  "goal": "021-bird-observation-linkage-design",
+  "manifest_type": "goal021_bird_observation_linkage_design",
+  "run_command": "python3 scripts/validate_bird_linkage_design_021.py",
+  "accessed_date": "2026-06-01",
+  "goal020_reference": {
+    "goal": "020-production-hydrology-audit",
+    "manifest_path": "docs/direct_s3_full_window_hydrology_020_manifest.json",
+    "readiness_rows_path": "docs/direct_s3_full_window_hydrology_020_readiness.csv",
+    "quality_fail_rows_path": "docs/direct_s3_full_window_hydrology_020_quality_fail_rows.csv",
+    "support_summary_path": "docs/direct_s3_full_window_hydrology_020_support_summary.csv",
+    "month_summary_path": "docs/direct_s3_full_window_hydrology_020_month_summary.csv",
+    "expected_row_count": 924,
+    "expected_core_eligible": 820,
+    "expected_core_eligible_with_caveat": 81,
+    "expected_sensitivity_only": 23,
+    "expected_quality_fail_count": 23,
+    "expected_quality_fail_reasons": {
+      "low_clear_fraction": 21,
+      "low_support_area_after_mask": 2
+    },
+    "expected_goal018_legacy_caveat_count": 4
+  },
+  "goal020_decision": "ready_for_constrained_bird_linkage_design",
+  "design_goal_status": "ready_for_bird_data_access_feasibility",
+  "keep_goal018_caveats": true,
+  "required_hydrology_classes_for_core": [
+    "core_eligible",
+    "core_eligible_with_caveat"
+  ],
+  "sensitivity_classes_for_reporting": [
+    "sensitivity_only"
+  ],
+  "forbidden_hydrology_classes_in_core": [
+    "sensitivity_only",
+    "exclude_before_bird_linkage",
+    "blocked_requires_recovery"
+  ],
+  "files": {
+    "design_memo": "docs/bird_observation_linkage_design_021.md",
+    "join_contract": "docs/bird_hydrology_join_contract_021.csv",
+    "unit_schema": "docs/bird_observation_unit_schema_021.csv",
+    "candidate_screen": "docs/candidate_species_guild_screen_021.csv",
+    "access_protocol": "docs/biodiversity_data_access_protocol_021.md",
+    "manifest_json": "docs/bird_linkage_design_021_manifest.json",
+    "source_log": "docs/source_evidence_register.md",
+    "goal_log": "docs/goals/021-bird-observation-linkage-design/Log.md",
+    "data_stream_register": "docs/data_stream_register.md",
+    "decision_log": "docs/decision_log.md",
+    "validation_script": "scripts/validate_bird_linkage_design_021.py"
+  },
+  "validation_checks": {
+    "require_goal020_restrictions": true,
+    "required_status": "ready_for_bird_data_access_feasibility",
+    "min_candidate_rows": 10,
+    "min_unit_schema_rows": 20,
+    "min_join_contract_rows": 4
+  },
+  "csv_schemas": {
+    "join_contract": {
+      "required_columns": [
+        "lane_id",
+        "observation_grain",
+        "hydrology_key",
+        "hydrology_classes_eligible",
+        "hydrology_classes_forbidden",
+        "response_layer",
+        "spatial_support_rule",
+        "temporal_join_rule",
+        "stream_role",
+        "forbidden_uses",
+        "validation_checks"
+      ],
+      "min_rows": 4,
+      "required_hydrology_key_tokens": [
+        "support_id",
+        "month"
+      ],
+      "stream_roles": [
+        "eBird complete checklists",
+        "Birdata standardised surveys",
+        "Atlas of Living Australia",
+        "Eastern Australian Waterbird Survey"
+      ]
+    },
+    "unit_schema": {
+      "required_columns": [
+        "field_name",
+        "data_type",
+        "required",
+        "source_streams",
+        "description",
+        "validation",
+        "privacy_sensitivity_notes"
+      ],
+      "min_rows": 20,
+      "allowed_required_values": [
+        "required",
+        "optional"
+      ],
+      "allowed_data_types": [
+        "string",
+        "integer",
+        "numeric",
+        "float",
+        "boolean",
+        "date",
+        "boolean, if present"
+      ],
+      "allowed_source_streams": [
+        "eBird",
+        "Birdata",
+        "ALA",
+        "EAWS"
+      ]
+    },
+    "candidate_screen": {
+      "required_columns": [
+        "status",
+        "species_or_guild",
+        "proposed_streams",
+        "hydrological_hypothesis",
+        "detectability_risk",
+        "licence_note",
+        "provisional_role",
+        "notes",
+        "decision_owner",
+        "requires_lab_leader_approval"
+      ],
+      "min_rows": 10,
+      "status_vocab": [
+        "recommended_pilot",
+        "candidate",
+        "defer",
+        "needs_lab_leader_decision"
+      ],
+      "requires_lab_leader_decision_min": 1
+    }
+  },
+  "join_contract_checks": {
+    "allowed_response_layers": [
+      "occurrence_non_detection",
+      "relative_count",
+      "breeding_evidence",
+      "validation_only_presence_context",
+      "validation_only_breeding_or_abundance"
+    ],
+    "goal020_class_set": [
+      "core_eligible",
+      "core_eligible_with_caveat",
+      "sensitivity_only",
+      "exclude_before_bird_linkage",
+      "blocked_requires_recovery"
+    ],
+    "forbidden_hydrology_classes": [
+      "sensitivity_only",
+      "exclude_before_bird_linkage",
+      "blocked_requires_recovery"
+    ]
+  },
+  "provisional_output_guardrails": {
+    "unfinished_marker_tokens": [
+      "GOAL021_UNFINISHED_MARKER",
+      "GOAL021_REVIEW_HOLE",
+      "GOAL021_DRAFT_ONLY_TOKEN"
+    ],
+    "forbidden_extensions": [
+      ".shp",
+      ".dbf",
+      ".shx",
+      ".prj",
+      ".gpkg",
+      ".geojson",
+      ".kml",
+      ".kmz",
+      ".tif",
+      ".tiff",
+      ".nc",
+      ".parquet",
+      ".rds",
+      ".zip",
+      ".tar",
+      ".gz",
+      ".sqlite",
+      ".duckdb",
+      ".npy",
+      ".npz"
+    ],
+    "max_tracked_file_size_mb": 5,
+    "max_untracked_file_size_mb": 5,
+    "allowed_public_sources": ["S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14"]
+  },
+  "required_markdown_links": [
+    "docs/bird_observation_linkage_design_021.md",
+    "docs/bird_hydrology_join_contract_021.csv",
+    "docs/bird_observation_unit_schema_021.csv",
+    "docs/candidate_species_guild_screen_021.csv",
+    "docs/biodiversity_data_access_protocol_021.md"
+  ],
+  "required_public_sources": [
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+  ]
+}

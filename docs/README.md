@@ -248,6 +248,22 @@ waterbirds project.
 - [direct_s3_full_window_hydrology_019_preflight.json](direct_s3_full_window_hydrology_019_preflight.json):
   Goal 019 remote preflight targets, pass/fail decision, and resume hash
   evidence.
+- [bird_observation_linkage_design_021.md](bird_observation_linkage_design_021.md):
+  Goal 021 supervisor-facing design memo for the first constrained
+  bird-observation linkage lane.
+- [bird_hydrology_join_contract_021.csv](bird_hydrology_join_contract_021.csv):
+  Goal 021 machine-readable contract for joining future observation units to
+  Goal 020 support-month hydrology rows.
+- [bird_observation_unit_schema_021.csv](bird_observation_unit_schema_021.csv):
+  Goal 021 proposed analyst-facing schema for future observation-unit tables.
+- [candidate_species_guild_screen_021.csv](candidate_species_guild_screen_021.csv):
+  Goal 021 provisional species/guild screen for supervisor and lab-leader
+  review, not a final species list.
+- [biodiversity_data_access_protocol_021.md](biodiversity_data_access_protocol_021.md):
+  Goal 021 biodiversity-stream access protocol and permission-question list.
+- [bird_linkage_design_021_manifest.json](bird_linkage_design_021_manifest.json):
+  Goal 021 validation manifest with hashes, row counts, and Goal 020
+  restriction carry-forward evidence.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
@@ -300,6 +316,9 @@ waterbirds project.
 - [goals/020-production-hydrology-audit/](goals/020-production-hydrology-audit/):
   Goal 020 package for hydrology production audit, row-level caveat
   classification, and constrained bird-linkage gate decision.
+- [goals/021-bird-observation-linkage-design/](goals/021-bird-observation-linkage-design/):
+  Goal 021 package for constrained bird-observation linkage design, access
+  protocol, and validation without biodiversity data ingestion.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.
