@@ -1,0 +1,96 @@
+{
+  "goal": "018-pathrow-comparator-reconstruction",
+  "run_command": "python3 scripts/pathrow_comparator_reconstruction_018.py",
+  "accessed_date": "2026-06-01",
+  "include_controls": false,
+  "material_root_cause_class": "insufficient_reference_evidence",
+  "control_root_cause_classes": [
+    "tolerance_or_rounding_only"
+  ],
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 direct-S3 provenance with optional DEA STAC path-row comparator",
+  "metric_spec_version": "goal018-pathrow-comparator-reconstruction-v1",
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as support-relevant items.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv"
+  },
+  "stac": {
+    "search_url": "https://explorer.dea.ga.gov.au/stac/search",
+    "limit": 100,
+    "timeout_seconds": 45
+  },
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "max_keys": 1000,
+    "max_pages": 3,
+    "timeout_seconds": 45,
+    "head_request_limit_per_prefix": 25
+  },
+  "inputs": {
+    "goal013_manifest_json": "docs/support_pathrow_coverage_013_manifest.json",
+    "goal013_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "goal016_manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "goal016_summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "goal017_audit_csv": "docs/legacy_wetness_difference_triage_017_audit.csv",
+    "goal017_item_delta_csv": "docs/legacy_wetness_difference_triage_017_item_delta.csv"
+  },
+  "outputs": {
+    "report_md": "docs/pathrow_comparator_reconstruction_018_report.md",
+    "manifest_json": "docs/pathrow_comparator_reconstruction_018_manifest.json",
+    "targets_csv": "docs/pathrow_comparator_reconstruction_018_targets.csv",
+    "item_sets_csv": "docs/pathrow_comparator_reconstruction_018_item_sets.csv",
+    "comparison_csv": "docs/pathrow_comparator_reconstruction_018_comparison.csv",
+    "readiness_csv": "docs/pathrow_comparator_reconstruction_018_readiness.csv"
+  },
+  "staging_paths": {
+    "raw": "artifacts/pathrow_comparator_reconstruction_018/raw",
+    "intermediate": "artifacts/pathrow_comparator_reconstruction_018/intermediate",
+    "output": "artifacts/pathrow_comparator_reconstruction_018/output"
+  },
+  "route_status_vocabulary": [
+    "stac_pathrow_matches_direct_s3",
+    "stac_unavailable_direct_s3_provenance_only",
+    "stac_available_item_mismatch",
+    "direct_s3_item_reconstruction_mismatch",
+    "blocked_route_failure",
+    "blocked_insufficient_metadata",
+    "not_applicable_control"
+  ],
+  "readiness_class_vocabulary": [
+    "ready_for_full_window_direct_s3",
+    "ready_with_legacy_baseline_retired",
+    "not_ready_item_mismatch",
+    "not_ready_current_route_defect",
+    "blocked_external_service",
+    "blocked_insufficient_evidence"
+  ],
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw STAC JSON",
+      "S3 listings",
+      "rasters",
+      "arrays",
+      "temporary route caches",
+      "temporary run JSON"
+    ]
+  }
+}

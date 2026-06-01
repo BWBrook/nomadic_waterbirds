@@ -199,6 +199,22 @@ waterbirds project.
   Goal 017 item, path-row, scene-count, and support-grid delta table.
 - [legacy_wetness_difference_triage_017_metric_delta.csv](legacy_wetness_difference_triage_017_metric_delta.csv):
   Goal 017 field-level computed-versus-legacy metric deltas.
+- [pathrow_comparator_reconstruction_018_report.md](pathrow_comparator_reconstruction_018_report.md):
+  Goal 018 bounded path-row comparator and item-provenance reconstruction
+  report for the four material legacy rows.
+- [pathrow_comparator_reconstruction_018_manifest.json](pathrow_comparator_reconstruction_018_manifest.json):
+  machine-readable Goal 018 command, targets, route probes, item-set hashes,
+  status counts, host, staging, cleanup, and recommendation provenance.
+- [pathrow_comparator_reconstruction_018_targets.csv](pathrow_comparator_reconstruction_018_targets.csv):
+  compact Goal 018 material target-row selection table.
+- [pathrow_comparator_reconstruction_018_item_sets.csv](pathrow_comparator_reconstruction_018_item_sets.csv):
+  Goal 018 route-level Goal 016, reconstructed direct-S3, and STAC-filtered
+  item-set evidence table.
+- [pathrow_comparator_reconstruction_018_comparison.csv](pathrow_comparator_reconstruction_018_comparison.csv):
+  Goal 018 item-set comparison table for reconstructed direct-S3 hashes,
+  Goal 016 committed hashes, and STAC route attempts.
+- [pathrow_comparator_reconstruction_018_readiness.csv](pathrow_comparator_reconstruction_018_readiness.csv):
+  Goal 018 material-row production-readiness classification table.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.

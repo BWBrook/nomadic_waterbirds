@@ -1,0 +1,383 @@
+{
+  "goal": "018-pathrow-comparator-reconstruction",
+  "manifest_type": "pathrow_comparator_reconstruction_018",
+  "created_at_utc": "2026-06-01T01:50:09.139640+00:00",
+  "accessed_date": "2026-06-01",
+  "command": "python3 scripts/pathrow_comparator_reconstruction_018.py --reuse-ignored-cache",
+  "config_path": "settings/pathrow_comparator_reconstruction_018.json",
+  "reuse_ignored_cache": true,
+  "git_head_at_run": "0cbecaa727e005eac130d063f457495179fe4024",
+  "git_status_at_run": "## main...origin/main\n M docs/goals/018-pathrow-comparator-reconstruction/Log.md\n?? docs/pathrow_comparator_reconstruction_018_comparison.csv\n?? docs/pathrow_comparator_reconstruction_018_item_sets.csv\n?? docs/pathrow_comparator_reconstruction_018_manifest.json\n?? docs/pathrow_comparator_reconstruction_018_readiness.csv\n?? docs/pathrow_comparator_reconstruction_018_report.md\n?? docs/pathrow_comparator_reconstruction_018_targets.csv\n?? scripts/pathrow_comparator_reconstruction_018.py\n?? settings/pathrow_comparator_reconstruction_018.json\n?? tests/test_goal018_pathrow_comparator_reconstruction.py",
+  "host_facts": {
+    "hostname": "Mac-mini.lan",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python_version": "3.14.5"
+  },
+  "source_files": {
+    "goal013_manifest_json": "docs/support_pathrow_coverage_013_manifest.json",
+    "goal013_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "goal016_manifest_json": "docs/direct_s3_all_support_probe_016_manifest.json",
+    "goal016_summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "goal017_audit_csv": "docs/legacy_wetness_difference_triage_017_audit.csv",
+    "goal017_item_delta_csv": "docs/legacy_wetness_difference_triage_017_item_delta.csv"
+  },
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://knowledge.dea.ga.gov.au/notebooks/How_to_guides/Downloading_data_with_STAC/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://explorer.dea.ga.gov.au/stac/search",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as support-relevant items.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv"
+  },
+  "goal013_support_path_rows": {
+    "nwb001_ramsar_component_359": [
+      "092/081",
+      "092/082"
+    ],
+    "nwb001_ramsar_ref337": [
+      "092/081",
+      "092/082"
+    ],
+    "nwb002_ramsar_ref1291": [
+      "092/081",
+      "093/080",
+      "093/081"
+    ],
+    "nwb003_ramsar_component_121": [
+      "091/080"
+    ],
+    "nwb003_ramsar_ref993": [
+      "091/080",
+      "092/080"
+    ],
+    "nwb004_ramsar_component_354": [
+      "093/085",
+      "094/085"
+    ],
+    "nwb004_ramsar_component_369": [
+      "094/085"
+    ],
+    "nwb004_ramsar_ref265": [
+      "093/085",
+      "094/085"
+    ],
+    "nwb005_dea_waterbody_r4ysdndx8_v3": [
+      "094/080",
+      "095/080"
+    ],
+    "nwb005_dea_waterbody_r4yss38r6_v3": [
+      "094/080",
+      "095/080"
+    ],
+    "nwb005_ramsar_ref791": [
+      "094/080",
+      "095/080"
+    ]
+  },
+  "goal016_summary_row_hash": "8cfc1e80c5a7912b572f1f929576e67358cb1b11be04f75992538761f0a47bf0",
+  "target_row_count": 4,
+  "material_target_row_count": 4,
+  "control_row_count": 0,
+  "target_rows": [
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2018-01",
+      "reference_source": "goal009_full_window_context",
+      "target_role": "material",
+      "derived_path_rows": "094/085"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "reference_source": "goal007_legacy_event_window",
+      "target_role": "material",
+      "derived_path_rows": "093/085;094/085"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window",
+      "target_role": "material",
+      "derived_path_rows": "094/085"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2024-12",
+      "reference_source": "goal007_legacy_event_window",
+      "target_role": "material",
+      "derived_path_rows": "093/085;094/085"
+    }
+  ],
+  "route_status_counts": {
+    "stac_unavailable_direct_s3_provenance_only": 4
+  },
+  "comparison_status_counts": {
+    "comparator_unavailable": 4,
+    "item_sets_match": 4
+  },
+  "readiness_class_counts": {
+    "ready_with_legacy_baseline_retired": 4
+  },
+  "independent_stac_comparator_obtained": false,
+  "current_direct_s3_defect_found": false,
+  "bounded_raster_reruns_used": false,
+  "bounded_raster_rerun_reason": "No item-set mismatch required raster reads.",
+  "direct_s3_route_records": [
+    {
+      "month": "2018-01",
+      "path_row": "094/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2018/01/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2018-01_094085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2018-01_094085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.367,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2018%2F01%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4,
+      "support_id": "nwb004_ramsar_component_369"
+    },
+    {
+      "month": "2024-12",
+      "path_row": "094/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2024-12_094085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2024-12_094085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.172,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3,
+      "support_id": "nwb004_ramsar_component_369"
+    },
+    {
+      "month": "2022-11",
+      "path_row": "093/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2022/11/",
+      "water_item_count": 2,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2022-11_093085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2022-11_093085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.181,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2022%2F11%2F&max-keys=1000",
+          "key_count": 12,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 2,
+      "support_id": "nwb004_ramsar_ref265"
+    },
+    {
+      "month": "2022-11",
+      "path_row": "094/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2022/11/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2022-11_094085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2022-11_094085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.163,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2022%2F11%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3,
+      "support_id": "nwb004_ramsar_ref265"
+    },
+    {
+      "month": "2024-12",
+      "path_row": "093/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/093/085/2024/12/",
+      "water_item_count": 4,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2024-12_093085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2024-12_093085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.352,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F093%2F085%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 24,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 4,
+      "support_id": "nwb004_ramsar_ref265"
+    },
+    {
+      "month": "2024-12",
+      "path_row": "094/085",
+      "prefix": "derivative/ga_ls_wo_3/1-6-0/094/085/2024/12/",
+      "water_item_count": 3,
+      "listing_cache": "artifacts/pathrow_comparator_reconstruction_018/raw/s3_listing_NWB004_2024-12_094085.json",
+      "head_cache": "artifacts/pathrow_comparator_reconstruction_018/intermediate/s3_head_NWB004_2024-12_094085.json",
+      "listing_pages": [
+        {
+          "ok": true,
+          "status_code": 200,
+          "elapsed_seconds": 0.172,
+          "content_type": "application/xml",
+          "content_length": "",
+          "error": "",
+          "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/?list-type=2&prefix=derivative%2Fga_ls_wo_3%2F1-6-0%2F094%2F085%2F2024%2F12%2F&max-keys=1000",
+          "key_count": 18,
+          "next_token_present": false
+        }
+      ],
+      "head_ok_count": 3,
+      "support_id": "nwb004_ramsar_ref265"
+    }
+  ],
+  "stac_route_records": [
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2018-01",
+      "ok": false,
+      "status_code": 503,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "feature_count": 0,
+      "cache_path": "artifacts/pathrow_comparator_reconstruction_018/raw/stac_bbox_nwb004_ramsar_component_369_2018-01.json",
+      "limit_reached": false
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "ok": false,
+      "status_code": 503,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "feature_count": 0,
+      "cache_path": "artifacts/pathrow_comparator_reconstruction_018/raw/stac_bbox_nwb004_ramsar_ref265_2022-11.json",
+      "limit_reached": false
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "ok": false,
+      "status_code": 503,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "feature_count": 0,
+      "cache_path": "artifacts/pathrow_comparator_reconstruction_018/raw/stac_bbox_nwb004_ramsar_component_369_2024-12.json",
+      "limit_reached": false
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2024-12",
+      "ok": false,
+      "status_code": 503,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "feature_count": 0,
+      "cache_path": "artifacts/pathrow_comparator_reconstruction_018/raw/stac_bbox_nwb004_ramsar_ref265_2024-12.json",
+      "limit_reached": false
+    }
+  ],
+  "outputs": {
+    "report_md": "docs/pathrow_comparator_reconstruction_018_report.md",
+    "manifest_json": "docs/pathrow_comparator_reconstruction_018_manifest.json",
+    "targets_csv": "docs/pathrow_comparator_reconstruction_018_targets.csv",
+    "item_sets_csv": "docs/pathrow_comparator_reconstruction_018_item_sets.csv",
+    "comparison_csv": "docs/pathrow_comparator_reconstruction_018_comparison.csv",
+    "readiness_csv": "docs/pathrow_comparator_reconstruction_018_readiness.csv"
+  },
+  "target_row_hash": "58506004e2c5eeadda8d4dc00c37861d240993593952a6141e8d47d0a0a15d9c",
+  "item_set_row_hash": "fddd69bc72fa9e42ea3849f336c38c93f2673e055655b088cd3d61d74663a6e2",
+  "comparison_row_hash": "6fb4bbd2a566a1dddb4edc1db182d962de187e32fec4b79e674cef56e95da591",
+  "readiness_row_hash": "db8533d4d94d9515c105d1beb3ab8980120d6a91edfed70d2aa820350635a264",
+  "staging_paths": {
+    "raw": "artifacts/pathrow_comparator_reconstruction_018/raw",
+    "intermediate": "artifacts/pathrow_comparator_reconstruction_018/intermediate",
+    "output": "artifacts/pathrow_comparator_reconstruction_018/output"
+  },
+  "staging_ignored_check": {
+    "checked": [
+      "artifacts/pathrow_comparator_reconstruction_018/raw/probe.json",
+      "artifacts/pathrow_comparator_reconstruction_018/intermediate/probe.npy",
+      "artifacts/pathrow_comparator_reconstruction_018/output/probe.json"
+    ],
+    "ignored": [
+      "artifacts/pathrow_comparator_reconstruction_018/intermediate/probe.npy",
+      "artifacts/pathrow_comparator_reconstruction_018/output/probe.json",
+      "artifacts/pathrow_comparator_reconstruction_018/raw/probe.json"
+    ],
+    "all_ignored": true,
+    "returncode": 0
+  },
+  "staging_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw STAC JSON",
+      "S3 listings",
+      "rasters",
+      "arrays",
+      "temporary route caches",
+      "temporary run JSON"
+    ]
+  },
+  "remote_compute_used": false,
+  "remote_paths": {},
+  "cleanup_status": "Local raw route caches retained only in ignored Goal 018 staging; no remote cleanup required.",
+  "route_status_vocabulary": [
+    "blocked_insufficient_metadata",
+    "blocked_route_failure",
+    "direct_s3_item_reconstruction_mismatch",
+    "not_applicable_control",
+    "stac_available_item_mismatch",
+    "stac_pathrow_matches_direct_s3",
+    "stac_unavailable_direct_s3_provenance_only"
+  ],
+  "readiness_class_vocabulary": [
+    "blocked_external_service",
+    "blocked_insufficient_evidence",
+    "not_ready_current_route_defect",
+    "not_ready_item_mismatch",
+    "ready_for_full_window_direct_s3",
+    "ready_with_legacy_baseline_retired"
+  ],
+  "interpretation": "All four material legacy rows have reconstructed direct-S3 item provenance matching the committed Goal 016 item counts and hashes. Independent STAC comparator evidence was unavailable for at least one material row, so the legacy rows should be retired as blocking baselines on provenance grounds rather than independent STAC equivalence.",
+  "recommendation_for_goal019": "Proceed to Goal 019 as a remote, restartable full-window direct-S3 hydrology production preflight or production run, retaining the support-intersecting WRS path-row scene-selection policy.",
+  "ready_material_target_count": 4
+}
