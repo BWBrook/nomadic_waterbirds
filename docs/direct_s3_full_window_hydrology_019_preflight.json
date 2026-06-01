@@ -1,0 +1,122 @@
+{
+  "goal": "019-full-window-direct-s3-hydrology-production",
+  "manifest_type": "direct_s3_full_window_hydrology_019_preflight",
+  "created_at_utc": "2026-06-01T02:41:07.336504+00:00",
+  "config_path": "settings/direct_s3_full_window_hydrology_019.json",
+  "command": "python3 scripts/direct_s3_full_window_hydrology_019.py --mode preflight --verify-resume",
+  "run_host_label": "deep-server-ts",
+  "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal019",
+  "host_facts": {
+    "hostname": "deep-server",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python_version": "3.12.3"
+  },
+  "preflight_targets": [
+    {
+      "support_id": "nwb003_ramsar_component_121",
+      "month": "2018-01",
+      "rationale": "single-pathrow early-window support-month"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "rationale": "multi-pathrow Kerang discrepancy-cluster flood-window support-month"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "rationale": "single-pathrow Kerang discrepancy-cluster recent support-month"
+    }
+  ],
+  "preflight_pass_status": {
+    "passed": true,
+    "coverage": {
+      "has_single_pathrow": true,
+      "has_multi_pathrow": true,
+      "has_kerang_discrepancy_cluster": true,
+      "has_early_window_month": true,
+      "has_flood_window_month": true,
+      "has_recent_month": true,
+      "passes": true
+    },
+    "all_rows_computed": true,
+    "expected_row_count": 3,
+    "row_count": 3,
+    "status_counts": {
+      "computed_direct_s3_metrics": 3
+    },
+    "quality_counts": {
+      "quality_high": 2,
+      "quality_minimum": 1
+    },
+    "computed_item_hash_blank_count": 0,
+    "computed_nonfinite_base_count": 0,
+    "ignored_check_status": "all_ignored",
+    "support_count_in_context": 11
+  },
+  "resume_check": {
+    "series_row_hash_initial": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+    "series_row_hash_resume": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+    "item_set_row_hash_initial": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+    "item_set_row_hash_resume": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+    "summary_row_hash_initial": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+    "summary_row_hash_resume": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+    "stable": true,
+    "initial_elapsed_seconds": 17.107,
+    "resume_elapsed_seconds": 6.292
+  },
+  "series_row_hash": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+  "item_set_row_hash": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+  "summary_row_hash": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+  "shard_events": [
+    {
+      "support_id": "nwb003_ramsar_component_121",
+      "loaded_existing_months": 1,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "loaded_existing_months": 1,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "loaded_existing_months": 1,
+      "extracted_months": 0
+    }
+  ],
+  "ignored_check": {
+    "status": "all_ignored",
+    "checked_paths": [
+      "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+      "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+    ],
+    "ignored_paths": [
+      "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+      "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+    ],
+    "stderr": ""
+  },
+  "status_vocabulary": [
+    "blocked_direct_s3_listing_failure",
+    "blocked_direct_s3_no_items_found",
+    "blocked_direct_s3_read_failure",
+    "blocked_geometry_or_mask_failure",
+    "blocked_metric_computation_failure",
+    "blocked_remote_or_route_unavailable",
+    "computed_direct_s3_metrics"
+  ],
+  "outputs": {
+    "preflight_json": "docs/direct_s3_full_window_hydrology_019_preflight.json",
+    "ignored_preflight_series_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_series.csv",
+    "ignored_preflight_item_sets_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_item_sets.csv",
+    "ignored_preflight_summary_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_summary.csv"
+  },
+  "elapsed_seconds": 6.292
+}

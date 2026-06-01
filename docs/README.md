@@ -215,6 +215,23 @@ waterbirds project.
   Goal 016 committed hashes, and STAC route attempts.
 - [pathrow_comparator_reconstruction_018_readiness.csv](pathrow_comparator_reconstruction_018_readiness.csv):
   Goal 018 material-row production-readiness classification table.
+- [direct_s3_full_window_hydrology_019_report.md](direct_s3_full_window_hydrology_019_report.md):
+  Goal 019 full-window direct-S3 hydrology production report for the current
+  11-support, 2018-2024 window.
+- [direct_s3_full_window_hydrology_019_manifest.json](direct_s3_full_window_hydrology_019_manifest.json):
+  machine-readable Goal 019 command, remote route, support/month grid,
+  output hashes, resume evidence, and staging provenance.
+- [direct_s3_full_window_hydrology_019_series.csv](direct_s3_full_window_hydrology_019_series.csv):
+  Goal 019 production support-month hydrology series with base metrics,
+  derived time-history metrics, regional-current-support summaries, row
+  status, and compact item provenance.
+- [direct_s3_full_window_hydrology_019_item_sets.csv](direct_s3_full_window_hydrology_019_item_sets.csv):
+  compact Goal 019 support-month path-row item counts and hashes.
+- [direct_s3_full_window_hydrology_019_summary.csv](direct_s3_full_window_hydrology_019_summary.csv):
+  Goal 019 overall, support-level, and month-level status and quality summary.
+- [direct_s3_full_window_hydrology_019_preflight.json](direct_s3_full_window_hydrology_019_preflight.json):
+  Goal 019 remote preflight targets, pass/fail decision, and resume hash
+  evidence.
 - [goals/005-official-support-hydrology-prototype/](goals/005-official-support-hydrology-prototype/):
   Goal 005 package for moving from tiny probe pixels to documented official
   support geometry and bounded real-support hydrology metrics.
@@ -261,6 +278,9 @@ waterbirds project.
   Goal 018 package for reconstructing path-row-filtered comparator or
   item-provenance evidence for the material legacy rows before direct-S3
   full-window production.
+- [goals/019-full-window-direct-s3-hydrology-production/](goals/019-full-window-direct-s3-hydrology-production/):
+  Goal 019 package for remote restartable full-window direct-S3 hydrology
+  production.
 - [reproducibility_plan.md](reproducibility_plan.md): repo structure,
   environment strategy, provenance, generated artefacts, and manuscript build
   pathway.

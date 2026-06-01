@@ -1,0 +1,487 @@
+{
+  "goal": "019-full-window-direct-s3-hydrology-production",
+  "manifest_type": "direct_s3_full_window_hydrology_019",
+  "created_at_utc": "2026-06-01T03:58:24.904545+00:00",
+  "accessed_date": "2026-06-01",
+  "command": "python3 scripts/direct_s3_full_window_hydrology_019.py --mode production --verify-resume",
+  "config_path": "settings/direct_s3_full_window_hydrology_019.json",
+  "git_head_at_run": "f845a894d7c5f7c4e09b4c39a9431301a8c1238f",
+  "git_status_at_run": "## main...origin/main\n M docs/goals/019-full-window-direct-s3-hydrology-production/Log.md\n?? docs/direct_s3_full_window_hydrology_019_item_sets.csv\n?? docs/direct_s3_full_window_hydrology_019_preflight.json\n?? docs/direct_s3_full_window_hydrology_019_series.csv\n?? docs/direct_s3_full_window_hydrology_019_summary.csv\n?? scripts/direct_s3_full_window_hydrology_019.py\n?? settings/direct_s3_full_window_hydrology_019.json\n?? tests/test_goal019_direct_s3_full_window_hydrology.py",
+  "host_facts": {
+    "hostname": "deep-server",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python_version": "3.12.3"
+  },
+  "run_host_label": "deep-server-ts",
+  "remote_compute_used": true,
+  "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal019",
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as readable scenes or invalid observations.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv",
+    "source_goal": "015-comparator-baseline-repair"
+  },
+  "support_count": 11,
+  "support_ids": [
+    "nwb001_ramsar_component_359",
+    "nwb001_ramsar_ref337",
+    "nwb002_ramsar_ref1291",
+    "nwb003_ramsar_component_121",
+    "nwb003_ramsar_ref993",
+    "nwb004_ramsar_component_354",
+    "nwb004_ramsar_component_369",
+    "nwb004_ramsar_ref265",
+    "nwb005_dea_waterbody_r4ysdndx8_v3",
+    "nwb005_dea_waterbody_r4yss38r6_v3",
+    "nwb005_ramsar_ref791"
+  ],
+  "month_window": {
+    "start": "2018-01",
+    "end": "2024-12"
+  },
+  "months": [
+    "2018-01",
+    "2018-02",
+    "2018-03",
+    "2018-04",
+    "2018-05",
+    "2018-06",
+    "2018-07",
+    "2018-08",
+    "2018-09",
+    "2018-10",
+    "2018-11",
+    "2018-12",
+    "2019-01",
+    "2019-02",
+    "2019-03",
+    "2019-04",
+    "2019-05",
+    "2019-06",
+    "2019-07",
+    "2019-08",
+    "2019-09",
+    "2019-10",
+    "2019-11",
+    "2019-12",
+    "2020-01",
+    "2020-02",
+    "2020-03",
+    "2020-04",
+    "2020-05",
+    "2020-06",
+    "2020-07",
+    "2020-08",
+    "2020-09",
+    "2020-10",
+    "2020-11",
+    "2020-12",
+    "2021-01",
+    "2021-02",
+    "2021-03",
+    "2021-04",
+    "2021-05",
+    "2021-06",
+    "2021-07",
+    "2021-08",
+    "2021-09",
+    "2021-10",
+    "2021-11",
+    "2021-12",
+    "2022-01",
+    "2022-02",
+    "2022-03",
+    "2022-04",
+    "2022-05",
+    "2022-06",
+    "2022-07",
+    "2022-08",
+    "2022-09",
+    "2022-10",
+    "2022-11",
+    "2022-12",
+    "2023-01",
+    "2023-02",
+    "2023-03",
+    "2023-04",
+    "2023-05",
+    "2023-06",
+    "2023-07",
+    "2023-08",
+    "2023-09",
+    "2023-10",
+    "2023-11",
+    "2023-12",
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "expected_support_count": 11,
+  "expected_month_count": 84,
+  "expected_row_count": 924,
+  "row_count": 924,
+  "expected_grid_complete": true,
+  "status_counts": {
+    "computed_direct_s3_metrics": 924
+  },
+  "quality_counts": {
+    "quality_fail": 23,
+    "quality_high": 751,
+    "quality_minimum": 150
+  },
+  "series_row_hash": "ac3b77b18ba80ee7b9ba4213331b63151eb4fd98c8dbfbb776fe34fb637d5da9",
+  "item_set_row_hash": "76b26db1466aa5bc43e4ad65339b703ed3941d9049f9497c92d66044e54da448",
+  "summary_row_hash": "6ca5a653e5ab82fa9f5a084966cb95c65c128298c916c4820be5f3e9095eff52",
+  "computed_item_hash_blank_count": 0,
+  "computed_nonfinite_base_count": 0,
+  "inserted_missing_grid_rows": [],
+  "resume_check": {
+    "series_row_hash_initial": "ac3b77b18ba80ee7b9ba4213331b63151eb4fd98c8dbfbb776fe34fb637d5da9",
+    "series_row_hash_resume": "ac3b77b18ba80ee7b9ba4213331b63151eb4fd98c8dbfbb776fe34fb637d5da9",
+    "item_set_row_hash_initial": "76b26db1466aa5bc43e4ad65339b703ed3941d9049f9497c92d66044e54da448",
+    "item_set_row_hash_resume": "76b26db1466aa5bc43e4ad65339b703ed3941d9049f9497c92d66044e54da448",
+    "summary_row_hash_initial": "6ca5a653e5ab82fa9f5a084966cb95c65c128298c916c4820be5f3e9095eff52",
+    "summary_row_hash_resume": "6ca5a653e5ab82fa9f5a084966cb95c65c128298c916c4820be5f3e9095eff52",
+    "stable": true,
+    "initial_elapsed_seconds": 4585.881,
+    "resume_elapsed_seconds": 6.611
+  },
+  "preflight_passed": true,
+  "preflight": {
+    "goal": "019-full-window-direct-s3-hydrology-production",
+    "manifest_type": "direct_s3_full_window_hydrology_019_preflight",
+    "created_at_utc": "2026-06-01T02:41:07.336504+00:00",
+    "config_path": "settings/direct_s3_full_window_hydrology_019.json",
+    "command": "python3 scripts/direct_s3_full_window_hydrology_019.py --mode preflight --verify-resume",
+    "run_host_label": "deep-server-ts",
+    "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal019",
+    "host_facts": {
+      "hostname": "deep-server",
+      "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+      "python_version": "3.12.3"
+    },
+    "preflight_targets": [
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "month": "2018-01",
+        "rationale": "single-pathrow early-window support-month"
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "month": "2022-11",
+        "rationale": "multi-pathrow Kerang discrepancy-cluster flood-window support-month"
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "month": "2024-12",
+        "rationale": "single-pathrow Kerang discrepancy-cluster recent support-month"
+      }
+    ],
+    "preflight_pass_status": {
+      "passed": true,
+      "coverage": {
+        "has_single_pathrow": true,
+        "has_multi_pathrow": true,
+        "has_kerang_discrepancy_cluster": true,
+        "has_early_window_month": true,
+        "has_flood_window_month": true,
+        "has_recent_month": true,
+        "passes": true
+      },
+      "all_rows_computed": true,
+      "expected_row_count": 3,
+      "row_count": 3,
+      "status_counts": {
+        "computed_direct_s3_metrics": 3
+      },
+      "quality_counts": {
+        "quality_high": 2,
+        "quality_minimum": 1
+      },
+      "computed_item_hash_blank_count": 0,
+      "computed_nonfinite_base_count": 0,
+      "ignored_check_status": "all_ignored",
+      "support_count_in_context": 11
+    },
+    "resume_check": {
+      "series_row_hash_initial": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+      "series_row_hash_resume": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+      "item_set_row_hash_initial": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+      "item_set_row_hash_resume": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+      "summary_row_hash_initial": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+      "summary_row_hash_resume": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+      "stable": true,
+      "initial_elapsed_seconds": 17.107,
+      "resume_elapsed_seconds": 6.292
+    },
+    "series_row_hash": "899cbfd1cab0089576cf528915c22b8e9df886499364570e4d4b54499254d737",
+    "item_set_row_hash": "f4718f71875da215a9b24f7b20303f3de42cb25811d4ab133d064c8d69bd6667",
+    "summary_row_hash": "ec0c041118d364ae261213b85e70e0a173137faef21f36a481ff9676c4ea5146",
+    "shard_events": [
+      {
+        "support_id": "nwb003_ramsar_component_121",
+        "loaded_existing_months": 1,
+        "extracted_months": 0
+      },
+      {
+        "support_id": "nwb004_ramsar_component_369",
+        "loaded_existing_months": 1,
+        "extracted_months": 0
+      },
+      {
+        "support_id": "nwb004_ramsar_ref265",
+        "loaded_existing_months": 1,
+        "extracted_months": 0
+      }
+    ],
+    "ignored_check": {
+      "status": "all_ignored",
+      "checked_paths": [
+        "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+        "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+      ],
+      "ignored_paths": [
+        "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+        "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+        "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+      ],
+      "stderr": ""
+    },
+    "status_vocabulary": [
+      "blocked_direct_s3_listing_failure",
+      "blocked_direct_s3_no_items_found",
+      "blocked_direct_s3_read_failure",
+      "blocked_geometry_or_mask_failure",
+      "blocked_metric_computation_failure",
+      "blocked_remote_or_route_unavailable",
+      "computed_direct_s3_metrics"
+    ],
+    "outputs": {
+      "preflight_json": "docs/direct_s3_full_window_hydrology_019_preflight.json",
+      "ignored_preflight_series_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_series.csv",
+      "ignored_preflight_item_sets_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_item_sets.csv",
+      "ignored_preflight_summary_csv": "artifacts/direct_s3_full_window_hydrology_019/output/direct_s3_full_window_hydrology_019_preflight_summary.csv"
+    },
+    "elapsed_seconds": 6.292
+  },
+  "sharding": {
+    "unit": "support_month",
+    "series_shard_dir": "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series",
+    "item_set_shard_dir": "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets",
+    "resume_requires_series_and_item_set_shards": true
+  },
+  "shard_events": [
+    {
+      "support_id": "nwb001_ramsar_component_359",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb001_ramsar_ref337",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb002_ramsar_ref1291",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb003_ramsar_component_121",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb003_ramsar_ref993",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb004_ramsar_component_354",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb005_dea_waterbody_r4ysdndx8_v3",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb005_dea_waterbody_r4yss38r6_v3",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    },
+    {
+      "support_id": "nwb005_ramsar_ref791",
+      "loaded_existing_months": 84,
+      "extracted_months": 0
+    }
+  ],
+  "retry_audit_summary": {
+    "event_count": 0,
+    "events_truncated_count": 0,
+    "status_counts": {},
+    "failure_class_counts": {},
+    "max_attempt_count": 0,
+    "events": []
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_full_window_hydrology_019_report.md",
+    "manifest_json": "docs/direct_s3_full_window_hydrology_019_manifest.json",
+    "series_csv": "docs/direct_s3_full_window_hydrology_019_series.csv",
+    "item_sets_csv": "docs/direct_s3_full_window_hydrology_019_item_sets.csv",
+    "summary_csv": "docs/direct_s3_full_window_hydrology_019_summary.csv",
+    "preflight_json": "docs/direct_s3_full_window_hydrology_019_preflight.json"
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_full_window_hydrology_019/raw",
+    "intermediate": "artifacts/direct_s3_full_window_hydrology_019/intermediate",
+    "output": "artifacts/direct_s3_full_window_hydrology_019/output"
+  },
+  "staging_ignored_check": {
+    "status": "all_ignored",
+    "checked_paths": [
+      "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+      "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+    ],
+    "ignored_paths": [
+      "artifacts/direct_s3_full_window_hydrology_019/raw/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/probe.npy",
+      "artifacts/direct_s3_full_window_hydrology_019/output/probe.csv",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series/probe.json",
+      "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets/probe.json"
+    ],
+    "stderr": ""
+  },
+  "staging_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "masks",
+      "arrays",
+      "temporary extraction JSON",
+      "per-shard intermediate JSON",
+      "remote logs"
+    ]
+  },
+  "status_vocabulary": [
+    "blocked_direct_s3_listing_failure",
+    "blocked_direct_s3_no_items_found",
+    "blocked_direct_s3_read_failure",
+    "blocked_geometry_or_mask_failure",
+    "blocked_metric_computation_failure",
+    "blocked_remote_or_route_unavailable",
+    "computed_direct_s3_metrics"
+  ],
+  "validation_outcomes": {
+    "recorded_at_utc": "2026-06-01T04:01:55.714204+00:00",
+    "commands": [
+      {
+        "command": "git diff --check",
+        "status": "passed"
+      },
+      {
+        "command": "python3 -m unittest tests.test_goal019_direct_s3_full_window_hydrology",
+        "status": "passed",
+        "tests": 7
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -p 'test*.py'",
+        "status": "passed",
+        "tests": 67
+      },
+      {
+        "command": "python3 -m json.tool settings/direct_s3_full_window_hydrology_019.json docs/direct_s3_full_window_hydrology_019_preflight.json docs/direct_s3_full_window_hydrology_019_manifest.json",
+        "status": "passed"
+      },
+      {
+        "command": "production grid check",
+        "status": "passed",
+        "rows": 924,
+        "supports": 11,
+        "months": 84
+      },
+      {
+        "command": "CSV schema check",
+        "status": "passed",
+        "series_rows": 924,
+        "item_set_rows": 924,
+        "summary_rows": 96
+      },
+      {
+        "command": "manifest restartability and item-provenance check",
+        "status": "passed"
+      },
+      {
+        "command": "remote ignored-staging check on deep-server-ts",
+        "status": "passed"
+      },
+      {
+        "command": "committed-size check",
+        "status": "passed"
+      },
+      {
+        "command": "committed raw-extension check",
+        "status": "passed"
+      },
+      {
+        "command": "local Markdown link check for edited docs",
+        "status": "passed",
+        "links": 139
+      },
+      {
+        "command": "unfinished-marker scan",
+        "status": "passed"
+      },
+      {
+        "command": "gh repo view --json nameWithOwner,visibility,isPrivate",
+        "status": "passed",
+        "visibility": "PRIVATE",
+        "isPrivate": true
+      }
+    ]
+  },
+  "recommendation_for_goal020": "Use Goal 020 to audit the production hydrology table, document any metric caveats, and prepare the next hydrology-to-bird-data design gate.",
+  "elapsed_seconds": 6.611
+}

@@ -1,0 +1,135 @@
+{
+  "goal": "019-full-window-direct-s3-hydrology-production",
+  "run_command": "python3 scripts/direct_s3_full_window_hydrology_019.py",
+  "accessed_date": "2026-06-01",
+  "expected_support_count": 11,
+  "month_window": {
+    "start": "2018-01",
+    "end": "2024-12"
+  },
+  "expected_month_count": 84,
+  "expected_production_rows": 924,
+  "dea_collection": "ga_ls_wo_3",
+  "dea_product_version": "1-6-0",
+  "source_product": "DEA Water Observations (Landsat)",
+  "source_product_version": "ga_ls_wo_3 / 1-6-0 direct S3 COG assets",
+  "metric_spec_version": "goal019-direct-s3-full-window-v1",
+  "reference_crs": "EPSG:3577",
+  "pixel_size_m": 30,
+  "max_reference_grid_pixels": 5000000,
+  "wet_month_threshold": 0.05,
+  "scene_selection_policy": {
+    "id": "support_intersecting_wrs_path_rows_only",
+    "rule": "For support-level monthly Water Observations metrics, include only scenes from WRS-2 path/rows whose official footprints intersect the support geometry; do not count STAC bbox-only scenes outside that derived path/row set as readable scenes or invalid observations.",
+    "support_pathrow_source": "docs/support_pathrow_crosswalk_013.csv",
+    "source_goal": "015-comparator-baseline-repair"
+  },
+  "compute": {
+    "preferred_host": "deep-server-ts",
+    "remote_workdir": "/data/codex/repos/nomadic_waterbirds_goal019",
+    "preflight_expected_host": "deep-server"
+  },
+  "support_source": {
+    "event_config_path": "settings/event_window_hydrology_007.json",
+    "ramsar_subset_geojson": "artifacts/event_window_hydrology/raw/ramsar_goal007_subset.geojson",
+    "waterbodies_zip": "artifacts/event_window_hydrology/raw/ga_ls_wb_3_v3.zip"
+  },
+  "inputs": {
+    "event_window_summary_csv": "docs/event_window_hydrology_summary.csv",
+    "support_pathrow_crosswalk_csv": "docs/support_pathrow_crosswalk_013.csv",
+    "goal016_summary_csv": "docs/direct_s3_all_support_probe_016_summary.csv",
+    "goal018_readiness_csv": "docs/pathrow_comparator_reconstruction_018_readiness.csv"
+  },
+  "preflight_targets": [
+    {
+      "support_id": "nwb003_ramsar_component_121",
+      "month": "2018-01",
+      "rationale": "single-pathrow early-window support-month"
+    },
+    {
+      "support_id": "nwb004_ramsar_ref265",
+      "month": "2022-11",
+      "rationale": "multi-pathrow Kerang discrepancy-cluster flood-window support-month"
+    },
+    {
+      "support_id": "nwb004_ramsar_component_369",
+      "month": "2024-12",
+      "rationale": "single-pathrow Kerang discrepancy-cluster recent support-month"
+    }
+  ],
+  "kerang_discrepancy_supports": [
+    "nwb004_ramsar_component_369",
+    "nwb004_ramsar_ref265"
+  ],
+  "flood_window_months": [
+    "2022-11"
+  ],
+  "s3": {
+    "bucket": "dea-public-data",
+    "base_url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com",
+    "max_keys": 1000,
+    "max_pages": 3,
+    "timeout_seconds": 45,
+    "head_request_limit_per_prefix": 25
+  },
+  "retry_policy": {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2.0,
+    "backoff_multiplier": 2.0,
+    "max_delay_seconds": 30.0,
+    "jitter_fraction": 0.1
+  },
+  "sharding": {
+    "unit": "support_month",
+    "series_shard_dir": "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/series",
+    "item_set_shard_dir": "artifacts/direct_s3_full_window_hydrology_019/intermediate/shards/item_sets",
+    "resume_requires_series_and_item_set_shards": true
+  },
+  "staging_paths": {
+    "raw": "artifacts/direct_s3_full_window_hydrology_019/raw",
+    "intermediate": "artifacts/direct_s3_full_window_hydrology_019/intermediate",
+    "output": "artifacts/direct_s3_full_window_hydrology_019/output"
+  },
+  "outputs": {
+    "report_md": "docs/direct_s3_full_window_hydrology_019_report.md",
+    "manifest_json": "docs/direct_s3_full_window_hydrology_019_manifest.json",
+    "series_csv": "docs/direct_s3_full_window_hydrology_019_series.csv",
+    "item_sets_csv": "docs/direct_s3_full_window_hydrology_019_item_sets.csv",
+    "summary_csv": "docs/direct_s3_full_window_hydrology_019_summary.csv",
+    "preflight_json": "docs/direct_s3_full_window_hydrology_019_preflight.json"
+  },
+  "row_status_vocabulary": [
+    "computed_direct_s3_metrics",
+    "blocked_direct_s3_listing_failure",
+    "blocked_direct_s3_no_items_found",
+    "blocked_direct_s3_read_failure",
+    "blocked_geometry_or_mask_failure",
+    "blocked_metric_computation_failure",
+    "blocked_remote_or_route_unavailable"
+  ],
+  "source_urls": [
+    "https://knowledge.dea.ga.gov.au/data/product/dea-water-observations-landsat/?tab=overview",
+    "https://knowledge.dea.ga.gov.au/guides/setup/AWS/data_and_metadata/",
+    "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/",
+    "https://www.usgs.gov/media/files/landsat-world-reference-system-2-descending-daytime-shapefile"
+  ],
+  "commit_policy": {
+    "commit": [
+      "compact CSV/JSON/Markdown outputs",
+      "settings",
+      "script",
+      "tests",
+      "register and navigation updates"
+    ],
+    "ignore": [
+      "raw S3 listings",
+      "HEAD metadata",
+      "rasters",
+      "masks",
+      "arrays",
+      "temporary extraction JSON",
+      "per-shard intermediate JSON",
+      "remote logs"
+    ]
+  }
+}
