@@ -2,7 +2,7 @@
 
 Goal: eBird request support and intake-staging design gate
 
-Status: Not started.
+Status: Completed.
 
 ## Supervisor Setup
 
