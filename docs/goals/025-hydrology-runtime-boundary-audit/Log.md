@@ -2,7 +2,7 @@
 
 Goal: Hydrology runtime boundary and retirement audit
 
-Status: Audit complete; awaiting orchestrator review.
+Status: Audit accepted and published.
 
 ## Supervisor Setup
 
@@ -46,19 +46,28 @@ Status: Audit complete; awaiting orchestrator review.
 
 ## Review Notes
 
-- No commit or push is authorised by this packet. Publication, retirement, or
-  extraction requires orchestrator review after the audit.
+- 2026-08-05: Orchestrator review found no material defect. The audit supports
+  deferring retirement/extraction and freezing the Goal 019/020 boundary.
+- 2026-08-05: Barry authorised publication. The packet was committed and
+  pushed as `884fad7` (`Goal 025: publish hydrology runtime boundary audit`).
+  No runtime, settings, tests, or authoritative outputs changed.
 
 ## Validation
 
 - `git diff --check`: passed after writing the deliverables.
-- `git status --short --branch`: remains `main...origin/main` with the Goal 025
-  packet directory untracked; no unrelated paths appeared.
-- `git diff --name-only`: no tracked files changed; the two new deliverables
-  are untracked alongside the pre-existing Goal 025 packet files.
+- Before publication, `git status --short --branch` was
+  `main...origin/main` with only the Goal 025 packet directory untracked; no
+  unrelated paths appeared.
+- Before publication, `git diff --name-only` was empty because the new packet
+  files were untracked; the exact five packet files were then staged.
 - Recomputed four protected hashes: unchanged from the starting values above.
 - No tests, production execution, network/service access, STAC/S3/GDAL use,
-  remote/HPC use, or raw-data inspection was performed.
+  remote/HPC use, or raw-data inspection was performed during the audit.
+
+## Publication
+
+- Action repository is clean on `main...origin/main` at `884fad7`.
+- The four protected hashes remain unchanged after publication.
 
 ## Residual Risks
 
@@ -66,4 +75,5 @@ Status: Audit complete; awaiting orchestrator review.
 - Goal 019's coarse all-current-support regional peer set and Goal 007/019
   missingness split require an explicit contract decision before any extraction
   or retirement.
-- Publication and any implementation seam remain pending orchestrator review.
+- Publication is complete. Any temporal-contract implementation seam remains
+  pending a separately authorised development goal.
