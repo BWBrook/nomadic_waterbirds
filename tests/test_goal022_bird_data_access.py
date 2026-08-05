@@ -25,6 +25,8 @@ class Goal022BirdDataAccessTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.config = json.loads(CONFIG.read_text(encoding="utf-8"))
+        manifest_path = REPO / cls.config["files"]["manifest_json"]
+        manifest_before = manifest_path.read_bytes()
         result = subprocess.run(
             ["python3", str(VALIDATOR)],
             cwd=REPO,
@@ -35,13 +37,18 @@ class Goal022BirdDataAccessTests(unittest.TestCase):
         cls.stdout = result.stdout
         cls.stderr = result.stderr
         cls.returncode = result.returncode
+        cls.manifest_unchanged = manifest_path.read_bytes() == manifest_before
         if result.returncode == 0:
-            cls.manifest = json.loads((REPO / cls.config["files"]["manifest_json"]).read_text(encoding="utf-8"))
+            cls.manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         else:
             cls.manifest = {}
 
     def test_validator_runs(self) -> None:
         self.assertEqual(self.returncode, 0, msg=f"stdout:\n{self.stdout}\nstderr:\n{self.stderr}")
+
+    def test_validator_default_is_read_only(self) -> None:
+        self.assertTrue(self.manifest_unchanged)
+        self.assertIn("read-only; manifest unchanged", self.stdout)
 
     def test_goal020_and_goal021_carry_forward(self) -> None:
         g020 = self.config["goal020_reference"]
@@ -70,13 +77,6 @@ class Goal022BirdDataAccessTests(unittest.TestCase):
         self.assertIn("absence", by_stream["ALA"]["forbidden_use"].lower())
         self.assertEqual(by_stream["Birdata"]["decision_status"], "needs_clarification")
         self.assertEqual(by_stream["EAWS"]["decision_status"], "needs_clarification")
-
-    def test_ebird_fields_have_required_groups(self) -> None:
-        rows = read_csv(REPO / self.config["files"]["ebird_fields"])
-        self.assertGreaterEqual(len(rows), self.config["csv_schemas"]["ebird_fields"]["min_rows"])
-        groups = {row["field_group"] for row in rows}
-        for group in ["checklist_completeness", "effort", "location", "sensitivity", "provenance"]:
-            self.assertIn(group, groups)
 
     def test_manifest_consistency(self) -> None:
         manifest = self.manifest

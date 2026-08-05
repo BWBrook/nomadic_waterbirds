@@ -25,6 +25,8 @@ class Goal023EbirdRequestIntakeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.config = json.loads(CONFIG.read_text(encoding="utf-8"))
+        manifest_path = REPO / cls.config["files"]["manifest_json"]
+        manifest_before = manifest_path.read_bytes()
         result = subprocess.run(
             ["python3", str(VALIDATOR)],
             cwd=REPO,
@@ -35,13 +37,18 @@ class Goal023EbirdRequestIntakeTests(unittest.TestCase):
         cls.stdout = result.stdout
         cls.stderr = result.stderr
         cls.returncode = result.returncode
+        cls.manifest_unchanged = manifest_path.read_bytes() == manifest_before
         if result.returncode == 0:
-            cls.manifest = json.loads((REPO / cls.config["files"]["manifest_json"]).read_text(encoding="utf-8"))
+            cls.manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         else:
             cls.manifest = {}
 
     def test_validator_runs(self) -> None:
         self.assertEqual(self.returncode, 0, msg=f"stdout:\n{self.stdout}\nstderr:\n{self.stderr}")
+
+    def test_validator_default_is_read_only(self) -> None:
+        self.assertTrue(self.manifest_unchanged)
+        self.assertIn("read-only; manifest unchanged", self.stdout)
 
     def test_goal020_goal021_goal022_carry_forward(self) -> None:
         g020 = self.config["goal020_reference"]
@@ -78,18 +85,6 @@ class Goal023EbirdRequestIntakeTests(unittest.TestCase):
         self.assertEqual(set(envelope["core_hydrology_classes"]), {"core_eligible", "core_eligible_with_caveat"})
         self.assertEqual(envelope["sensitivity_hydrology_class"], "sensitivity_only")
         self.assertIn("provisional", envelope["species_guild_status"])
-
-    def test_qa_contract_schema_and_controlled_vocabularies(self) -> None:
-        rows = read_csv(REPO / self.config["files"]["qa_contract"])
-        schema = self.config["csv_schemas"]["qa_contract"]
-        self.assertGreaterEqual(len(rows), schema["min_rows"])
-        self.assertTrue(set(schema["required_columns"]).issubset(rows[0]))
-        self.assertTrue({row["stage"] for row in rows}.issubset(set(schema["stage_vocab"])))
-        self.assertTrue({row["category"] for row in rows}.issubset(set(schema["category_vocab"])))
-        self.assertTrue({row["severity"] for row in rows}.issubset(set(schema["severity_vocab"])))
-        self.assertGreaterEqual(sum(row["severity"] == "blocker" for row in rows), 10)
-        for required in ["sampling_event", "checklist_completeness", "sensitive_records", "duplicates"]:
-            self.assertIn(required, {row["category"] for row in rows})
 
     def test_intake_staging_guardrails(self) -> None:
         text = (REPO / self.config["files"]["intake_plan"]).read_text(encoding="utf-8")

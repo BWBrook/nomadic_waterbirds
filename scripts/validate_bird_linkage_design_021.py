@@ -3,10 +3,8 @@
 
 from __future__ import annotations
 
-import csv
-import hashlib
+import argparse
 import json
-import re
 import sys
 from collections import Counter
 from datetime import datetime, timezone
@@ -14,22 +12,17 @@ from pathlib import Path
 from typing import Any
 import subprocess
 
-REPO = Path(__file__).resolve().parents[1]
-DEFAULT_CONFIG = REPO / "settings" / "bird_linkage_design_021.json"
-MARKDOWN_LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-UNFINISHED_MARKER_PATTERN = re.compile(
-    r"\b(" + "|".join(["to" + "do", "tb" + "d", "place" + "holder", "fix" + "me", "x" * 3]) + r")\b",
-    re.IGNORECASE,
+from validation_common import (
+    MARKDOWN_LINK_PATTERN,
+    UNFINISHED_MARKER_PATTERN,
+    file_hash,
+    read_csv,
+    read_json,
+    stable_row_hash,
 )
 
-
-def read_json(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as handle:
-        return list(csv.DictReader(handle))
+REPO = Path(__file__).resolve().parents[1]
+DEFAULT_CONFIG = REPO / "settings" / "bird_linkage_design_021.json"
 
 
 def split_pipe_list(text: str) -> list[str]:
@@ -38,32 +31,6 @@ def split_pipe_list(text: str) -> list[str]:
 
 def to_bool(value: str) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes", "y"}
-
-
-def stable_row_hash(rows: list[dict[str, Any]], sort_key: list[str] | None = None) -> str:
-    normalised: list[dict[str, Any]] = []
-    for row in rows:
-        norm_row: dict[str, str] = {}
-        for key in row:
-            value = row.get(key, "")
-            if isinstance(value, bool):
-                value = "true" if value else "false"
-            norm_row[key] = "" if value is None else str(value)
-        normalised.append(norm_row)
-
-    if sort_key and all(all(k in row for row in normalised) for k in sort_key):
-        normalised.sort(key=lambda row: tuple(row.get(k, "") for k in sort_key))
-    else:
-        normalised.sort(key=lambda row: json.dumps(row, sort_keys=True))
-
-    payload = json.dumps(normalised, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
-
-
-def file_hash(path: Path) -> str:
-    digest = hashlib.sha256()
-    digest.update(path.read_bytes())
-    return digest.hexdigest()
 
 
 def check_file_exists(path: Path, what: str, errors: list[str]) -> None:
@@ -354,8 +321,16 @@ def parse_settings(path: Path) -> dict[str, Any]:
     return settings
 
 
-def main() -> int:
-    config_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CONFIG
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("config", nargs="?", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument(
+        "--write-manifest",
+        action="store_true",
+        help="write the validated manifest; default validation is read-only",
+    )
+    args = parser.parse_args(argv)
+    config_path = args.config
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -488,11 +463,13 @@ def main() -> int:
         "source_evidence_ids": config["required_public_sources"],
     }
 
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    manifest_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-
-    print("Goal 021 validation passed.")
-    print(f"Manifest written: {manifest_path.relative_to(REPO)}")
+    if args.write_manifest:
+        manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        manifest_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        print("Goal 021 validation passed; manifest written.")
+        print(f"Manifest written: {manifest_path.relative_to(REPO)}")
+    else:
+        print("Goal 021 validation passed (read-only; manifest unchanged).")
     if warnings:
         for warning in warnings:
             print(f"WARNING: {warning}")

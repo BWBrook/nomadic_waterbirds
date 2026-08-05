@@ -73,12 +73,20 @@ CSV expectations:
 Run:
 
 ```bash
+# Default validation is read-only; it leaves the tracked manifest unchanged.
 python3 scripts/validate_bird_linkage_design_021.py
 python3 -m unittest tests.test_goal021_bird_linkage_design
 python3 -m unittest discover -s tests -p 'test*.py'
 python3 -m json.tool settings/bird_linkage_design_021.json >/dev/null
 python3 -m json.tool docs/bird_linkage_design_021_manifest.json >/dev/null
 git diff --check
+```
+
+To deliberately regenerate the tracked manifest after review, run the
+explicit write mode separately:
+
+```bash
+python3 scripts/validate_bird_linkage_design_021.py --write-manifest
 ```
 
 Run guardrail checks:

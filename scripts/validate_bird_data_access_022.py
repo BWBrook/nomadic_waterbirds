@@ -3,10 +3,8 @@
 
 from __future__ import annotations
 
-import csv
-import hashlib
+import argparse
 import json
-import re
 import subprocess
 import sys
 from collections import Counter
@@ -14,37 +12,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-REPO = Path(__file__).resolve().parents[1]
-DEFAULT_CONFIG = REPO / "settings" / "bird_data_access_022.json"
-MARKDOWN_LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-UNFINISHED_MARKER_PATTERN = re.compile(
-    r"\b(" + "|".join(["to" + "do", "tb" + "d", "place" + "holder", "fix" + "me", "x" * 3]) + r")\b",
-    re.IGNORECASE,
+from validation_common import (
+    MARKDOWN_LINK_PATTERN,
+    UNFINISHED_MARKER_PATTERN,
+    file_hash,
+    read_csv,
+    read_json,
+    stable_row_hash,
 )
 
-
-def read_json(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as handle:
-        return list(csv.DictReader(handle))
-
-
-def file_hash(path: Path) -> str:
-    digest = hashlib.sha256()
-    digest.update(path.read_bytes())
-    return digest.hexdigest()
-
-
-def stable_row_hash(rows: list[dict[str, str]], sort_key: str) -> str:
-    normalised = []
-    for row in rows:
-        normalised.append({key: (value or "") for key, value in row.items()})
-    normalised.sort(key=lambda row: row.get(sort_key, ""))
-    payload = json.dumps(normalised, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+REPO = Path(__file__).resolve().parents[1]
+DEFAULT_CONFIG = REPO / "settings" / "bird_data_access_022.json"
 
 
 def parse_settings(path: Path) -> dict[str, Any]:
@@ -257,8 +235,16 @@ def validate_changed_file_guardrails(config: dict[str, Any], errors: list[str]) 
             errors.append(f"changed file exceeds size gate: {path.relative_to(REPO)}")
 
 
-def main() -> int:
-    config_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CONFIG
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("config", nargs="?", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument(
+        "--write-manifest",
+        action="store_true",
+        help="write the validated manifest; default validation is read-only",
+    )
+    args = parser.parse_args(argv)
+    config_path = args.config
     errors: list[str] = []
     config = parse_settings(config_path)
     paths = validate_required_files(config, errors)
@@ -337,9 +323,12 @@ def main() -> int:
             ],
         },
     }
-    manifest_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print("Goal 022 validation passed.")
-    print(f"Manifest written: {manifest_path.relative_to(REPO)}")
+    if args.write_manifest:
+        manifest_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        print("Goal 022 validation passed; manifest written.")
+        print(f"Manifest written: {manifest_path.relative_to(REPO)}")
+    else:
+        print("Goal 022 validation passed (read-only; manifest unchanged).")
     return 0
 
 

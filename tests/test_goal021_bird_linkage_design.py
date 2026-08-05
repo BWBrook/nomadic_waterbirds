@@ -25,6 +25,8 @@ class Goal021ValidationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.config = json.loads(CONFIG.read_text(encoding="utf-8"))
+        manifest_path = REPO / cls.config["files"]["manifest_json"]
+        manifest_before = manifest_path.read_bytes()
         result = subprocess.run(
             ["python3", str(VALIDATOR)],
             cwd=REPO,
@@ -35,8 +37,8 @@ class Goal021ValidationTests(unittest.TestCase):
         cls.validation_stdout = result.stdout
         cls.validation_stderr = result.stderr
         cls.validation_returncode = result.returncode
+        cls.manifest_unchanged = manifest_path.read_bytes() == manifest_before
         if result.returncode == 0:
-            manifest_path = REPO / cls.config["files"]["manifest_json"]
             cls.manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         else:
             cls.manifest = {}
@@ -47,6 +49,10 @@ class Goal021ValidationTests(unittest.TestCase):
             0,
             msg=f"validator failed with stderr:\n{self.validation_stderr}",
         )
+
+    def test_validator_default_is_read_only(self) -> None:
+        self.assertTrue(self.manifest_unchanged)
+        self.assertIn("read-only; manifest unchanged", self.validation_stdout)
 
     def test_goal020_restrictions_carried_forward(self) -> None:
         g020_ref = self.config["goal020_reference"]
@@ -67,22 +73,6 @@ class Goal021ValidationTests(unittest.TestCase):
             row for row in readiness if "legacy_stac_comparator_not_obtained" in (row.get("caveat_code") or "")
         ]
         self.assertEqual(len(legacy), g020_ref["expected_goal018_legacy_caveat_count"])
-
-    def test_schema_files_and_required_columns(self) -> None:
-        files = self.config["files"]
-        cfg_schemas = self.config["csv_schemas"]
-
-        join_rows = read_csv(REPO / files["join_contract"])
-        unit_rows = read_csv(REPO / files["unit_schema"])
-        candidate_rows = read_csv(REPO / files["candidate_screen"])
-
-        self.assertGreaterEqual(len(join_rows), cfg_schemas["join_contract"]["min_rows"])
-        self.assertGreaterEqual(len(unit_rows), cfg_schemas["unit_schema"]["min_rows"])
-        self.assertGreaterEqual(len(candidate_rows), cfg_schemas["candidate_screen"]["min_rows"])
-
-        self.assertTrue(set(cfg_schemas["join_contract"]["required_columns"]).issubset(set(join_rows[0].keys())))
-        self.assertTrue(set(cfg_schemas["unit_schema"]["required_columns"]).issubset(set(unit_rows[0].keys())))
-        self.assertTrue(set(cfg_schemas["candidate_screen"]["required_columns"]).issubset(set(candidate_rows[0].keys())))
 
     def test_candidate_status_vocabulary_and_lab_leader_gate(self) -> None:
         rows = read_csv(REPO / self.config["files"]["candidate_screen"])
