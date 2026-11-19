@@ -33,18 +33,21 @@ Allowed without further approval:
   outputs, and manuscript build products
 - run local validation commands that inspect files, Markdown, links, Git state,
   and repository hygiene
-- commit and push validated foundation or documentation work when the worktree
-  is clean and the relevant goal authorizes publication
+- commit and push validated, in-scope foundation or documentation work to
+  Barry's existing remote
 
 Pause for Barry before:
 
 - downloading, requesting, or processing external datasets
 - choosing final species lists, guild membership, wetland-unit layers, model
   families, journal targets, or analysis geography beyond the scoped plan
-- launching remote/HPC work
+- making a new material resource commitment for remote/HPC work
 - adding heavyweight dependencies or environment managers
-- making current factual claims from web or literature searches without doing
-  those searches and citing sources
+- making a first public release, submitting the manuscript, or releasing
+  protected data
+
+Verify current factual claims against cited web or literature sources. Omit
+claims that cannot be verified.
 
 ## Data Policy
 
@@ -86,27 +89,30 @@ Pause for Barry before:
 
 ## Compute Policy
 
-- Default to this Mac mini for planning, document work, local checks, and small
+- Default to `mini` for planning, document work, local checks, and small
   reproducibility tests.
 - Do not use remote compute during foundation goals.
 - For later heavy extraction, modelling, or geospatial work, choose compute
   deliberately and record the rationale in project notes before dispatching.
-- When a goal explicitly authorises remote compute, prefer `deep-server` for
-  CPU-heavy single-host Linux extraction, long remote-sensing loops, large
-  geospatial staging, or runs likely to take more than about 30 minutes on the
-  Mac mini.
+- For later runs within scope, use already-authorised resources after checking
+  readiness and scale. Follow Nectar's current routing guidance for CPU-heavy
+  single-host Linux extraction, long remote-sensing loops, large geospatial
+  staging, or runs likely to take more than about 30 minutes on `mini`. Use
+  `nectar` from `mini` and `deep` from `wsl`.
 - Before any remote/HPC execution goal, read the relevant control-plane docs
   under `/Users/bwbrook/work/nectar`, especially compute selection, project
   integration, data placement, current status, and the target machine note.
-- Use the Mac mini as the control plane for heavy work: prepare reproducible
-  scripts and small local checks here, then stage source and ignored artefacts
-  to the selected remote host when scale, runtime, or platform fit justify it.
+- When starting heavy work from `mini`, prepare reproducible scripts and run
+  small local checks there. Stage source and ignored artefacts to the selected
+  remote host when scale, runtime, or platform fit justify it.
 - Do not downsize scientifically important event windows only to avoid using
   available remote compute. If a local run forces a scientifically weaker
-  fallback, write a compute-routing memo and either run or recommend a
-  `deep-server` rehearsal as authorised by the goal.
-- GPU work should prefer Alien WSL when it fits dual RTX 2080 GPUs; use Nectar
-  GPU only when more VRAM, throughput, isolation, or availability is needed.
+  fallback, write a compute-routing memo and run or recommend a rehearsal on
+  `nectar` from `mini` or on `deep` from `wsl`, subject to the same scope and
+  resource checks.
+- Use native Linux `alien` via `deep` from `wsl` for GPU jobs that fit its dual
+  RTX 2080 GPUs. Use the Nectar GPU leases for Mac-started jobs or when more
+  VRAM, throughput, isolation, or availability is needed.
   Use `kunanyi` only for production-grade multi-node or large job-array work.
 
 ## Manuscript And Reproducibility
@@ -132,12 +138,8 @@ Foundation documents live under `docs/`:
 - [manuscript_plan.md](docs/manuscript_plan.md)
 - [decision_log.md](docs/decision_log.md)
 
-## Action-Agent Reporting
+## Handoff
 
-For each goal:
-
-- read the goal packet before editing
-- update the goal `Log.md` at required checkpoints
-- report changed files, validation commands and outcomes, commit hash, push
-  status, residual risks, and recommended next goal when the goal asks for it
-- keep final reports concise and evidence-backed
+Report changed files, validation commands and outcomes, commit hash and push
+status, and material residual risks. Use existing project records when they
+help future work. Recommend a next goal when requested.
